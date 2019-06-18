@@ -1,0 +1,29 @@
+{
+    "name": "PetHub",
+    "version": "1.0.0",
+    "description": "PetHub, a tool for finding pets",
+    "main": "index.js",
+    "scripts": {
+        "debug": "node index.js",
+        "start": "node index.js",
+        "dev": "node index.js"
+    },
+    "author": "Kelly Phillips, Rob Schopke, Danielle Morton, Daniel Stevens, Ben Holsinger",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.16.0",
+        "connect-mongo": "^1.3.2",
+        "connect-mongodb-session": "^1.3.0",
+        "cors": "^2.8.1",
+        "esm": "^3.2.25",
+        "express": "^4.14.1",
+        "express-session": "^1.15.0",
+        "google-fonts-webpack-plugin": "^0.4.4",
+        "mongoose": "^4.8.1",
+        "vue-drag-drop": "^1.1.4"
+    },
+    "engines": {
+        "node": "^10.0.0",
+        "npm": "^6.5.0"
+    }
+}
