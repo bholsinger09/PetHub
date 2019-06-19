@@ -29,7 +29,7 @@
 
     <form @submit.prevent="petSearch" class="searchForm" action="">
       <i class="fas fa-cat"></i> <i class="fas fa-dog"></i>
-      <input type="text" v-model="query">
+      <input type="text" v-model="petParams">
 
       <h5><i class="fas fa-cat">S</i></h5>
       <h4><i class="fas fa-dog">M</i></h4>
@@ -49,12 +49,12 @@
     name: "carousel",
     data() {
       return {
-
+        petParams: "",
       }
     },
     methods: {
-      petSearch() {
-        this.$store.dispatch('petSearch')
+      petSearch(data) {
+        this.$store.dispatch('petSearch', data)
       }
     }
   }

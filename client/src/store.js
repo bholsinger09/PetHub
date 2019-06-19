@@ -19,21 +19,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    // getStuff() {
-    //   api.get("", {
-    //     headers: {
-    //       Authorization: ""
-    //     }
-    //   })
-    // }, //getStuff
-    async petSearch({ commit, dispatch }, payload) {
+    async petSearch({ commit, dispatch }) {
       debugger
       try {
-        let res = await api.get(payload)
+        let res = await api.get('animals')
         console.log(res.data)
         commit('setPets', res.data)
       } catch (error) { console.log(error) }
     }, //petSearch
+
 
   }//actions
 })
