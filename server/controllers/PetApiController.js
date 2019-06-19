@@ -10,7 +10,7 @@ export default class AnimalController {
   constructor() {
     this.router = express.Router()
       .get('', this.getAnimals)
-      .get('', this.getDogs)
+      // .get('', this.getDogs)
       // .get('', this.getCats)
       // .get('/:id', this.getDogById)
       // .get('/:id', this.getCatById)
@@ -22,23 +22,8 @@ export default class AnimalController {
   async getAnimals(req, res, next) {
     try {
       let data = await _service.getAnimals()
+      console.log(data)
       return res.send(data)
     } catch (error) { next(error) }
   }
-  async getDogs(req, res, next) {
-    try {
-      let data = await _repo.find({})
-      return res.send
-    } catch (error) {
-
-    }
-  }
-  async getById(req, res, next) {
-    try {
-      let data = await _repo.findOne({ _id: req.params.id }) //_id??
-      return res.send(data)
-    } catch (error) { next(error) }
-  }
-
-
 }

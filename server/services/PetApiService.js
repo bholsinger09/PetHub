@@ -33,13 +33,13 @@ async function login() {
 
 
 export default class PetApiService {
-  async getAnimals() {
+  async getAnimals(payload) {
     try {
       if (api.defaults.headers.Authorization == "Bearer ") {
         accessToken = await login()
         api.defaults.headers.Authorization += accessToken
       }
-      let queries = '?type=Dog'
+      let queries = '?type=' + payload.type + '&gender=' + payload.gender + "&breed=" + payload.breed + "&age=" + payload.age + "&size=" + payload.size
       let res = await api.get('animals' + queries)
       return res.data.animals
     }
