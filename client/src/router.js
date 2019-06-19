@@ -23,8 +23,8 @@ export default new Router({
       }
     },
     {
-      path: '/search',
-      name: 'search',
+      path: '/results',
+      name: 'results',
       component: SearchResults
     },
   ]

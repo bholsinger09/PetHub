@@ -23,7 +23,6 @@ export default new Vuex.Store({
   },
   actions: {
     async petSearch({ commit, dispatch }, payload) {
-      debugger
       try {
         let res = await api.get('pet-api?' + "type=" + payload.dogOrCat + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
         console.log(res)
