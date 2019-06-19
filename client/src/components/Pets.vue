@@ -27,7 +27,7 @@
     },
     methods: {
       goToPet() {
-        this.$store.dispatch("getPetById", this.pet)
+        this.$store.dispatch("setPet", id)
       }
     },
     computed: {
