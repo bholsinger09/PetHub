@@ -27,9 +27,13 @@
       </a>
     </div>
 
-    <form @submit.prevent="petSearch" class="searchForm" action="">
+    <form @submit.prevent="petSearch" class="searchForm">
       <i class="fas fa-cat"></i> <i class="fas fa-dog"></i>
-      <input type="text" v-model="petParams">
+      <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
+      <input type="text" v-model="searchParams.breed" placeholder="breed">
+      <input type="text" v-model="searchParams.age" placeholder="age">
+      <input type="text" v-model="searchParams.size" placeholder="size">
+      <input type="text" v-model="searchParams.gender" placeholder="gender">
 
       <h5><i class="fas fa-cat">S</i></h5>
       <h4><i class="fas fa-dog">M</i></h4>
@@ -49,12 +53,19 @@
     name: "carousel",
     data() {
       return {
-        petParams: "",
+        searchParams: {
+          dogOrCat: "",
+          breed: "",
+          age: "",
+          size: "",
+          gender: ""
+        }
       }
     },
     methods: {
-      petSearch(data) {
-        this.$store.dispatch('petSearch', data)
+      petSearch() {
+        console.log(this.searchParams)
+        this.$store.dispatch('petSearch', this.searchParams)
       }
     }
   }

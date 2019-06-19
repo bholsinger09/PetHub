@@ -17,13 +17,13 @@ export default class AnimalController {
       .use(this.defaultRoute)
   }
   defaultRoute(req, res, next) {
-    next({ status: 404, nessage: "No such route" })
+    next({ status: 404, message: "No such route" })
   }
   async getAnimals(req, res, next) {
     try {
       let data = await _service.getAnimals(req.url)
       console.log(data)
       return res.send(data)
-    } catch (error) { next(error) }
+    } catch (error) { next(error.message) }
   }
 }
