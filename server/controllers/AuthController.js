@@ -1,6 +1,6 @@
 import express from 'express'
 import UserService from '../services/UserService';
-import { Authorize } from '../middlewear/authorize'
+import { Authorize } from '../middleware/authorize'
 
 let _us = new UserService()
 let _repo = _us.repository

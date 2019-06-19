@@ -40,17 +40,10 @@ server.use('/auth', new AuthController().router)
 
 //YOUR ROUTES HERE!!!!!!
 
-
-import BoardController from './controllers/BoardController'
-server.use('/api/boards', new BoardController().router)
-
-import ListController from './controllers/ListController'
-server.use('/api/lists', new ListController().router)
-
-import TaskController from './controllers/TaskController'
-server.use('/api/tasks', new TaskController().router)
-
-
+import AnimalController from './controllers/AnimalController'
+server.use('/api/animals', new AnimalController().router)
+import PetApi from './controllers/PetApiController'
+server.use('/api/pet-api', new PetApi().router)
 //Default Error Handler
 server.use((error, req, res, next) => {
   res.status(error.status || 400).send({ error: { message: error.message } })
