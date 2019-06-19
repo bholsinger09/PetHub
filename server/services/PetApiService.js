@@ -9,7 +9,7 @@ let authPost = {
 }
 
 let api = Axios.create({
-  baseURL: 'https://api.petfinder.com/v2/',
+  baseURL: 'https://api.petfinder.com/v2',
   headers: {
     Authorization: "Bearer " + accessToken
   }
