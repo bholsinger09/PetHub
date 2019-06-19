@@ -1,8 +1,9 @@
 import express from 'express'
+import AnimalService from '../services/AnimalService.js';
+
 
 let _service = new AnimalService()
 let _repo = _service.repository
-
 
 
 export default class AnimalController {

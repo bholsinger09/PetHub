@@ -3,9 +3,7 @@ import Vuex from 'vuex'
 import Axios from 'axios'
 
 let api = Axios.create({
-  headers: {
-    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZiNTQ2ZmZkNTdkMmViMGRmNmNhZmVjNzBjZjE4YzU4NmZjYjUwZjhlZGRlYzVmZjdiODc5YTgxNmYwNmU0ZTEwZTE1YThiMDI5YTBkZTZhIn0'
-  }
+  baseURL: '//localhost:3000/api'
 })
 
 Vue.use(Vuex)

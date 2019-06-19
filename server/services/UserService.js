@@ -1,5 +1,7 @@
 import mongoose from "mongoose"
 import bcrypt from 'bcryptjs'
+
+
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 
@@ -10,11 +12,18 @@ let favoritesSchema = new Schema({
   petId: { type: String },
 })
 
+let environmentSchema = new mongoose.Schema({
+  children: { type: Boolean },
+  dogs: { type: Boolean },
+  cats: { type: Boolean }
+})
+
 let searchesSchema = new Schema({
-  age: { type: String },
-  gender: { type: String },
-  size: { type: String },
-  environment: {},
+  gender: { type: String, enum: ["Male", "Female"] },
+  age: { type: String, enum: ["Baby", "Young", "Adult", "Senior"] },
+  size: { type: String, enum: ["Small", "Medium", "Large", "Xlarge"] }, //is it Xl or xl??
+  type: { type: String, enum: ["Dog", "Cat"] },
+  environment: [environmentSchema]
   //we'll finish building out this data when we solidfy the search criteria
 })
 
