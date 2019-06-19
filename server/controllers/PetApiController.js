@@ -21,7 +21,7 @@ export default class AnimalController {
   }
   async getAnimals(req, res, next) {
     try {
-      let data = await _service.getAnimals()
+      let data = await _service.getAnimals(req.url)
       console.log(data)
       return res.send(data)
     } catch (error) { next(error) }
