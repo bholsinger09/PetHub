@@ -2,7 +2,7 @@
   <div id="pets-featured" class="container">
     <div class="searchCard row">
       <div class="card col-12 col-sm-6 col-md-3 d-flex justify-content-between align-items-center" v-for="pet in pets"
-        :value="pet.id" style="border-radius: 10px; ">
+        :value="pet.id" style="border-radius: 10px; margin-top: 20px; ">
         <img class="card-img-top  mt-2 img-fluid" :src="getPicture(pet.photos)" alt="Card image cap"
           style="object-fit: fill; width: 300px; height: 300px;">
         <div class="card-body">

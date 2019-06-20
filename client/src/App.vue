@@ -1,14 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <!-- <img src="../src/assets/dogcat.png" alt="Pethub Logo" style="float: left; width: 50px;"> -->
+      <router-link to="/"><img src="../src/assets/dogcat.png" alt="Pethub Logo"
+          style="float: left; width: 50px; margin-bottom: 20px">
+        <h4 style="float: left; padding-top: 10px;">PetHub</h4>
+      </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
+    <site-map />
   </div>
 </template>
 
+<script>
+  import SiteMap from '@/components/Footer.vue'
+
+  export default {
+    components: {
+      SiteMap,
+    },
+  }
+</script>
 <style>
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
