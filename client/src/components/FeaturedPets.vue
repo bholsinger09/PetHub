@@ -2,7 +2,7 @@
   <div id="pets-featured">
     <div class="searchCard row">
       <div class="card" v-for="pet in pets" :value="pet.id" @click="goToPet">
-        <img class="card-img-top" src="pet.name.medium" alt="Card image cap">
+        <img class="card-img-top" :src="getPicture(pet.photos)" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{pet.name}}</h5>
           <p class="card-text"> {{pet.breeds.primary}}</p>
@@ -21,8 +21,16 @@
       return {}
     },
     methods: {
-
-    }
+      getPicture(photos) {
+        if (!photos.length) return '//placehold.it/200X200'
+        return photos[0].small
+      }
+    },
+    computed: {
+      pets() {
+        return this.$store.state.pets
+      }
+    },
   }
 
 </script>
