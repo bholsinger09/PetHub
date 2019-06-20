@@ -31,7 +31,7 @@ export default new Vuex.Store({
     }, //petSearch
     async getFeaturedPets({ commit, dispatch }) {
       try {
-        let res = await api.get('pet-api?' + "type=cat,dog&" + "sort=random&" + "limit=7")
+        let res = await api.get('pet-api?' + "type=dog&" + "sort=random&" + "limit=7")
         console.log(res)
         commit('setPets', res.data)
       } catch (error) {
