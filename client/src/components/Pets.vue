@@ -67,7 +67,7 @@
 
     <h1>cards of pets should show up</h1>
     <div class="searchCard row">
-      <div class="card" v-for="pet in pets" :value="pet.id" @click="goToPet">
+      <div class="card" v-for="pet in pets" :value="pet.id">
         <img class="card-img-top" :src="getPicture(pet.photos)" alt="Card image cap" />
         <div class="card-body">
           <h5 class="card-title">{{pet.name}}</h5>
