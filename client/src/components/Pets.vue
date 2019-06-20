@@ -9,8 +9,6 @@
       <input type="text" v-model="searchParams.size" placeholder="size">
       <input type="text" v-model="searchParams.gender" placeholder="gender">
       <input type="text" v-model="searchParams.location" placeholder="postal code">
-
-
       <button type="submit">Find</button>
     </form>
 
@@ -22,7 +20,10 @@
           <h5 class="card-title">{{pet.name}}</h5>
           <p class="card-text"> {{pet.breeds.primary}}</p>
           {{pet.photos.small}}
-          <button href="#" class="btn btn-primary">Favorite</button>
+          <router-link to="/profile">
+            <button class="btn btn-primary m-2">View Pet</button>
+          </router-link>
+          <button class="btn btn-primary m-2">Favorite</button>
         </div>
       </div>
     </div>
@@ -51,7 +52,7 @@
     },
     methods: {
       goToPet() {
-        this.$store.dispatch("setPet", id)
+        this.$store.dispatch("setPet", this.id)
       },
       petSearch() {
         console.log(this.searchParams)
