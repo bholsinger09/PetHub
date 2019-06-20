@@ -51,7 +51,5 @@
 </script>
 
 <style>
-  img {
-    /* max-height: 50vh; */
-  }
+
 </style>
