@@ -38,17 +38,16 @@ export default new Vuex.Store({
         console.log(error)
       }
     },
-    // setPet({ commit, dispatch }, id) {
-    //   commit("setPet", id)
-    // }
+    setPet({ commit, dispatch }, data) {
+      commit("setPet", data)
+    },
 
     async getPetById({ commit, dispatch }, payload) {
       try {
-        debugger
         let res = await api.get('pet-api/' + payload)
-        console.log(res)
-        commit('setPet', res.data)
+        console.log(res.data.animal)
 
+        commit('setPet', res.data.animal)
       } catch (error) { console.log(error) }
     }
 
