@@ -19,7 +19,7 @@ export default new Vuex.Store({
       state.pets = data
     },
     setPet(state, data) {
-      debugger
+
       state.pet = data
     }
   },
@@ -51,7 +51,7 @@ export default new Vuex.Store({
         console.log(res.data.animal)
 
         commit('setPet', res.data.animal)
-        router.push({ name: 'petprofile' })
+        router.push({ name: 'petprofile', params: { id: res.data.animal.id } })
       } catch (error) { console.log(error) }
     }
 

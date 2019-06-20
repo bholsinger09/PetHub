@@ -10,6 +10,7 @@
       <h2 class="card-title">{{pet.name}}</h2>
       <p class="card-text">{{pet.description}}</p>
 
+
     </div>
     <!-- set2 -->
     <!-- <div class="col-6 col-sm-12">
@@ -55,7 +56,8 @@
     },
     mounted() {
       // debugger
-      // this.$store.dispatch('setPet')
+      this.$store.dispatch('getPetById', this.$route.params.id)
+      console.log(this.pet)
 
     },
     computed: {

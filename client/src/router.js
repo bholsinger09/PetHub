@@ -29,7 +29,7 @@ export default new Router({
       component: SearchResults
     },
     {
-      path: '/petprofile',
+      path: '/petprofile/:id',
       name: 'petprofile',
       component: petprofile
     },
