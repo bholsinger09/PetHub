@@ -9,14 +9,14 @@
 
       <input type="text" v-model="searchParams.age" placeholder="age">
 
-      <div id='age' v-model="searchParams.age">
-        <input type="checkbox" id="baby" value="baby" v-model="checkedAge">
+      <div id='age'>
+        <input type="checkbox" id="baby" value="baby" v-model="searchParams.age">
         <label for="Baby">Baby</label>
-        <input type="checkbox" id="Young" value="Young" v-model="checkedAge">
+        <input type="checkbox" id="Young" value="Young" v-model="searchParams.age">
         <label for="Young">Young</label>
-        <input type="checkbox" id="Adult" value="Adult" v-model="checkedAge">
+        <input type="checkbox" id="Adult" value="Adult" v-model="searchParams.age">
         <label for="Adult">Adult</label>
-        <input type="checkbox" id="Seinor" value="Seinor" v-model="checkedAge">
+        <input type="checkbox" id="Seinor" value="Seinor" v-model="searchParams.age">
         <label for="Seinor">Seinor</label>
         <br>
         <!-- <span>Checked Age: {{ checkedAge }}</span> -->
@@ -58,7 +58,7 @@
         searchParams: {
           dogOrCat: "",
           breed: "",
-          age: "",
+          age: [],
           size: "",
           gender: "",
           location: ""
