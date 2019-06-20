@@ -56,8 +56,8 @@ export default class PetApiService {
         accessToken = await login()
         api.defaults.headers.Authorization += accessToken
       }
-      let res = await api.get('animals/' + query)
-      return res.data.animals
+      let res = await api.get('animals' + query)
+      return res.data
     }
     catch (e) {
       console.error(e)
