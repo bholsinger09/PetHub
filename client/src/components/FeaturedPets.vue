@@ -21,7 +21,7 @@
 
   export default {
     name: "Featured",
-    props: ["pets"],
+    //props: ["pets"],
     data() {
       return {}
     },
