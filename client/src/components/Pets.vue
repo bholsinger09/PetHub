@@ -89,7 +89,7 @@
 </template>
 
 <script>
-
+  import defaultImg from '@/assets/dogcat.png'
   export default {
     name: "pets",
     data() {
@@ -117,7 +117,7 @@
         this.$store.dispatch('petSearch', this.searchParams)
       },
       getPicture(photos) {
-        if (!photos.length) return '//placehold.it/200x200'
+        if (!photos.length) { return defaultImg }
         return photos[0].small
       }
     },
