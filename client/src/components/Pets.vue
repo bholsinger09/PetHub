@@ -106,7 +106,6 @@
     },
     methods: {
       goToPet(id) {
-        debugger
         this.$store.dispatch("getPetById", id)
       },
       petSearch() {
