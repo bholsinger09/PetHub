@@ -66,18 +66,21 @@
       <button type="submit">Find</button>
     </form>
 
-    <h1>cards of pets should show up</h1>
-    <div class="searchCard row">
-      <div class="card" v-for="pet in pets" :value="pet.id">
-        <img class="card-img-top" :src="getPicture(pet.photos)" alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">{{pet.name}}</h5>
-          <p class="card-text"> {{pet.breeds.primary}}</p>
-          {{pet.photos.small}}
-          <router-link to="/profile">
-            <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
-          </router-link>
-          <button class="btn btn-primary m-2">Favorite</button>
+    <div class="container">
+      <div class="searchCard row">
+        <div class="card col-12 col-sm-6 col-md-3 d-flex justify-content-between align-items-center" v-for="pet in pets"
+          :value="pet.id" style="border-radius: 10px; margin-top: 20px;">
+          <img class="card-img-top mt-2 img-fluid" :src="getPicture(pet.photos)" alt="Card image cap"
+            style="object-fit: fill; width: 300px; height: 300px;" />
+          <div class="card-body">
+            <h5 class="card-title">{{pet.name}}</h5>
+            <p class="card-text"> {{pet.breeds.primary}}</p>
+            {{pet.photos.small}}
+            <router-link to="/profile">
+              <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
+            </router-link>
+            <button class="btn btn-primary m-2">Favorite</button>
+          </div>
         </div>
       </div>
     </div>
