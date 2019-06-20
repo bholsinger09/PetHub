@@ -8,6 +8,7 @@
 <script>
   // @ is an alias to /src
   import Carousel from '@/components/Carousel.vue'
+  import FeaturedPets from '@/components/Carousel.vue'
 
   export default {
     name: 'home',
