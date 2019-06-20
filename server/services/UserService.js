@@ -21,7 +21,7 @@ let environmentSchema = new mongoose.Schema({
 let searchesSchema = new Schema({
   gender: { type: String, enum: ["Male", "Female"] },
   age: { type: String, enum: ["Baby", "Young", "Adult", "Senior"] },
-  size: { type: String, enum: ["Small", "Medium", "Large", "Xlarge"] }, //is it Xl or xl??
+  size: { type: String, enum: ["Small", "Medium", "Large", "xlarge"] },
   type: { type: String, enum: ["Dog", "Cat"] },
   environment: [environmentSchema]
   //we'll finish building out this data when we solidfy the search criteria

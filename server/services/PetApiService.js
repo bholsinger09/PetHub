@@ -9,7 +9,7 @@ let authPost = {
 }
 
 let api = Axios.create({
-  baseURL: 'https://api.petfinder.com/v2/',
+  baseURL: 'https://api.petfinder.com/v2',
   headers: {
     Authorization: "Bearer " + accessToken
   }
@@ -33,17 +33,18 @@ async function login() {
 
 
 export default class PetApiService {
-  async getAnimals() {
+  async getAnimals(query) {
     try {
       if (api.defaults.headers.Authorization == "Bearer ") {
         accessToken = await login()
         api.defaults.headers.Authorization += accessToken
       }
-      let queries = '?type=Dog'
-      let res = await api.get('animals' + queries)
+      // let queries = '?type=' + payload.type + '&gender=' + payload.gender + "&breed=" + payload.breed + "&age=" + payload.age + "&size=" + payload.size
+      let res = await api.get('animals' + query)
       return res.data.animals
     }
     catch (e) {
+      console.error(e)
       if (e.status) {
         await login()
       }
