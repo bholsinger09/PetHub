@@ -8,19 +8,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active" id="search">
-          <img src="../assets/searchimg.jpg" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Start your search for your best buddy!</h3>
-            <router-link to="/results">
-              <button class="btn btn-success">Find your pet</button>
-            </router-link>
-          </div>
+          <img src="../assets/carousel1.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" id="meetup">
-          <img src="../assets/meetupimgcrop3.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/carousel2.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item" id="forum">
-          <img src="../assets/forumimg.jpg" class="d-block w-100" alt="...">
+          <img src="../assets/carousel3.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
