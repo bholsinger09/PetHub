@@ -101,10 +101,11 @@
     },
 
     mounted() {
-      this.$store.dispatch('getPets')
+
     },
     methods: {
       goToPet(id) {
+        debugger
         this.$store.dispatch("getPetById", id)
       },
       petSearch() {
