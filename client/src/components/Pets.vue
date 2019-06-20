@@ -15,6 +15,7 @@
 
       <input type="text" v-model="searchParams.age" placeholder="age">
       <div id='age'>
+        <!-- <p>{{searchParams.age}}</p> -->
         <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
         <label for="Baby">Baby</label>
         <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
@@ -105,7 +106,6 @@
     },
     methods: {
       goToPet(id) {
-        debugger
         this.$store.dispatch("getPetById", id)
       },
       petSearch() {
