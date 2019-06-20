@@ -2,7 +2,6 @@
   <div id="pets-results">
 
     <form @submit.prevent="petSearch" class="searchForm">
-      <i class="fas fa-cat"></i> <i class="fas fa-dog"></i>
 
       <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
       <div id='dogOrCat'>
@@ -30,22 +29,32 @@
       <input type="text" v-model="searchParams.size" placeholder="size">
       <div id='size'>
         <input type="checkbox" id="small" value="small" v-model="searchParams.size">
-        <label for="small">Small</label>
+        <label for="small">
+          <h2><i class="fas fa-dog fa-sm"></i></h2>
+        </label>
         <input type="checkbox" id="medium" value="medium" v-model="searchParams.size">
-        <label for="medium">Medium</label>
+        <label for="medium">
+          <h2><i class="fas fa-dog fa-md"></i></h2>
+        </label>
         <input type="checkbox" id="large" value="large" v-model="searchParams.size">
-        <label for="large">Large</label>
+        <label for="large">
+          <h2><i class="fas fa-dog fa-lg"></i></h2>
+        </label>
         <input type="checkbox" id="xlarge" value="xlarge" v-model="searchParams.size">
-        <label for="xlarge">xLarge</label>
+        <label for="xlarge">
+          <h2><i class="fas fa-dog fa-2x"></i></h2>
+        </label>
         <br>
       </div>
 
       <input type="text" v-model="searchParams.gender" placeholder="gender">
       <div id='gender'>
         <input type="checkbox" id="male" value="male" v-model="searchParams.gender">
-        <label for="male">Male</label>
+        <label for="male">Male<i class="fas fa-mars"></i>
+        </label>
         <input type="checkbox" id="female" value="female" v-model="searchParams.gender">
-        <label for="female">Female</label>
+        <label for="female">Female<i class="fas fa-venus"></i>
+        </label>
       </div>
 
 
@@ -92,7 +101,7 @@
     },
 
     mounted() {
-      this.$store.dispatch('getPets')
+
     },
     methods: {
       goToPet(id) {
