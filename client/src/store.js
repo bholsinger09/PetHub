@@ -31,24 +31,25 @@ export default new Vuex.Store({
     }, //petSearch
     async getFeaturedPets({ commit, dispatch }) {
       try {
-        let res = await api.get('pet-api?' + "sort=random&" + "limit=4")
+        let res = await api.get('pet-api?' + "type=dog&" + "sort=random&" + "limit=7")
         console.log(res)
         commit('setPets', res.data)
       } catch (error) {
         console.log(error)
       }
     },
-    setPet({ commit, dispatch }, id) {
-      commit("setPet", id)
-    }
-
-    // async getPetById({ commit, dispatch }, payload) {
-    //   try {
-    //     let res = await api.get('animals' + )
-    //     commit('')
-
-    //   } catch (error) { console.log(error) }
+    // setPet({ commit, dispatch }, id) {
+    //   commit("setPet", id)
     // }
+
+    async getPetById({ commit, dispatch }, payload) {
+      try {
+        let res = await api.get('pet-api?&id' + payload)
+        console.log(res)
+        commit('setPet', res.data)
+
+      } catch (error) { console.log(error) }
+    }
 
 
   }//actions

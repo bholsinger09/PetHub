@@ -40,7 +40,7 @@
           <p class="card-text"> {{pet.breeds.primary}}</p>
           {{pet.photos.small}}
           <router-link to="/profile">
-            <button class="btn btn-primary m-2">View Pet</button>
+            <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
           </router-link>
           <button class="btn btn-primary m-2">Favorite</button>
         </div>
@@ -70,8 +70,8 @@
       this.$store.dispatch('getPets')
     },
     methods: {
-      goToPet() {
-        this.$store.dispatch("setPet", this.id)
+      goToPet(id) {
+        this.$store.dispatch("getPetById", id)
       },
       petSearch() {
         console.log(this.searchParams)
