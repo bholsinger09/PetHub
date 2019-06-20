@@ -3,12 +3,18 @@
 
     <form @submit.prevent="petSearch" class="searchForm">
       <i class="fas fa-cat"></i> <i class="fas fa-dog"></i>
-      <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
 
-      <input type="text" v-model="searchParams.breed" placeholder="breed">
+      <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
+      <div id='dogOrCat'>
+        <input type="radio" id="dog" value="dog" v-model="searchParams.dogOrCat">
+        <label for="dog"><i class="fas fa-dog fa-lg"></i></label>
+        <input type="radio" id="cat" value="cat" v-model="searchParams.dogOrCat">
+        <label for="cat"><i class="fas fa-cat fa-lg"></i></label>
+        <br>
+      </div>
+
 
       <input type="text" v-model="searchParams.age" placeholder="age">
-
       <div id='age'>
         <input type="checkbox" id="baby" value="baby" v-model="searchParams.age">
         <label for="Baby">Baby</label>
@@ -19,12 +25,31 @@
         <input type="checkbox" id="Seinor" value="Seinor" v-model="searchParams.age">
         <label for="Seinor">Seinor</label>
         <br>
-        <!-- <span>Checked Age: {{ checkedAge }}</span> -->
       </div>
 
       <input type="text" v-model="searchParams.size" placeholder="size">
+      <div id='size'>
+        <input type="checkbox" id="small" value="small" v-model="searchParams.size">
+        <label for="small">Small</label>
+        <input type="checkbox" id="medium" value="medium" v-model="searchParams.size">
+        <label for="medium">Medium</label>
+        <input type="checkbox" id="large" value="large" v-model="searchParams.size">
+        <label for="large">Large</label>
+        <input type="checkbox" id="xlarge" value="xlarge" v-model="searchParams.size">
+        <label for="xlarge">xLarge</label>
+        <br>
+      </div>
 
       <input type="text" v-model="searchParams.gender" placeholder="gender">
+      <div id='gender'>
+        <input type="checkbox" id="male" value="male" v-model="searchParams.gender">
+        <label for="male">Male</label>
+        <input type="checkbox" id="female" value="female" v-model="searchParams.gender">
+        <label for="female">Female</label>
+      </div>
+
+
+      <input type="text" v-model="searchParams.breed" placeholder="breed">
 
       <input type="text" v-model="searchParams.location" placeholder="postal code">
 
@@ -57,10 +82,10 @@
       return {
         searchParams: {
           dogOrCat: "",
-          breed: "",
+          breed: [],
           age: [],
-          size: "",
-          gender: "",
+          size: [],
+          gender: [],
           location: ""
         }
       }
