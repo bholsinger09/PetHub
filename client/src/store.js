@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from './router.js'
 import Axios from 'axios'
 
 let api = Axios.create({
@@ -48,6 +49,7 @@ export default new Vuex.Store({
         console.log(res.data.animal)
 
         commit('setPet', res.data.animal)
+        router.push({ name: 'profile' })
       } catch (error) { console.log(error) }
     }
 

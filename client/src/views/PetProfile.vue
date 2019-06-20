@@ -52,11 +52,13 @@
       }
     },
     mounted() {
+      debugger
       this.$store.dispatch('setPet')
 
     },
     computed: {
       pet() {
+        debugger
         return this.$store.state.pet;
       }
     },

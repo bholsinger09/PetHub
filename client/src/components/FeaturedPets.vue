@@ -8,7 +8,7 @@
         <div class="card-body">
           <h5 class="card-title">{{pet.name}}</h5>
           <p class="card-text"> {{pet.breeds.primary}}</p>
-          <button href="#" class="btn btn-primary">Favorite</button>
+          <button class="btn btn-primary">Favorite</button>
         </div>
       </div>
     </div>
@@ -21,6 +21,7 @@
 
   export default {
     name: "Featured",
+    props: ["pets"],
     data() {
       return {}
     },

@@ -74,9 +74,9 @@
           <h5 class="card-title">{{pet.name}}</h5>
           <p class="card-text"> {{pet.breeds.primary}}</p>
           {{pet.photos.small}}
-          <router-link to="/profile">
-            <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
-          </router-link>
+
+          <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
+
           <button class="btn btn-primary m-2">Favorite</button>
         </div>
       </div>
