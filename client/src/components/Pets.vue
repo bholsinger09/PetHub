@@ -21,7 +21,7 @@
           <p class="card-text"> {{pet.breeds.primary}}</p>
           {{pet.photos.small}}
           <router-link to="/profile">
-            <button class="btn btn-primary m-2">View Pet</button>
+            <button class="btn btn-primary m-2" @click="goToPet">View Pet</button>
           </router-link>
           <button class="btn btn-primary m-2">Favorite</button>
         </div>
