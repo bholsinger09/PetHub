@@ -27,19 +27,6 @@
       </a>
     </div>
 
-    <!-- <form @submit.prevent="petSearch" class="searchForm">
-      <i class="fas fa-cat"></i> <i class="fas fa-dog"></i>
-      <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
-      <input type="text" v-model="searchParams.breed" placeholder="breed">
-      <input type="text" v-model="searchParams.age" placeholder="age">
-      <input type="text" v-model="searchParams.size" placeholder="size">
-      <input type="text" v-model="searchParams.gender" placeholder="gender">
-      <input type="text" v-model="searchParams.location" placeholder="postal code">
-
-
-      <button type="submit">Find</button>
-    </form> -->
-
   </div>
 </template>
 
