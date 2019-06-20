@@ -44,7 +44,7 @@ export default new Vuex.Store({
 
     async getPetById({ commit, dispatch }, payload) {
       try {
-        let res = await api.get('pet-api?' + payload)
+        let res = await api.get('pet-api?&id' + payload)
         console.log(res)
         commit('setPet', res.data)
 

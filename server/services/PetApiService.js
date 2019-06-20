@@ -50,5 +50,21 @@ export default class PetApiService {
       }
     }
   }
+  async getAnimal(query) {
+    try {
+      if (api.defaults.headers.Authorization == "Bearer ") {
+        accessToken = await login()
+        api.defaults.headers.Authorization += accessToken
+      }
+      let res = await api.get('animals/' + query)
+      return res.data.animals
+    }
+    catch (e) {
+      console.error(e)
+      if (e.status) {
+        await login()
+      }
+    }
+  }
 
 }

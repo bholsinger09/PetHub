@@ -10,9 +10,9 @@ export default class AnimalController {
   constructor() {
     this.router = express.Router()
       .get('', this.getAnimals)
+      .get('/:id', this.getById)
       // .get('', this.getDogs)
       // .get('', this.getCats)
-      // .get('/:id', this.getDogById)
       // .get('/:id', this.getCatById)
       .use(this.defaultRoute)
   }
@@ -23,6 +23,12 @@ export default class AnimalController {
     try {
       let data = await _service.getAnimals(req.url)
       console.log(data)
+      return res.send(data)
+    } catch (error) { next(error.message) }
+  }
+  async getById(req, res, next) {
+    try {
+      let data = await _service.getAnimal(req.params.id)
       return res.send(data)
     } catch (error) { next(error.message) }
   }
