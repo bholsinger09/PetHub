@@ -1,5 +1,6 @@
 <template>
   <div class="search-results">
+    </router-link>
     <pets />
   </div>
 </template>

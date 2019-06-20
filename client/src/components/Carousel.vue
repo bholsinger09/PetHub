@@ -9,6 +9,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active" id="search">
           <img src="../assets/searchimg.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Start your search for your best buddy!</h3>
+            <router-link to="/results">
+              <button class="btn btn-success">Find your pet</button>
+            </router-link>
+          </div>
         </div>
         <div class="carousel-item" id="meetup">
           <img src="../assets/meetupimgcrop3.jpg" class="d-block w-100" alt="...">
@@ -26,19 +32,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
-    <!-- <form @submit.prevent="petSearch" class="searchForm">
-      <i class="fas fa-cat"></i> <i class="fas fa-dog"></i>
-      <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
-      <input type="text" v-model="searchParams.breed" placeholder="breed">
-      <input type="text" v-model="searchParams.age" placeholder="age">
-      <input type="text" v-model="searchParams.size" placeholder="size">
-      <input type="text" v-model="searchParams.gender" placeholder="gender">
-      <input type="text" v-model="searchParams.location" placeholder="postal code">
-
-
-      <button type="submit">Find</button>
-    </form> -->
 
   </div>
 </template>
