@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from './router.js'
 import Axios from 'axios'
 
 let api = Axios.create({
@@ -18,6 +19,7 @@ export default new Vuex.Store({
       state.pets = data
     },
     setPet(state, data) {
+
       state.pet = data
     }
   },
@@ -43,11 +45,13 @@ export default new Vuex.Store({
     },
 
     async getPetById({ commit, dispatch }, payload) {
+      // debugger
       try {
         let res = await api.get('pet-api/' + payload)
         console.log(res.data.animal)
 
         commit('setPet', res.data.animal)
+        router.push({ name: 'petprofile', params: { id: res.data.animal.id } })
       } catch (error) { console.log(error) }
     }
 

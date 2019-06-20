@@ -9,6 +9,8 @@
       <!-- <h2 v-if="pet.adoptable==false" style="color: #750000">This good boy/girl has found a home.</h2> -->
       <h2 class="card-title">{{pet.name}}</h2>
       <p class="card-text">{{pet.description}}</p>
+
+
     </div>
     <!-- set2 -->
     <div class="col-6 col-sm-12">
@@ -46,14 +48,15 @@
 <script>
   export default {
     name: "petprofile",
-
     data() {
       return {
         pet: {}
       }
     },
     mounted() {
-      this.$store.dispatch('setPet')
+      // debugger
+      this.$store.dispatch('getPetById', this.$route.params.id)
+      console.log(this.pet)
 
     },
     computed: {
