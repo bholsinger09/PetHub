@@ -9,6 +9,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active" id="search">
           <img src="../assets/carousel1.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Find your very best bud!</h3>
+            <router-link to="/results">
+              <button class="btn btn-success">Find Your Pet!</button>
+            </router-link>
+          </div>
         </div>
         <div class="carousel-item" id="meetup">
           <img src="../assets/carousel2.jpg" class="d-block w-100" alt="...">
