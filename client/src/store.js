@@ -19,6 +19,7 @@ export default new Vuex.Store({
       state.pets = data
     },
     setPet(state, data) {
+      debugger
       state.pet = data
     }
   },
@@ -44,12 +45,13 @@ export default new Vuex.Store({
     },
 
     async getPetById({ commit, dispatch }, payload) {
+      // debugger
       try {
         let res = await api.get('pet-api/' + payload)
         console.log(res.data.animal)
 
         commit('setPet', res.data.animal)
-        router.push({ name: 'profile' })
+        router.push({ name: 'petprofile' })
       } catch (error) { console.log(error) }
     }
 

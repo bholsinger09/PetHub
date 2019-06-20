@@ -38,7 +38,7 @@
       <p>{{contact.address.address1}} {{contact.address.address2}} {{contact.address.city}},
         {{contact.address.state}} {{contact.address.postcode}} {{contact.address.country}}</p>
     </div>
-    <a href="#" class="btn btn-primary">Favorite</a>
+    <a class="btn btn-primary">Favorite</a>
   </div>
 
 </template>
@@ -49,17 +49,17 @@
 
     data() {
       return {
-        pet: {}
+        // pet: {}
       }
     },
     mounted() {
-      debugger
-      this.$store.dispatch('setPet')
+      // debugger
+      // this.$store.dispatch('setPet')
 
     },
     computed: {
       pet() {
-        debugger
+        // debugger
         return this.$store.state.pet;
       }
     },
