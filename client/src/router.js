@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import SearchResults from './views/SearchResults.vue'
+import petprofile from './views/PetProfile.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
     {
       path: '/results',
       name: 'results',
+      component: SearchResults
+    },
+    {
+      path: '/petprofile',
+      name: 'petprofile',
       component: SearchResults
     },
   ]
