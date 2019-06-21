@@ -11,11 +11,13 @@
       <h2 class="card-title">{{pet.name}}</h2>
       <p class="card-text">Description: {{pet.description}}</p>
       <p class="card-text">Age: {{pet.age}}</p>
+      <p class="card-text">Status: {{pet.status}}</p>
       <p class="card-text">Primary Breed: {{pet.breeds.primary}}</p>
       <p class="card-text">Secondary Breed: {{pet.breeds.secondary}}</p>
       <p class="card-text">Type: {{pet.type}}</p>
       <p class="card-text" v-if="pet.type === 'cat'">Declawed: {{pet.attributes.declawed}}
-        <p class="card-text">Spayed/Neutered: {{pet.attributes.spayed_neutered}}</p>
+        <p class="card-text" v-if="pet.attributes.spayed_neutered ? 'Yes' : 'No'">Spayed/Neutered:
+          {{pet.attributes.spayed_neutered}}</p>
         <p class="card-text">House Trained: {{pet.attributes.house_trained}}</p>
         <p class="card-text">Good With: {{pet.attributes.environment}}</p>
         <p class="card-text">Phone: {{pet.contact.phone}}</p>
@@ -24,7 +26,6 @@
         <p class="card-text">Tags: {{pet.tags}}</p>
         <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
         <!-- </div> -->
-
     </div>
     <!-- set2 -->
     <!-- <div class="col-6 col-sm-12">
