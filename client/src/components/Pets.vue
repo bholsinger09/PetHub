@@ -67,14 +67,15 @@
             <label for="female"> <i class="fas fa-venus" @click="activeVenus = !activeVenus"
                 :class="{selected: activeVenus}"></i>
             </label></h3>
-
         </div>
 
-        <input class="col-3 col-sm-4 offset-md-1" type="text" v-model="searchParams.breed" placeholder="breed">
+        <input class="col-md-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.breed" placeholder="breed">
 
-        <input class="col-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.location" placeholder="postal code">
+        <input class="col-md-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.location"
+          placeholder="postal code">
 
-        <button class="offset-md-1 col-md-1 col-sm-2 " type="submit">Find</button>
+        <button class="offset-md-1 col-md-1 col-sm-2 " type="submit"><i class="fas fa-search"></i>
+        </button>
       </div>
     </form>
 
