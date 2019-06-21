@@ -7,7 +7,17 @@
         <h4 style="float: left; padding-top: 10px;">PetHub</h4>
       </router-link>
       <router-link to="/results">Search</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link>|
+      <router-link to="/userprofile">My Account</router-link>
+
+      <div id="user-login">
+        <form style="float: right;" @submit.prevent="loginUser">
+          <input type="text" v-model="creds.email" placeholder="email">
+          <input type="text" v-model="creds.password" placeholder="enter password">
+          <button class="btn btn-info">Login</button>
+        </form>
+      </div>
+
     </div>
     <router-view />
     <site-map />
@@ -18,9 +28,23 @@
   import SiteMap from '@/components/Footer.vue'
 
   export default {
+    data() {
+      return {
+        loginForm: true,
+        creds: {
+          email: '',
+          password: ''
+        },
+      }
+    },
     components: {
       SiteMap,
     },
+    methods: {
+      loginUser() {
+        this.$store.dispatch("loginUser", this.creds)
+      }
+    }
   }
 </script>
 <style>

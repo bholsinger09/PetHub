@@ -35,11 +35,18 @@ export default new Vuex.Store({
   },
   actions: {
     //#region -- Auth Stuff --
-    register({ commit, dispatch }, newUser) {
+    registerUser({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {
           commit('setUser', res.data)
           router.push({ name: '' })
+        })
+    },
+    loginUser({ commit, dispatch }, creds) {
+      auth.post('login', creds)
+        .then(res => {
+          commit('setUser', res.data)
+
         })
     },
 
