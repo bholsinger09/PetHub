@@ -6,7 +6,6 @@
 
         <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
         <div class=" col-md-3 col-sm-6" id='dogOrCat'>
-<<<<<<< HEAD
           <h3>Animal:</h3>
           <h1><input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
             <label for="dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
@@ -14,13 +13,6 @@
             <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
             <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
                 :class="{selected: activeCat}"></i></label></h1>
-=======
-          <h1><input type="radio" class="visible" id="dog" value="dog" v-model="searchParams.dogOrCat">
-            <label for="dog"><i class="fas fa-dog fa-lg"></i></label>
-            <input type="radio" class="visible" id="cat" value="cat" v-model="searchParams.dogOrCat">
-            <label for="cat"><i class="fas fa-cat fa-lg"></i></label></h1>
-          <!-- <br> -->
->>>>>>> 82582580cf86c6fa583b8f337691847331400297
         </div>
 
 
