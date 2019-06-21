@@ -1,25 +1,25 @@
 <template>
-  <div v-if="pet.id">
-    <div class="col-6 col-sm-12">
+  <div class="row" v-if="pet.id">
+    <div class="col-12 col-sm-6">
       </router-link>
-      <img class="card-img-top mt-2 img-fluid" :src="getPicture(pet.photos)" alt="Card image cap"
-        style="object-fit: fill; width: 300px; height: 300px;" />
+      <img class="card-img-top " :src="getPicture(pet.photos)" alt="Card image cap"
+        :height="$mq | mq({xs: '350px', sm: '400px', md: '450px', lg: '500px'})" />
     </div>
 
-    <div class="col-6 col-sm-12">
+    <div class="col-12 col-sm-6 text-left">
       <!-- <h2 v-if="pet.adoptable==false" style="color: #750000">This good boy/girl has found a home.</h2> -->
       <h2 class="card-title">{{pet.name}}</h2>
-      <p class="card-text">{{pet.description}}</p>
-      <p class="card-text">{{pet.age}}</p>
-      <p class="card-text">{{pet.breeds.primary}}</p>
-      <p class="card-text">{{pet.breeds.secondary}}</p>
-      <p class="card-text">{{pet.attributes.declawed}}</p>
-      <div v-if="pet.gender=='male'">
-        <p>Neutered:</p> {{pet.attributes.spayed_neutered}}
-      </div>
-      <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
-      <!-- </div> -->
-      {{pet}}
+      <p class="card-text">Description: {{pet.description}}</p>
+      <p class="card-text">Age: {{pet.age}}</p>
+      <p class="card-text">Primary Breed: {{pet.breeds.primary}}</p>
+      <p class="card-text">Secondary Breed: {{pet.breeds.secondary}}</p>
+      <p class="card-text">Type: {{pet.type}}</p>
+      <p class="card-text" v-if="pet.type == 'cat'">Declawed: {{pet.attributes.declawed}}
+        <div v-if="pet.gender=='male'">
+          <p>{{pet.attributes.spayed_neutered}}</p>
+        </div>
+        <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
+        <!-- </div> -->
 
 
     </div>
@@ -80,7 +80,7 @@
     methods: {
       getPicture(photos) {
         if (!photos.length) { return defaultImg }
-        return photos[0].small
+        return photos[0].large
       }
     }
   }
