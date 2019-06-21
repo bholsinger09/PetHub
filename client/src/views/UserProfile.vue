@@ -1,11 +1,11 @@
 <template>
   <div>
-
+    <favorites />
   </div>
 </template>
 
 <script>
-
+  import Favorites from '@/components/Favorites.vue'
 
   export default {
     name: 'UserProfile',
@@ -14,6 +14,9 @@
 
       }
     },
+    components: {
+      Favorites
+    }
 
   }
 
