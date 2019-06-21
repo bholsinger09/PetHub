@@ -10,7 +10,7 @@
         <div class="carousel-item active" id="search">
           <img src="../assets/carousel1.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption">
-            <h3>Find your very best bud!</h3>
+            <h5>Find your best bud!</h5>
             <router-link to="/results">
               <button class="btn btn-success mb-2">Find Your Pet!</button>
             </router-link>
