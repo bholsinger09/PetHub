@@ -9,12 +9,14 @@
     <div class="col-12 col-sm-6 text-left" style="padding: 30px;">
       <!-- <h2 v-if="pet.adoptable==false" style="color: #750000">This good boy/girl has found a home.</h2> -->
       <h2 class="card-title">{{pet.name}}</h2>
+      <!-- <p class="card-text">Type: {{pet.type}}</p> -->
       <p class="card-text">Description: {{pet.description}}</p>
       <p class="card-text">Age: {{pet.age}}</p>
-      <p class="card-text">Status: {{pet.status}}</p>
+      <p class="card-text" v-if="pet.status == 'adoptable'">Status: Adoptable</p>
+      <p class="card-text" v-if="pet.status == 'adopted'">Status: Adopted</p>
+      <p class="card-text" v-if="pet.status == 'found'">Status: Found</p>
       <p class="card-text">Primary Breed: {{pet.breeds.primary}}</p>
       <p class="card-text" v-if="pet.breeds.secondary">Secondary Breed: {{pet.breeds.secondary}}</p>
-      <p class="card-text">Type: {{pet.type}}</p>
       <p class="card-text" v-if="pet.type === 'Cat'">Declawed: {{pet.attributes.declawed}}
         <p class="card-text" v-if="pet.attributes.spayed_neutered == true">Spayed/Neutered: <i class="fas fa-check"></i>
         </p>
@@ -95,4 +97,11 @@
 </script>
 
 <style>
+  .fa-check:before {
+    color: rgb(40, 167, 69);
+  }
+
+  .fa-ban:before {
+    color: red;
+  }
 </style>
