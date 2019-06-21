@@ -5,7 +5,7 @@
       <div class="row">
 
         <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
-        <div class="col-3" id='dogOrCat'>
+        <div class=" col-md-3 col-sm-6" id='dogOrCat'>
           <h1><input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
             <label for="dog"><i class="fas fa-dog fa-lg"></i></label>
             <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
@@ -15,7 +15,7 @@
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
-        <div class="col-3" id='age'>
+        <div class=" col-md-3 col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
           <label for="Baby">Baby</label>
@@ -29,7 +29,7 @@
         </div>
 
         <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
-        <div class="col-3" id='size'>
+        <div class="col-md-3 col-sm-6" id='size'>
           <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
           <label for="small">
             <h3><i class="fas fa-cat fa-sm"></i></h3>
@@ -50,7 +50,7 @@
         </div>
 
         <!-- <input type="text" v-model="searchParams.gender" placeholder="gender"> -->
-        <div class="col-3" id='gender'>
+        <div class="col-md-3 col-sm-6" id='gender'>
           <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
           <label for="male">Male<i class="fas fa-mars"></i>
           </label>
@@ -60,11 +60,11 @@
         </div>
 
 
-        <input class="col-3 offset-1" type="text" v-model="searchParams.breed" placeholder="breed">
+        <input class="col-3 col-sm-4 offset-md-1" type="text" v-model="searchParams.breed" placeholder="breed">
 
-        <input class="col-3 offset-1" type="text" v-model="searchParams.location" placeholder="postal code">
+        <input class="col-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.location" placeholder="postal code">
 
-        <button class="col-1 offset-1" type="submit">Find</button>
+        <button class="col-1 offset-md-1" type="submit">Find</button>
       </div>
     </form>
 
