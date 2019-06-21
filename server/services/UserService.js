@@ -1,7 +1,5 @@
 import mongoose from "mongoose"
 import bcrypt from 'bcryptjs'
-
-
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 
@@ -31,6 +29,7 @@ let _schema = new Schema({
   name: { type: String, required: true },
   //every email must be unique on the database
   email: { type: String, required: true, unique: true },
+  zip: { type: Number },
   hash: { type: String, required: true },
   searches: [searchesSchema],
   favorites: [favoritesSchema],

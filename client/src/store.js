@@ -7,14 +7,24 @@ let api = Axios.create({
   baseURL: 'http://localhost:3000/api/'
 })
 
+let auth = Axios.create({
+  baseURL: api + "auth/",
+  timeout: 3000,
+  withCredentials: true
+})
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    user: {},
     pets: [],
     pet: {}
   },
   mutations: {
+    setUser(state, user) {
+      state.user = user
+    },
     setPets(state, data) {
       state.pets = data
     },
@@ -24,6 +34,17 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //#region -- Auth Stuff --
+    register({ commit, dispatch }, newUser) {
+      auth.post('register', newUser)
+        .then(res => {
+          commit('setUser', res.data)
+          router.push({ name: '' })
+        })
+    },
+
+    //#endregion
+
     async petSearch({ commit, dispatch }, payload) {
       try {
         let res = await api.get('pet-api?' + "type=" + payload.dogOrCat + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
