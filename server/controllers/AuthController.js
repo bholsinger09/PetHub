@@ -11,6 +11,7 @@ export default class AuthController {
         this.router = express.Router()
             .post('/register', this.register)
             .post('/login', this.login)
+            .put('/:id', this.updateProfile)
             .use(Authorize.authenticated)
             .get('/authenticate', this.authenticate)
             .delete('/logout', this.logout)
@@ -64,6 +65,17 @@ export default class AuthController {
         catch (err) {
             res.status(400).send("Invalid Username Or Password")
         }
+    }
+
+    async updateProfile(req, res, next) {
+        try {
+            let user = await _repo.findOneAndUpdate({ userId: req.session.uid }, req.body, { new: true })
+            if (user) {
+                return res.send(user)
+            }
+            throw new Error("Not your id son!")
+        } catch (error) { }
+
     }
 
     async authenticate(req, res, next) {

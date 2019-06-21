@@ -36,7 +36,7 @@ export default new Router({
       component: petprofile
     },
     {
-      path: '/userprofile',
+      path: '/userprofile/:id',
       name: 'userprofile',
       component: UserProfile
     },

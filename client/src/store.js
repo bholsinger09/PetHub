@@ -108,6 +108,12 @@ export default new Vuex.Store({
         commit('setPet', res.data.animal)
         router.push({ name: 'petprofile', params: { id: res.data.animal.id } })
       } catch (error) { console.log(error) }
+    },
+    async updateUser({ commit, dispatch }, payload) {
+      try {
+        let res = await api.put('user/' + payload)
+        commit("setUser", res.data)
+      } catch (error) { console.log(error) }
     }
 
 

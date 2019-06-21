@@ -92,7 +92,7 @@
             <router-link to="/profile">
               <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
             </router-link>
-            <button class="btn btn-primary m-2">Favorite</button>
+            <button class="btn btn-primary m-2" @click="addFavorite(pet.id)">Favorite</button>
           </div>
         </div>
       </div>
@@ -144,6 +144,9 @@
       getPicture(photos) {
         if (!photos.length) { return defaultImg }
         return photos[0].large
+      },
+      addFavorite(id) {//we need to render the user data with the pet id to upddate the user - HOW?????
+        this.$store.dispatch('updateUser', id)
       }
     },
     computed: {
