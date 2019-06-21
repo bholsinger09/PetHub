@@ -9,8 +9,13 @@
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/userprofile">My Account</router-link>
-      <div style="float: right;">
-        <p>logged in as: {{user.name}}</p>
+      <div v-if="!user._id" style="float: right;">
+        <router-link to="/login">
+          <button class="btn btn-warning">Login</button>
+        </router-link>
+      </div>
+      <div v-else style="float: right;">
+        <p>Logged in as: {{user.name}}</p>
         <button class="btn btn-warning" @click="logout">Logout</button>
       </div>
     </div>
