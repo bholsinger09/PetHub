@@ -13,17 +13,17 @@
       <p class="card-text">Age: {{pet.age}}</p>
       <p class="card-text">Status: {{pet.status}}</p>
       <p class="card-text">Primary Breed: {{pet.breeds.primary}}</p>
-      <p class="card-text">Secondary Breed: {{pet.breeds.secondary}}</p>
+      <p class="card-text" v-if="pet.breeds.secondary">Secondary Breed: {{pet.breeds.secondary}}</p>
       <p class="card-text">Type: {{pet.type}}</p>
-      <p class="card-text" v-if="pet.type === 'cat'">Declawed: {{pet.attributes.declawed}}
-        <p class="card-text" v-if="pet.attributes.spayed_neutered ? 'Yes' : 'No'">Spayed/Neutered:
-          {{pet.attributes.spayed_neutered}}</p>
-        <p class="card-text">House Trained: {{pet.attributes.house_trained}}</p>
+      <p class="card-text" v-if="pet.type === 'Cat'">Declawed: {{pet.attributes.declawed}}
+        <p class="card-text">Spayed/Neutered: {{pet.attributes.spayed_neutered}}</p>
+        <p class="card-text" v-if="pet.attributes.house_trained == true">House Trained: <i class="fas fa-check"></i></p>
+        <p class="card-text" v-if="pet.attributes.house_trained == false">House Trained: <i class="fas fa-ban"></i></p>
         <p class="card-text">Good With: {{pet.attributes.environment}}</p>
         <p class="card-text">Phone: {{pet.contact.phone}}</p>
-        <p class="card-text">Emial: {{pet.contact.email}}</p>
+        <p class="card-text">Email: {{pet.contact.email}}</p>
         <p class="card-text">Location: {{pet.contact.address.city}}, {{pet.contact.address.state}}</p>
-        <p class="card-text">Tags: {{pet.tags}}</p>
+        <p class="card-text" v-if="!pet.tags === []">Tags: {{pet.tags}}</p>
         <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
         <!-- </div> -->
     </div>
