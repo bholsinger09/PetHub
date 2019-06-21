@@ -46,6 +46,12 @@ server.use('/api/animals', new AnimalController().router)
 import PetApi from './controllers/PetApiController'
 server.use('/api/pet-api', new PetApi().router)
 
+import UserController from './controllers/UserController'
+server.use('/api/users', new UserController().router)
+
+
+
+
 //Default Error Handler
 server.use((error, req, res, next) => {
   res.status(error.status || 400).send({ error: { message: error.message } })
