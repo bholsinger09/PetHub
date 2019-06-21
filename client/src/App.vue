@@ -4,7 +4,7 @@
       <!-- <img src="../src/assets/dogcat.png" alt="Pethub Logo" style="float: left; width: 50px;"> -->
       <router-link to="/"><img src="../src/assets/dogcat.png" alt="Pethub Logo"
           style="float: left; width: 50px; margin-bottom: 20px">
-        <h4 style="float: left; padding-top: 10px;">PetHub</h4>
+        <h4 style="float: left; padding-top: 10px; color: #28a745;">PetHub</h4>
       </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link>|
