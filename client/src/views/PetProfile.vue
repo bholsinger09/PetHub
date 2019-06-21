@@ -3,10 +3,10 @@
     <div class="col-12 col-sm-6">
       </router-link>
       <img class="card-img-top " :src="getPicture(pet.photos)" alt="Card image cap"
-        :height="$mq | mq({xs: '350px', sm: '400px', md: '450px', lg: '500px'})" />
+        :height="$mq | mq({xs: '350px', sm: '400px', md: '450px', lg: '500px'})" style="padding: 10px" />
     </div>
 
-    <div class="col-12 col-sm-6 text-left">
+    <div class="col-12 col-sm-6 text-left" style="padding: 30px;">
       <!-- <h2 v-if="pet.adoptable==false" style="color: #750000">This good boy/girl has found a home.</h2> -->
       <h2 class="card-title">{{pet.name}}</h2>
       <p class="card-text">Description: {{pet.description}}</p>
@@ -14,13 +14,16 @@
       <p class="card-text">Primary Breed: {{pet.breeds.primary}}</p>
       <p class="card-text">Secondary Breed: {{pet.breeds.secondary}}</p>
       <p class="card-text">Type: {{pet.type}}</p>
-      <p class="card-text" v-if="pet.type == 'cat'">Declawed: {{pet.attributes.declawed}}
-        <div v-if="pet.gender=='male'">
-          <p>{{pet.attributes.spayed_neutered}}</p>
-        </div>
+      <p class="card-text" v-if="pet.type === 'cat'">Declawed: {{pet.attributes.declawed}}
+        <p class="card-text">Spayed/Neutered: {{pet.attributes.spayed_neutered}}</p>
+        <p class="card-text">House Trained: {{pet.attributes.house_trained}}</p>
+        <p class="card-text">Good With: {{pet.attributes.environment}}</p>
+        <p class="card-text">Phone: {{pet.contact.phone}}</p>
+        <p class="card-text">Emial: {{pet.contact.email}}</p>
+        <p class="card-text">Location: {{pet.contact.address.city}}, {{pet.contact.address.state}}</p>
+        <p class="card-text">Tags: {{pet.tags}}</p>
         <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
         <!-- </div> -->
-
 
     </div>
     <!-- set2 -->
