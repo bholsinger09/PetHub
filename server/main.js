@@ -34,7 +34,7 @@ server.use(bp.urlencoded({
 import Session from './middleware/session'
 import AuthController from './controllers/AuthController'
 server.use(new Session().express)
-server.use('/auth', new AuthController().router)
+server.use('/api/auth', new AuthController().router)
 
 
 
@@ -46,8 +46,8 @@ server.use('/api/animals', new AnimalController().router)
 import PetApi from './controllers/PetApiController'
 server.use('/api/pet-api', new PetApi().router)
 
-import UserController from './controllers/UserController'
-server.use('/api/users', new UserController().router)
+// import UserController from './controllers/UserController'
+// server.use('/api/users', new UserController().router)
 
 
 

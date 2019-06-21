@@ -8,11 +8,13 @@ Vue.use(Vuex)
 let base = window.location.host.includes('localhost:8080') ? '//localhost:3000' : '/'
 
 let api = Axios.create({
-  baseURL: 'http://localhost:3000/api/'
+  baseURL: 'http://localhost:3000/api/',
+  timeout: 3000,
+  withCredentials: true
 })
 
 let auth = Axios.create({
-  baseURL: api + "auth/",
+  baseURL: "http://localhost:3000/api/auth/",
   timeout: 3000,
   withCredentials: true
 })
@@ -40,7 +42,7 @@ export default new Vuex.Store({
   actions: {
     //#region -- Auth Stuff --
     registerUser({ commit, dispatch }, newUser) {
-      debugger
+      // debugger
       auth.post('register', newUser)
         .then(res => {
           commit('setUser', res.data)

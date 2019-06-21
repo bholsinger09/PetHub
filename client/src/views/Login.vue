@@ -50,7 +50,7 @@
         this.$store.dispatch("loginUser", this.creds)
       },
       registerUser() {
-        debugger
+        // debugger
         this.$store.dispatch("registerUser", this.userReg)
       }
     }
