@@ -2,8 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import bp from 'body-parser'
 
-const server = express()
 
+const server = express();
 
 //Sets the port to Heroku's, and the files to the built project 
 var port = process.env.PORT || 3000

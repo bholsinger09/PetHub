@@ -12,7 +12,7 @@
           <div class="carousel-caption d-none d-md-block">
             <h3>Find your very best bud!</h3>
             <router-link to="/results">
-              <button class="btn btn-success">Find Your Pet!</button>
+              <button class="btn btn-success mb-2">Find Your Pet!</button>
             </router-link>
           </div>
         </div>
