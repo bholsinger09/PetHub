@@ -11,6 +11,7 @@
       <router-link to="/userprofile">My Account</router-link>
 
     </div>
+    </br>
     <router-view />
     <site-map />
   </div>
