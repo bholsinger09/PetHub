@@ -7,17 +7,19 @@
         <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
         <div class=" col-md-3 col-sm-6" id='dogOrCat'>
           <h3>Animal:</h3>
-          <h1><input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
+          <h1>
+            <input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
             <label for="dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
                 :class="{selected: activeDog}"></i></label>
             <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
             <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
-                :class="{selected: activeCat}"></i></label></h1>
+                :class="{selected: activeCat}"></i></label>
+          </h1>
         </div>
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
-        <div class=" col-md-3 col-sm-6" id='age'>
+        <div class=" col-md-3    col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h3>Age: <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
             <label for="Baby" @click="activeBaby = !activeBaby" :class="{selected: activeBaby}">Baby</label>
@@ -65,8 +67,8 @@
             <label for="female"> <i class="fas fa-venus" @click="activeVenus = !activeVenus"
                 :class="{selected: activeVenus}"></i>
             </label></h3>
-        </div>
 
+        </div>
 
         <input class="col-3 col-sm-4 offset-md-1" type="text" v-model="searchParams.breed" placeholder="breed">
 
