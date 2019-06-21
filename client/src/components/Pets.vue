@@ -1,69 +1,71 @@
 <template>
   <div id="pets-results">
 
-    <form @submit.prevent="petSearch" class="searchForm">
+    <form @submit.prevent="petSearch" class="searchForm container-fluid">
+      <div class="row">
 
-      <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat">
-      <div id='dogOrCat'>
-        <input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
-        <label for="dog"><i class="fas fa-dog fa-lg"></i></label>
-        <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
-        <label for="cat"><i class="fas fa-cat fa-lg"></i></label>
-        <br>
+        <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
+        <div class="col-3" id='dogOrCat'>
+          <h1><input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
+            <label for="dog"><i class="fas fa-dog fa-lg"></i></label>
+            <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
+            <label for="cat"><i class="fas fa-cat fa-lg"></i></label></h1>
+          <!-- <br> -->
+        </div>
+
+
+        <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
+        <div class="col-3" id='age'>
+          <!-- <p>{{searchParams.age}}</p> -->
+          <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
+          <label for="Baby">Baby</label>
+          <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
+          <label for="Young">Young</label>
+          <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
+          <label for="Adult">Adult</label>
+          <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
+          <label for="Seinor">Seinor</label>
+          <br>
+        </div>
+
+        <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
+        <div class="col-3" id='size'>
+          <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
+          <label for="small">
+            <h3><i class="fas fa-cat fa-sm"></i></h3>
+          </label>
+          <input type="checkbox" class="hidden" id="medium" value="medium" v-model="searchParams.size">
+          <label for="medium">
+            <h2><i class="fas fa-dog fa-md"></i></h2>
+          </label>
+          <input type="checkbox" class="hidden" id="large" value="large" v-model="searchParams.size">
+          <label for="large">
+            <h2><i class="fas fa-cat fa-lg"></i></h2>
+          </label>
+          <input type="checkbox" class="hidden" id="xlarge" value="xlarge" v-model="searchParams.size">
+          <label for="xlarge">
+            <h2><i class="fas fa-dog fa-2x"></i></h2>
+          </label>
+          <br>
+        </div>
+
+        <!-- <input type="text" v-model="searchParams.gender" placeholder="gender"> -->
+        <div class="col-3" id='gender'>
+          <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
+          <label for="male">Male<i class="fas fa-mars"></i>
+          </label>
+          <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
+          <label for="female">Female<i class="fas fa-venus"></i>
+          </label>
+        </div>
+
+
+        <input class="col-3 offset-1" type="text" v-model="searchParams.breed" placeholder="breed">
+
+        <input class="col-3 offset-1" type="text" v-model="searchParams.location" placeholder="postal code">
+
+        <button class="col-1 offset-1" type="submit">Find</button>
       </div>
-
-
-      <input type="text" v-model="searchParams.age" placeholder="age">
-      <div id='age'>
-        <!-- <p>{{searchParams.age}}</p> -->
-        <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
-        <label for="Baby">Baby</label>
-        <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
-        <label for="Young">Young</label>
-        <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
-        <label for="Adult">Adult</label>
-        <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
-        <label for="Seinor">Seinor</label>
-        <br>
-      </div>
-
-      <input type="text" v-model="searchParams.size" placeholder="size">
-      <div id='size'>
-        <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
-        <label for="small">
-          <h3><i class="fas fa-cat fa-sm"></i></h3>
-        </label>
-        <input type="checkbox" class="hidden" id="medium" value="medium" v-model="searchParams.size">
-        <label fo1r="medium">
-          <h2><i class="fas fa-dog fa-md"></i></h2>
-        </label>
-        <input type="checkbox" class="hidden" id="large" value="large" v-model="searchParams.size">
-        <label for="large">
-          <h2><i class="fas fa-cat fa-lg"></i></h2>
-        </label>
-        <input type="checkbox" class="hidden" id="xlarge" value="xlarge" v-model="searchParams.size">
-        <label for="xlarge">
-          <h2><i class="fas fa-dog fa-2x"></i></h2>
-        </label>
-        <br>
-      </div>
-
-      <input type="text" v-model="searchParams.gender" placeholder="gender">
-      <div id='gender'>
-        <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
-        <label for="male">Male<i class="fas fa-mars"></i>
-        </label>
-        <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
-        <label for="female">Female<i class="fas fa-venus"></i>
-        </label>
-      </div>
-
-
-      <input type="text" v-model="searchParams.breed" placeholder="breed">
-
-      <input type="text" v-model="searchParams.location" placeholder="postal code">
-
-      <button type="submit">Find</button>
     </form>
 
     <div class="container">
