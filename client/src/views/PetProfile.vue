@@ -10,7 +10,9 @@
       <!-- <h2 v-if="pet.adoptable==false" style="color: #750000">This good boy/girl has found a home.</h2> -->
       <h2 class="card-title">{{pet.name}}</h2>
       <!-- <p class="card-text">Type: {{pet.type}}</p> -->
-      <p class="card-text">Description: {{pet.description}}</p>
+      <p class="card-text">Description: {{pet.description}} <a :href="pet.url" target="_blank" class="text-muted">View
+          Full Bio</a>
+      </p>
       <p class="card-text">Age: {{pet.age}}</p>
       <p class="card-text" v-if="pet.status == 'adoptable'">Status: Adoptable</p>
       <p class="card-text" v-if="pet.status == 'adopted'">Status: Adopted</p>
@@ -24,15 +26,18 @@
         </p>
         <p class="card-text" v-if="pet.attributes.house_trained == true">House Trained: <i class="fas fa-check"></i></p>
         <p class="card-text" v-if="pet.attributes.house_trained == false">House Trained: <i class="fas fa-ban"></i></p>
-        <p class="card-text">Good With: {{pet.attributes.environment}}</p>
         <p class="card-text">Phone: {{pet.contact.phone}}</p>
         <p class="card-text">Email: {{pet.contact.email}}</p>
         <p class="card-text">Location: {{pet.contact.address.city}}, {{pet.contact.address.state}}</p>
         <p class="card-text" v-if="!pet.tags === []">Tags: {{pet.tags}}</p>
+        <span>Good With: </span>
+        <span class="card-text" v-if="pet.environment.children ==true">• Children </span>
+        <span v-if="pet.environment.dogs == true"> • Dogs</span>
+        <span v-if="pet.environment.cats == true"> • Cats</span>
         <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
         <!-- </div> -->
     </div>
-
+    {{pet}}
     <!-- set2 -->
     <!-- <div class="col-6 col-sm-12">
       <p class="card-text">Age:{{pet.age}} Sex:{{pet.gender}} Size:{{pet.size}}</p>
