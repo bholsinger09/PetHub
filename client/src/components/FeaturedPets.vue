@@ -8,7 +8,7 @@
         <div class="card-body"></div>
         <h5 class="card-title">{{pet.name}}</h5>
         <p class="card-text"> {{pet.breeds.primary}}</p>
-        <button class="btn btn-primary">Favorite</button>
+        <button class="btn btn-primary" @click="goToPet(pet.id)">View Pet</button>
       </div>
     </div>
   </div>
@@ -26,6 +26,9 @@
       return {}
     },
     methods: {
+      goToPet(id) {
+        this.$store.dispatch("getPetById", id)
+      },
       getPicture(photos) {
         if (!photos.length) { return defaultImg }
         return photos[0].large
