@@ -30,6 +30,7 @@
         <!-- <div v-if="pet.gender==female">Spayed: <p> {{pet.attributes.spayed_neutered}} </p> -->
         <!-- </div> -->
     </div>
+
     <!-- set2 -->
     <!-- <div class="col-6 col-sm-12">
       <p class="card-text">Age:{{pet.age}} Sex:{{pet.gender}} Size:{{pet.size}}</p>
