@@ -6,57 +6,65 @@
 
         <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
         <div class=" col-md-3 col-sm-6" id='dogOrCat'>
+          <h3>Animal:</h3>
           <h1><input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
-            <label for="dog"><i class="fas fa-dog fa-lg"></i></label>
+            <label for="dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
+                :class="{selected: activeDog}"></i></label>
             <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
-            <label for="cat"><i class="fas fa-cat fa-lg"></i></label></h1>
-          <!-- <br> -->
+            <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
+                :class="{selected: activeCat}"></i></label></h1>
         </div>
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
         <div class=" col-md-3 col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
-          <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
-          <label for="Baby">Baby</label>
-          <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
-          <label for="Young">Young</label>
-          <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
-          <label for="Adult">Adult</label>
-          <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
-          <label for="Seinor">Seinor</label>
-          <br>
+          <h3>Age: <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
+            <label for="Baby" @click="activeBaby = !activeBaby" :class="{selected: activeBaby}">Baby</label>
+            <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
+            <h4> <label for="Young" @click="activeYoung = !activeYoung" :class="{selected: activeYoung}">Young</label>
+            </h4>
+            <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
+            <label for="Adult" @click="activeAdult = !activeAdult" :class="{selected: activeAdult}">Adult</label>
+            <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
+            <label for="Seinor" @click="activeSeinor = !activeSeinor" :class="{selected: activeSeinor}">Seinor</label>
+          </h3>
         </div>
 
         <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
         <div class="col-md-3 col-sm-6" id='size'>
           <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
           <label for="small">
-            <h3><i class="fas fa-cat fa-sm"></i></h3>
+            <h3>Size: <i class="fas fa-cat fa-sm" @click="activeSmall = !activeSmall"
+                :class="{selected: activeSmall}"></i></h3>
           </label>
           <input type="checkbox" class="hidden" id="medium" value="medium" v-model="searchParams.size">
           <label for="medium">
-            <h2><i class="fas fa-dog fa-md"></i></h2>
+            <h2><i class="fas fa-dog fa-md" @click="activeMedium = !activeMedium" :class="{selected: activeMedium}"></i>
+            </h2>
           </label>
           <input type="checkbox" class="hidden" id="large" value="large" v-model="searchParams.size">
           <label for="large">
-            <h2><i class="fas fa-cat fa-lg"></i></h2>
+            <h2><i class="fas fa-cat fa-lg" @click="activeLarge = !activeLarge" :class="{selected: activeLarge}"></i>
+            </h2>
           </label>
           <input type="checkbox" class="hidden" id="xlarge" value="xlarge" v-model="searchParams.size">
           <label for="xlarge">
-            <h2><i class="fas fa-dog fa-2x"></i></h2>
+            <h2><i class="fas fa-dog fa-2x" @click="activeXLarge = !activeXLarge" :class="{selected: activeXLarge}"></i>
+            </h2>
           </label>
-          <br>
         </div>
 
         <!-- <input type="text" v-model="searchParams.gender" placeholder="gender"> -->
         <div class="col-md-3 col-sm-6" id='gender'>
-          <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
-          <label for="male">Male<i class="fas fa-mars"></i>
-          </label>
-          <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
-          <label for="female">Female<i class="fas fa-venus"></i>
-          </label>
+          <h3>Gender: <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
+            <label for="male"><i class="fas fa-mars" @click="activeMars = !activeMars" :class="{selected: activeMars}">
+              </i>
+            </label>
+            <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
+            <label for="female"> <i class="fas fa-venus" @click="activeVenus = !activeVenus"
+                :class="{selected: activeVenus}"></i>
+            </label></h3>
         </div>
 
 
@@ -64,11 +72,11 @@
 
         <input class="col-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.location" placeholder="postal code">
 
-        <button class="col-1 offset-md-1" type="submit">Find</button>
+        <button class="offset-md-1 col-md-1 col-sm-2 " type="submit">Find</button>
       </div>
     </form>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="searchCard row">
         <div class="card col-12 col-sm-6 col-md-3 d-flex justify-content-between align-items-center" v-for="pet in pets"
           :value="pet.id" style="border-radius: 10px; margin-top: 20px;">
@@ -96,6 +104,18 @@
     name: "pets",
     data() {
       return {
+        activeDog: false,
+        activeCat: false,
+        activeBaby: false,
+        activeYoung: false,
+        activeAdult: false,
+        activeSeinor: false,
+        activeSmall: false,
+        activeMedium: false,
+        activeLarge: false,
+        activeXLarge: false,
+        activeMars: false,
+        activeVenus: false,
         searchParams: {
           dogOrCat: "",
           breed: [],
@@ -137,14 +157,12 @@
     visibility: hidden;
   }
 
-  .fas:checked {
-    color: blue;
-    background-color: blueviolet;
+  .fas:active {
+    color: #ffff379b;
   }
 
-  .fas:active {
+  .selected {
     color: #750000;
-    /* color: #ffff379b; */
     text-shadow: #d48b36;
   }
 </style>
