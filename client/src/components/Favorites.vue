@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <h1>all the favorites</h1>
+  </div>
 </template>
 
 <script>

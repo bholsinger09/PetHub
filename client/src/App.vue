@@ -7,9 +7,17 @@
         <h4 style="float: left; padding-top: 10px; color: #28a745;">PetHub</h4>
       </router-link>
       <router-link to="/results">Search</router-link> |
-      <router-link to="/about">About</router-link>|
+      <router-link to="/about">About</router-link> |
       <router-link to="/userprofile">My Account</router-link>
-
+      <div v-if="!user._id" style="float: right;">
+        <router-link to="/login">
+          <button class="btn btn-warning">Login</button>
+        </router-link>
+      </div>
+      <div v-else style="float: right;">
+        <p>Logged in as: {{user.name}}</p>
+        <button class="btn btn-warning" @click="logout">Logout</button>
+      </div>
     </div>
     </br>
     <router-view />
@@ -22,7 +30,16 @@
 
   export default {
 
-
+    computed: {
+      user() {
+        return this.$store.state.user;
+      }
+    },
+    methods: {
+      logout() {
+        this.$store.dispatch("logout")
+      }
+    },
     components: {
       SiteMap,
     },

@@ -49,13 +49,33 @@ export default new Vuex.Store({
           router.push({ name: 'home' })
         })
     },
+    authenticate({ commit, dispatch }) {
+      auth.get('authenticate')
+        .then(res => {
+          commit('setUser', res.data)
+          //router.push({ name: 'boards' })
+        })
+        .catch(res => {
+          router.push({ name: 'login' })
+        })
+    },
     loginUser({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
+          router.push({ name: 'userprofile' })
 
         })
     },
+    logout({ commit }) {
+      auth.delete("logout")
+        .then(res => {
+          commit("setUser", {})
+          router.push({ name: 'home' })
+        })
+    },
+
+
 
     //#endregion
 

@@ -22,6 +22,11 @@
     <h6>Search - Photo by Krista Mangulsone on Unsplash</h6>
     <h6>Meetup - Photo by Jonas Vincent on Unsplash</h6>
     <h6>Forum - Photo by Aziz Acharki on Unsplash</h6>
+    </br>
+    <p>Created using <a href="https://fontawesome.com/support"> <i class="fab fa-font-awesome-flag"></i></a> - <a
+        href="https://www.javascript.com/"> <i class="fab fa-js-square"></i></a> - <a href="https://vuejs.org/"> <i
+          class="fab fa-vuejs"></i></a> - <i class="fab fa-css3-alt"></i> - <i class="fab fa-html5"></i>
+    </p>
   </div>
 </template>
 
