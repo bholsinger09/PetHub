@@ -5,31 +5,31 @@
       <div class="row">
 
         <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
-        <div class=" col-md-3 col-sm-6" id='dogOrCat'>
-          <h3>Animal:</h3>
-          <h1>
+        <div class=" col-md-2 col-sm-6" id='dogOrCat'>
+
+          <h3>Animal:
             <input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
             <label for="dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
                 :class="{selected: activeDog}"></i></label>
             <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
             <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
                 :class="{selected: activeCat}"></i></label>
-          </h1>
+          </h3>
+
         </div>
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
-        <div class=" col-md-3    col-sm-6" id='age'>
+        <div class=" col-md-4  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h3>Age: <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
             <label for="Baby" @click="activeBaby = !activeBaby" :class="{selected: activeBaby}">Baby</label>
             <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
-            <h4> <label for="Young" @click="activeYoung = !activeYoung" :class="{selected: activeYoung}">Young</label>
-            </h4>
+            <label for="Young" @click="activeYoung = !activeYoung" :class="{selected: activeYoung}">Young</label>
             <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
             <label for="Adult" @click="activeAdult = !activeAdult" :class="{selected: activeAdult}">Adult</label>
             <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
-            <label for="Seinor" @click="activeSeinor = !activeSeinor" :class="{selected: activeSeinor}">Seinor</label>
+            <label for="Seinor" @click="activeSeinor = !activeSeinor" :class="{selected: activeSeinor}">Senior</label>
           </h3>
         </div>
 
@@ -165,7 +165,7 @@
   }
 
   .selected {
-    color: #750000;
+    color: #75000030;
     text-shadow: #d48b36;
   }
 </style>
