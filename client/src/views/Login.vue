@@ -7,7 +7,7 @@
           <input type="text" v-model="userReg.name" placeholder="name">
           <input type="email" v-model="userReg.email" placeholder="email">
           <input type="text" v-model="userReg.zip" placeholder="enter zip code">
-          <input type="text" v-model="userReg.password" placeholder="enter password">
+          <input type="password" v-model="userReg.password" placeholder="enter password">
           <button class="btn btn-info">Create Account</button>
         </form>
       </div>
@@ -15,7 +15,7 @@
         <div id="user-login">
           <form style="float: right;" @submit.prevent="loginUser">
             <input type="text" v-model="creds.email" placeholder="email">
-            <input type="text" v-model="creds.password" placeholder="enter password">
+            <input type="password" v-model="creds.password" placeholder="enter password">
             <button class="btn btn-info">Login</button>
           </form>
         </div>
