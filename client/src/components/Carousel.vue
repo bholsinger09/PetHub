@@ -1,6 +1,6 @@
 <template>
   <div id="carousel-item">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -9,7 +9,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active" id="search">
           <img src="../assets/carousel1.jpg" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption">
             <h3>Find your very best bud!</h3>
             <router-link to="/results">
               <button class="btn btn-success mb-2">Find Your Pet!</button>

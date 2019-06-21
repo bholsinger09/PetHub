@@ -9,6 +9,7 @@ let _repo = _service.repository
 export default class UserController {
   constructor() {
     this.router = express.Router()
+
       .get(':/id', this.getAnimalById)
       // .get('', this.getDogs)
       // .get('', this.getCats)
@@ -19,6 +20,7 @@ export default class UserController {
   defaultRoute(req, res, next) {
     next({ status: 404, nessage: "No such route" })
   }
+  async
   async getAnimalById(req, res, next) {
     try {
       // url/id getting data.name && data.breed && data.image.medium
