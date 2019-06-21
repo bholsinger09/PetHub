@@ -16,7 +16,10 @@
       <p class="card-text" v-if="pet.breeds.secondary">Secondary Breed: {{pet.breeds.secondary}}</p>
       <p class="card-text">Type: {{pet.type}}</p>
       <p class="card-text" v-if="pet.type === 'Cat'">Declawed: {{pet.attributes.declawed}}
-        <p class="card-text">Spayed/Neutered: {{pet.attributes.spayed_neutered}}</p>
+        <p class="card-text" v-if="pet.attributes.spayed_neutered == true">Spayed/Neutered: <i class="fas fa-check"></i>
+        </p>
+        <p class="card-text" v-if="pet.attributes.spayed_neutered == false">Spayed/Neutered: <i class="fas fa-ban"></i>
+        </p>
         <p class="card-text" v-if="pet.attributes.house_trained == true">House Trained: <i class="fas fa-check"></i></p>
         <p class="card-text" v-if="pet.attributes.house_trained == false">House Trained: <i class="fas fa-ban"></i></p>
         <p class="card-text">Good With: {{pet.attributes.environment}}</p>
