@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import SearchResults from './views/SearchResults.vue'
 import petprofile from './views/PetProfile.vue'
 import UserProfile from './views/UserProfile.vue'
+import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -35,9 +36,14 @@ export default new Router({
       component: petprofile
     },
     {
-      path: '/userprofile/:id',
+      path: '/userprofile',
       name: 'userprofile',
       component: UserProfile
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
   ]
 })
