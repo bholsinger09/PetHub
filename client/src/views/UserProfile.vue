@@ -1,14 +1,17 @@
 <template>
   <div>
     <div class="container-fluid">
+
       <div class="row">
         <h1>Favorites</h1>
-        <Favorites />
+        </Favorites>
         <div class="col-6"></div>
         <div class="col-6">
           <h1>Searches</h1>
+          <!-- </Searches> -->
         </div>
       </div>
+
       <div class="row">
         <div class="col-12">
           <h1>Settings</h1>
@@ -18,9 +21,8 @@
           <p>Location:{{user.zip}}</p>
         </div>
       </div>
+
     </div>
-
-
   </div>
 </template>
 
