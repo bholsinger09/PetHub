@@ -8,6 +8,7 @@
       </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
+      <router-link to="/forum">Forum</router-link> |
       <router-link :to="{name: 'userProfile', params: {id: user._id}}">
         My Account
       </router-link>

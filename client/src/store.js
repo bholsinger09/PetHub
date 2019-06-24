@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import router from './router.js'
 import Axios from 'axios'
 
+
 Vue.use(Vuex)
 
 let base = window.location.host.includes('localhost:8080') ? '//localhost:3000' : '/'
@@ -25,7 +26,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     pets: [],
-    pet: {}
+    pet: {},
+    topics: []
   },
   mutations: {
     setUser(state, user) {
@@ -35,8 +37,10 @@ export default new Vuex.Store({
       state.pets = data
     },
     setPet(state, data) {
-
       state.pet = data
+    },
+    setTopics(state, data) {
+      state.topics = data
     }
   },
   actions: {
@@ -80,6 +84,7 @@ export default new Vuex.Store({
 
 
 
+
     //#endregion
 
     async petSearch({ commit, dispatch }, payload) {
@@ -119,7 +124,16 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
+    async getAllTopics({ commit, dispatch }) {
+      try {
+        let res = await api.get("topic")
+        commit("setTopics", res.data)
+        console.log(res.data)
+      } catch (error) {
+        console.log(error)
 
+      }
+    }
 
 
   }//actions
