@@ -8,13 +8,8 @@
       </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
-<<<<<<< HEAD
       <router-link :to="{name: 'userProfile', params: {id: user._id}}">
         My Account
-=======
-      <router-link to="/userprofile/">
-        <span @click="goToUser(user._id)">Account</span>
->>>>>>> f7d3a5f647fbcb57074ee0ecb71a6c0352eb2e1f
       </router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">

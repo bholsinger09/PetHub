@@ -26,6 +26,7 @@
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
           <p>Location:{{user.zip}} <form @submit.prevent="editZip" class="">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
+
         </div>
       </div>
 
