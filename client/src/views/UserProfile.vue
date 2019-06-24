@@ -15,24 +15,23 @@
       <div class="row">
         <div class="col-12">
           <h1>Settings</h1>
-          <p>Name:{{user.name}} <form @submit.prevent="editName" class="">
+          <p>Name:{{user.name}} <form @submit.prevent="editName" class=""><input type="text" v-model="creds.email"
+                placeholder="email">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></form>
           </p>
           <p>Pic: <img src="User.pic" alt="">
-            <form @submit.prevent="editPic" class="">
+            <form @submit.prevent="editPic" class=""><input type="text" v-model="creds.email" placeholder="email">
               <button class="" type="submit"><i class="fas fa-edit"></i></button>
           </p>
           </form>
-          <p>Email:{{user.email}} <form @submit.prevent="editEmail" class="">
+          <p>Email:{{user.email}} <form @submit.prevent="editEmail" class=""><input type="email" v-model="creds.email"
+                placeholder="email">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
           </form>
-          <p>Location:{{user.zip}} <form @submit.prevent="editZip" class="">
+          <p>Location:{{user.zip}} <form @submit.prevent="editZip" class=""><input type="number" v-model="creds.email"
+                placeholder="email">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
-<<<<<<< HEAD
-
-=======
           </form>
->>>>>>> 19cd054f8638cb47b4e1271537f31c5d5c0e18f3
         </div>
       </div>
 
