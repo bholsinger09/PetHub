@@ -8,13 +8,13 @@
           <input type="email" v-model="userReg.email" placeholder="email">
           <input type="text" v-model="userReg.zip" placeholder="enter zip code">
           <input type="password" v-model="userReg.password" placeholder="enter password">
-          <button class="btn btn-info">Create Account</button>
+          <button class="btn-sm btn-success">Create Account</button>
         </form>
       </div>
       <div class="col">
         <div id="user-login">
           <form style="float: right;" @submit.prevent="loginUser(creds)">
-            <input type="text" v-model="creds.email" placeholder="email">
+            <input type="email" v-model="creds.email" placeholder="email">
             <input type="password" v-model="creds.password" placeholder="enter password">
             <button class="btn btn-info">Login</button>
           </form>
