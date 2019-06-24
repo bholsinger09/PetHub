@@ -15,6 +15,7 @@
       <div class="row">
         <div class="col-12">
           <h1>Settings</h1>
+<<<<<<< HEAD
           <p>Name:{{user.name}} <form @submit.prevent="editName" class="">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></form>
           </p>
@@ -30,7 +31,40 @@
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
           </form>
           {{user}}
+=======
+          <div class="row">
+
+            <div class="col-6">
+              <p>Pic: <img src="User.pic" alt="">
+                <form @submit.prevent="editPic" class=""><input type="text" v-model="newPic.pic" placeholder="Pic Link">
+                  <button class="" type="submit"><i class="fas fa-edit"></i></button>
+              </p>
+              </form>
+            </div><!-- col-6 pic-->
+            <div class="col-6">
+              <p>Name:{{user.name}} <form @submit.prevent="editName" class=""><input type="text" v-model="newName.name"
+                    placeholder="Name">
+                  <button class="" type="submit"><i class="fas fa-edit"></i></button></form>
+              </p>
+            </div><!-- col-6 name-->
+            <div class="col-6">
+              <p>Email:{{user.email}} <form @submit.prevent="editEmail" class=""><input type="email"
+                    v-model="newEmail.Email" placeholder="E-mail">
+                  <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
+              </form>
+            </div><!-- col-6 email-->
+            <div class="col-6">
+              <p>Location:{{user.zip}} <form @submit.prevent="editZip" class=""><input type="number"
+                    v-model="newZip.zip" placeholder="zip code">
+                  <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
+              </form>
+            </div> <!-- col-6 zip-->
+          </div>
+          <!--//row -->
+
+>>>>>>> 88301aff06fedc3e8790b19c8c9f2bfc1d42f579
         </div>
+        <!--col-12 Settings -->
       </div>
     </div>
 
@@ -63,16 +97,15 @@
           zip: ''
         },
       }
-
-    },
+    }, //Data
     computed: {
       user() {
         return this.$store.state.user;
       }
-    },
+    }, //computed
     components: {
       Favorites
-    },
+    }, //components
     methods: {
       editEmail() {
         this.$store.dispatch('updateUser', this.newEmail)
