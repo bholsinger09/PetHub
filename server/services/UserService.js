@@ -30,9 +30,10 @@ let _schema = new Schema({
   //every email must be unique on the database
   email: { type: String, required: true, unique: true },
   zip: { type: Number },
-  hash: { type: String, required: true },
+  password: { type: String, required: true },
   searches: [searchesSchema],
   favorites: [favoritesSchema],
+  picture: { type: String }
 }, { timestamps: true })
 
 //schema.methods are used to add a method to a Model instance

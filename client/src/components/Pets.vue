@@ -140,12 +140,20 @@
         return photos[0].large
       },
       addFavorite(id) {//we need to render the user data with the pet id to upddate the user - HOW?????
-        this.$store.dispatch('updateUser', id)
+        // let favorite = { ... this.id, userId: this.user._id };
+        debugger
+        let favorite = { petId: id }
+        this.user.favorites.push(favorite)
+        // this.userId.favorites.push(favorite);
+        this.$store.dispatch('updateUser', this.user)
       }
     },
     computed: {
       pets() {
         return this.$store.state.pets;
+      },
+      user() {
+        return this.$store.state.user;
       }
     }
   }

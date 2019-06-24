@@ -8,10 +8,12 @@
       </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/userprofile">My Account</router-link>
+      <router-link to="/userprofile/">
+        <p @click="goToUser(user._id)">My Account</p>
+      </router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">
-          <button class="btn btn-warning">Login</button>
+          <button class="btn btn-warning">Login Page</button>
         </router-link>
       </div>
       <div v-else style="float: right;">
@@ -29,6 +31,7 @@
   import SiteMap from '@/components/Footer.vue'
 
   export default {
+    props: ["user"],
 
     computed: {
       user() {
@@ -38,6 +41,9 @@
     methods: {
       logout() {
         this.$store.dispatch("logout")
+      },
+      goToUser() {
+        this.$store.dispatch("goToUser")
       }
     },
     components: {

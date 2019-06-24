@@ -60,6 +60,7 @@ export default new Vuex.Store({
         })
     },
     loginUser({ commit, dispatch }, creds) {
+      debugger
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
@@ -111,10 +112,19 @@ export default new Vuex.Store({
     },
     async updateUser({ commit, dispatch }, payload) {
       try {
-        let res = await api.put('user/' + payload)
+        let res = await auth.put(payload._id, payload)
         commit("setUser", res.data)
+        console.log(res.data)
       } catch (error) { console.log(error) }
-    }
+    },
+    // aysnc goToUser({ commit, dispatch }, payload) {
+    //   try {
+    //     let res = await api.get('')
+    //   } catch (error) {
+
+    //   }
+    // }
+
 
 
   }//actions
