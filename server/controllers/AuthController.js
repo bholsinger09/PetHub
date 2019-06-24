@@ -50,12 +50,13 @@ export default class AuthController {
 
             let user = await _repo.findOne({ email: req.body.email })
             if (!user) {
-                return res.status(400).send("Invalid Username Or Password")
+                return res.status(400).send("Invalid Username ")
             }
             //CHECK THE PASSWORD
             let valid = await user.validatePassword(req.body.password)
+            console.log(req.body.password)
             if (!valid) {
-                return res.status(400).send("Invalid Username Or Password")
+                return res.status(400).send("Invalid Password")
             }
             //ALWAYS REMOVE THE PASSWORD FROM THE USER OBJECT
             delete user._doc.hash
@@ -107,6 +108,8 @@ export default class AuthController {
             })
         } catch (error) { next(error) }
     }
+
+
 }
 
 

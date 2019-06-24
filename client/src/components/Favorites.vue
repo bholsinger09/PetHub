@@ -9,6 +9,7 @@
           content.
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p>{{user}}</p>
       </div>
     </div>
   </div>

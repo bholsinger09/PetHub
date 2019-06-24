@@ -8,8 +8,8 @@
       </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/userprofile/">
-        <p @click="goToUser(user._id)">My Account</p>
+      <router-link :to="{name: 'userProfile', params: {id: user._id}}">
+        My Account
       </router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">
@@ -31,7 +31,16 @@
   import SiteMap from '@/components/Footer.vue'
 
   export default {
-    props: ["user"],
+    mounted() {
+      //Authenticate on startup
+      this.$store.dispatch('authenticate')
+      setTimeout(() => {
+        if (!this.$store.state.user._id) {
+          this.$router.push({ name: "login" });
+        }
+      }, 1000)
+    },
+
 
     computed: {
       user() {

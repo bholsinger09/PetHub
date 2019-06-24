@@ -15,7 +15,7 @@ let api = Axios.create({
 
 let auth = Axios.create({
   baseURL: "http://localhost:3000/api/auth/",
-  timeout: 3000,
+  // timeout: 3000,
   withCredentials: true
 })
 
@@ -60,9 +60,11 @@ export default new Vuex.Store({
         })
     },
     loginUser({ commit, dispatch }, creds) {
-      debugger
+      // debugger
       auth.post('login', creds)
+
         .then(res => {
+          console.log(res.data)
           commit('setUser', res.data)
           router.push({ name: 'userprofile' })
 
@@ -117,13 +119,6 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
-    // aysnc goToUser({ commit, dispatch }, payload) {
-    //   try {
-    //     let res = await api.get('')
-    //   } catch (error) {
-
-    //   }
-    // }
 
 
 

@@ -92,7 +92,8 @@
             <router-link to="/profile">
               <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
             </router-link>
-            <button class="btn btn-primary m-2" @click="addFavorite(pet.id)">Favorite</button>
+            <button class="btn btn-primary m-2" @click="addFavorite(pet)">Favorite</button>
+
           </div>
         </div>
       </div>
@@ -145,11 +146,11 @@
         if (!photos.length) { return defaultImg }
         return photos[0].large
       },
-      addFavorite(id) {//we need to render the user data with the pet id to upddate the user - HOW?????
+      addFavorite(pet) {//we need to render the user data with the pet id to upddate the user - HOW?????
         // let favorite = { ... this.id, userId: this.user._id };
         debugger
-        let favorite = { petId: id }
-        this.user.favorites.push(favorite)
+        // let favorite = { petId: pet.id }
+        this.user.favorites.push(pet)
         // this.userId.favorites.push(favorite);
         this.$store.dispatch('updateUser', this.user)
       }
