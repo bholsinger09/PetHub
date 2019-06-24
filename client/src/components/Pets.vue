@@ -6,23 +6,21 @@
 
         <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
         <div class=" col-md-2 col-sm-6" id='dogOrCat'>
-
-          <h3>Animal:
+          <h6>Animal:
             <input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
             <label for="dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
                 :class="{selected: activeDog}"></i></label>
             <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
             <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
                 :class="{selected: activeCat}"></i></label>
-          </h3>
-
+          </h6>
         </div>
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
-        <div class=" col-md-4  col-sm-6" id='age'>
+        <div class=" col-md-3  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
-          <h3>Age: <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
+          <h6>Age: <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
             <label for="Baby" @click="activeBaby = !activeBaby" :class="{selected: activeBaby}">Baby</label>
             <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
             <label for="Young" @click="activeYoung = !activeYoung" :class="{selected: activeYoung}">Young</label>
@@ -30,56 +28,52 @@
             <label for="Adult" @click="activeAdult = !activeAdult" :class="{selected: activeAdult}">Adult</label>
             <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
             <label for="Seinor" @click="activeSeinor = !activeSeinor" :class="{selected: activeSeinor}">Senior</label>
-          </h3>
-        </div>
-
-        <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
-        <div class="col-md-3 col-sm-6" id='size'>
-          <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
-          <label for="small">
-            <h3>Size: <i class="fas fa-cat fa-sm" @click="activeSmall = !activeSmall"
-                :class="{selected: activeSmall}"></i></h3>
-          </label>
-          <input type="checkbox" class="hidden" id="medium" value="medium" v-model="searchParams.size">
-          <label for="medium">
-            <h2><i class="fas fa-dog fa-md" @click="activeMedium = !activeMedium" :class="{selected: activeMedium}"></i>
-            </h2>
-          </label>
-          <input type="checkbox" class="hidden" id="large" value="large" v-model="searchParams.size">
-          <label for="large">
-            <h2><i class="fas fa-cat fa-lg" @click="activeLarge = !activeLarge" :class="{selected: activeLarge}"></i>
-            </h2>
-          </label>
-          <input type="checkbox" class="hidden" id="xlarge" value="xlarge" v-model="searchParams.size">
-          <label for="xlarge">
-            <h2><i class="fas fa-dog fa-2x" @click="activeXLarge = !activeXLarge" :class="{selected: activeXLarge}"></i>
-            </h2>
-          </label>
+          </h6>
         </div>
 
         <!-- <input type="text" v-model="searchParams.gender" placeholder="gender"> -->
-        <div class="col-md-3 col-sm-6" id='gender'>
-          <h3>Gender: <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
+        <div class="col-md-2 col-sm-6 text-left" id='gender'>
+          <h6>Gender: <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
             <label for="male"><i class="fas fa-mars" @click="activeMars = !activeMars" :class="{selected: activeMars}">
               </i>
             </label>
             <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
             <label for="female"> <i class="fas fa-venus" @click="activeVenus = !activeVenus"
                 :class="{selected: activeVenus}"></i>
-            </label></h3>
+            </label></h6>
         </div>
-
-        <input class="col-md-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.breed" placeholder="breed">
-
-        <input class="col-md-2 col-sm-4 offset-md-1" type="text" v-model="searchParams.location"
-          placeholder="postal code">
-
-        <button class="offset-md-1 col-md-1 col-sm-2 " type="submit"><i class="fas fa-search"></i>
-        </button>
       </div>
+
+      <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
+      <div class="row d-flex justify-content-left">
+        <div class="col-3 col-md-3 col-sm-4 text-left" id='size'>
+          <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
+          <label for="small">
+            Size: <i class="fas fa-cat fa-xs" @click="activeSmall = !activeSmall" :class="{selected: activeSmall}"></i>
+          </label>
+          <input type="checkbox" class="hidden" id="medium" value="medium" v-model="searchParams.size">
+          <label for="medium">
+            <i class="fas fa-dog fa-sm" @click="activeMedium = !activeMedium" :class="{selected: activeMedium}"></i>
+          </label>
+          <input type="checkbox" class="hidden" id="large" value="large" v-model="searchParams.size">
+          <label for="large">
+            <i class="fas fa-cat fa-lg" @click="activeLarge = !activeLarge" :class="{selected: activeLarge}"></i>
+          </label>
+          <input type="checkbox" class="hidden" id="xlarge" value="xlarge" v-model="searchParams.size">
+          <label for="xlarge">
+            <i class="fas fa-dog fa-2x" @click="activeXLarge = !activeXLarge" :class="{selected: activeXLarge}"></i>
+
+          </label>
+        </div>
+        <input class="col-1" type="text" v-model="searchParams.breed" placeholder="breed">
+        <input class="col-1 ml-1" type="text" v-model="searchParams.location" placeholder="ZIP" width="15">
+        <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
+      </div>
+
+
     </form>
 
-    <div class="container-fluid">
+    <div class="container-fluid w90">
       <div class="searchCard row">
         <div class="card col-12 col-sm-6 col-md-3 d-flex justify-content-between align-items-center" v-for="pet in pets"
           :value="pet.id" style="border-radius: 10px; margin-top: 20px;">
@@ -178,5 +172,9 @@
   .selected {
     color: #75000030;
     text-shadow: #d48b36;
+  }
+
+  .w90 {
+    width: 90% !important;
   }
 </style>

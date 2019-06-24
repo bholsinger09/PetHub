@@ -1,5 +1,5 @@
 <template>
-  <div class="board container-fluid">
+  <div class="board container">
     <!-- <header class="row"> -->
     <form class="new-list row" @submit.prevent="createList">
       <input type="text" class="form-control col-4 offset-1" placeholder="list title" v-model="newList.title" Required>
