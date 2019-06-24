@@ -79,16 +79,15 @@
           zip: ''
         },
       }
-
-    },
+    }, //Data
     computed: {
       user() {
         return this.$store.state.user;
       }
-    },
+    }, //computed
     components: {
       Favorites
-    },
+    }, //components
     methods: {
       editEmail() {
         this.$store.dispatch('updateUser', this.newEmail)
