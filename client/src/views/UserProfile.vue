@@ -15,21 +15,21 @@
       <div class="row">
         <div class="col-12">
           <h1>Settings</h1>
-          <p>Name:{{user.name}} <form @submit.prevent="editName" class=""><input type="text" v-model="creds.email"
-                placeholder="email">
+          <p>Name:{{user.name}} <form @submit.prevent="editName" class=""><input type="text" v-model="newName.name"
+                placeholder="Name">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></form>
           </p>
           <p>Pic: <img src="User.pic" alt="">
-            <form @submit.prevent="editPic" class=""><input type="text" v-model="creds.email" placeholder="email">
+            <form @submit.prevent="editPic" class=""><input type="text" v-model="newPic.pic" placeholder="Pic Link">
               <button class="" type="submit"><i class="fas fa-edit"></i></button>
           </p>
           </form>
-          <p>Email:{{user.email}} <form @submit.prevent="editEmail" class=""><input type="email" v-model="creds.email"
-                placeholder="email">
+          <p>Email:{{user.email}} <form @submit.prevent="editEmail" class=""><input type="email"
+                v-model="newEmail.Email" placeholder="E-mail">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
           </form>
-          <p>Location:{{user.zip}} <form @submit.prevent="editZip" class=""><input type="number" v-model="creds.email"
-                placeholder="email">
+          <p>Location:{{user.zip}} <form @submit.prevent="editZip" class=""><input type="number" v-model="newZip.zip"
+                placeholder="zip code">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
           </form>
         </div>
