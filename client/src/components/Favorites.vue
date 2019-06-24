@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>all the favorites</h1>
-    <div class="card" v-for="favorite in userFavorites" :key="user.favorites._id">
+    <div class="card" v-for="favorite in userFavorites" :key="favorites._id">
       <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
