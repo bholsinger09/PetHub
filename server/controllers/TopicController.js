@@ -11,6 +11,7 @@ export default class TopicController {
     this.router = express.Router()
       .get('', this.getAll)
       .get('/:id', this.getById)
+      .get('/:id/posts', this.getPostsByTopicId)
       .post('', this.create)
       .use(this.defaultRoute)
   }
@@ -26,6 +27,12 @@ export default class TopicController {
   async getById(req, res, next) {
     try {
       let data = await _repo.findOne({ _id: req.params.id }) //_id??
+      return res.send(data)
+    } catch (error) { next(error) }
+  }
+  async getPostsByTopicId(req, res, next) {
+    try {
+      let data = await _repo.find({ topicId: req.params.id })
       return res.send(data)
     } catch (error) { next(error) }
   }

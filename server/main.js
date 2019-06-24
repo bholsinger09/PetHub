@@ -46,6 +46,12 @@ server.use('/api/animals', new AnimalController().router)
 import PetApi from './controllers/PetApiController'
 server.use('/api/pet-api', new PetApi().router)
 
+import TopicController from './controllers/TopicController';
+server.use('/api/topic', new TopicController().router)
+
+import PostController from './controllers/PostController'
+server.use('/api/post', new PostController().router)
+
 // import UserController from './controllers/UserController'
 // server.use('/api/users', new UserController().router)
 
