@@ -7,6 +7,9 @@ let ObjectId = Schema.Types.ObjectId
 const SALT = 10
 
 let favoritesSchema = new Schema({
+  name: { type: String },
+  url: { type: String },
+  description: { type: String },
   petId: { type: String },
 })
 

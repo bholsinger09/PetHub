@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>all the favorites</h1>
-    <div class="card" v-for="favorite in favorites" :key="user.favorites._id">
+    <div class="card" v-for="favorite in userFavorites" :key="user.favorites._id">
       <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -9,7 +9,7 @@
           content.
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
-        <p>{{user}}</p>
+        {{userFavorites.url}}
       </div>
     </div>
   </div>
@@ -23,8 +23,8 @@
     },
 
     computed: {
-      user() {
-        return this.$store.state.user;
+      userFavorites() {
+        return this.$store.state.user.favorites;
       }
     }
   }

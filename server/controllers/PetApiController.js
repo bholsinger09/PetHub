@@ -11,9 +11,6 @@ export default class AnimalController {
     this.router = express.Router()
       .get('', this.getAnimals)
       .get('/:id', this.getAnimal)
-      // .get('', this.getDogs)
-      // .get('', this.getCats)
-      // .get('/:id', this.getCatById)
       .use(this.defaultRoute)
   }
   defaultRoute(req, res, next) {
