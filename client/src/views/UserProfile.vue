@@ -22,10 +22,13 @@
             <form @submit.prevent="editPic" class="">
               <button class="" type="submit"><i class="fas fa-edit"></i></button>
           </p>
+          </form>
           <p>Email:{{user.email}} <form @submit.prevent="editEmail" class="">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
+          </form>
           <p>Location:{{user.zip}} <form @submit.prevent="editZip" class="">
               <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
+          </form>
         </div>
       </div>
 
