@@ -48,8 +48,8 @@
         </div>
         <!--col-12 Settings -->
       </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
