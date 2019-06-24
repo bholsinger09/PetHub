@@ -28,9 +28,11 @@
 
 <script>
   import Favorites from '@/components/Favorites.vue'
+  // import Searches from '@/components/Searches.vue'
 
   export default {
     name: 'UserProfile',
+    // props: ['User'],
     data() {
       return {
 
