@@ -9,7 +9,7 @@
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/userprofile/">
-        <p @click="goToUser(user._id)">My Account</p>
+        <span @click="goToUser(user._id)">Account</span>
       </router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">

@@ -17,17 +17,17 @@
         </div>
 
 
-        <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
+        <input type="text" v-model="searchParams.age" placeholder="age">
         <div class=" col-md-3  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
-          <h6>Age: <input type="checkbox" class="hidden" id="baby" value="baby" v-model="searchParams.age">
+          <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
             <label for="Baby" @click="activeBaby = !activeBaby" :class="{selected: activeBaby}">Baby</label>
             <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
             <label for="Young" @click="activeYoung = !activeYoung" :class="{selected: activeYoung}">Young</label>
             <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
             <label for="Adult" @click="activeAdult = !activeAdult" :class="{selected: activeAdult}">Adult</label>
-            <input type="checkbox" class="hidden" id="Seinor" value="Seinor" v-model="searchParams.age">
-            <label for="Seinor" @click="activeSeinor = !activeSeinor" :class="{selected: activeSeinor}">Senior</label>
+            <input type="checkbox" class="hidden" id="Senior" value="Senior" v-model="searchParams.age">
+            <label for="Senior" @click="activeSenior = !activeSenior" :class="{selected: activeSenior}">Senior</label>
           </h6>
         </div>
 
@@ -106,7 +106,7 @@
         activeBaby: false,
         activeYoung: false,
         activeAdult: false,
-        activeSeinor: false,
+        activeSenior: false,
         activeSmall: false,
         activeMedium: false,
         activeLarge: false,
