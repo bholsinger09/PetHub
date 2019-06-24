@@ -66,7 +66,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res.data)
           commit('setUser', res.data)
-          router.push({ name: 'userprofile' })
+          router.push({ name: 'userProfile', params: { id: res.data._id } })
 
         })
     },
