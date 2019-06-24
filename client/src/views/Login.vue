@@ -14,7 +14,7 @@
       <div class="col">
         <div id="user-login">
           <form style="float: right;" @submit.prevent="loginUser(creds)">
-            <input type="text" v-model="creds.email" placeholder="email">
+            <input type="email" v-model="creds.email" placeholder="email">
             <input type="password" v-model="creds.password" placeholder="enter password">
             <button class="btn btn-info">Login</button>
           </form>

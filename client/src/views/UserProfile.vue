@@ -15,10 +15,18 @@
       <div class="row">
         <div class="col-12">
           <h1>Settings</h1>
-          <p>Name:{{user.name}}</p>
-          <p>Pic:{{user.pic}}</p>
-          <p>email:{{user.email}}</p>
-          <p>Location:{{user.zip}}</p>
+          <p>Name:{{user.name}} <form @submit.prevent="editUser" class="">
+              <button class="" type="submit">Edit</button></form>
+          </p>
+          <p>Pic: <img src="User.pic" alt=""> <button @click="">Edit</button>
+            <!--not connected-->
+          </p>
+          <p>email:{{user.email}} <button @click="editUser">Edit</button>
+            <!--not connected-->
+          </p>
+          <p>Location:{{user.zip}} <button @click="editUser">Edit</button>
+            <!--not connected-->
+          </p>
         </div>
       </div>
 
@@ -46,6 +54,12 @@
     },
     components: {
       Favorites
+    },
+    methods: {
+      editUser() {
+        console.log(this.searchParams)
+        this.$store.dispatch('petSearch', this.searchParams)
+      },
     }
 
   }
