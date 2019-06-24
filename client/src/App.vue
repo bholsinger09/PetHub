@@ -13,7 +13,7 @@
       </router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">
-          <button class="btn btn-warning">Login</button>
+          <button class="btn btn-warning">Login Page</button>
         </router-link>
       </div>
       <div v-else style="float: right;">
