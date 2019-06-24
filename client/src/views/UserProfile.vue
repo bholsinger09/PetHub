@@ -4,7 +4,7 @@
 
       <div class="row">
         <h1>Favorites</h1>
-        </Favorites>
+        <Favorites />
         <div class="col-6"></div>
         <div class="col-6">
           <h1>Searches</h1>
@@ -15,23 +15,6 @@
       <div class="row">
         <div class="col-12">
           <h1>Settings</h1>
-<<<<<<< HEAD
-          <p>Name:{{user.name}} <form @submit.prevent="editName" class="">
-              <button class="" type="submit"><i class="fas fa-edit"></i></button></form>
-          </p>
-          <p>Pic: <img src="User.pic" alt="">
-            <form @submit.prevent="editPic" class="">
-              <button class="" type="submit"><i class="fas fa-edit"></i></button>
-          </p>
-          </form>
-          <p>Email:{{user.email}} <form @submit.prevent="editEmail" class="">
-              <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
-          </form>
-          <p>Location:{{user.zip}} <form @submit.prevent="editZip" class="">
-              <button class="" type="submit"><i class="fas fa-edit"></i></button></p>
-          </form>
-          {{user}}
-=======
           <div class="row">
 
             <div class="col-6">
@@ -62,12 +45,11 @@
           </div>
           <!--//row -->
 
->>>>>>> 88301aff06fedc3e8790b19c8c9f2bfc1d42f579
         </div>
         <!--col-12 Settings -->
       </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
