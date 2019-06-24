@@ -69,11 +69,11 @@ export default class AuthController {
 
     async updateProfile(req, res, next) {
         try {
-            let user = await _repo.findOneAndUpdate({ userId: req.session.uid }, req.body, { new: true })
-            if (user) {
-                return res.send(user)
+            let userToBeFound = await _repo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+            if (userToBeFound) {
+                return res.send(userToBeFound)
             }
-            throw new Error("Not your id son!")
+            throw new Error("Not a valid ID")
         } catch (error) { }
 
     }
