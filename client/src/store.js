@@ -37,7 +37,6 @@ export default new Vuex.Store({
       state.pets = data
     },
     setPet(state, data) {
-
       state.pet = data
     },
     setTopics(state, data) {
@@ -125,6 +124,13 @@ export default new Vuex.Store({
         let res = await auth.put(payload._id, payload)
         commit("setUser", res.data)
         console.log(res.data)
+      } catch (error) { console.log(error) }
+    },
+
+    async getAllTopics({ commit, dispatch }) {
+      try {
+        let res = await api.get("topic")
+        commit("setTopics", res.data)
       } catch (error) { console.log(error) }
     },
 

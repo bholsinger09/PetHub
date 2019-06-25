@@ -7,7 +7,6 @@ import UserProfile from './views/UserProfile.vue'
 import Login from './views/Login.vue'
 import Forum from './views/Forum.vue'
 
-
 Vue.use(Router)
 
 export default new Router({
