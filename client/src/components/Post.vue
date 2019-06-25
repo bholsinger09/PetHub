@@ -2,7 +2,7 @@
   <div class="Post">
     <div class="card">
       <div class="card-body">
-        {{postData.title}}
+        {{post.title}}
       </div>
     </div>
   </div>
@@ -16,9 +16,20 @@
       return {}
     },
     computed: {
+      topic() {
+        return this.$store.state.activeTopic
+      },
+      posts() {
+        return this.$store.state.posts
+      }
+    },
+    mounted() {
+      debugger
+      // this.$store.dispatch('getPosts', this.activeTopic._id)
+    },
+    methods: {
 
     },
-    methods: {},
     components: {}
   }
 </script>
