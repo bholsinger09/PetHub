@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import router from './router.js'
 import Axios from 'axios'
 
-
 Vue.use(Vuex)
 
 let base = window.location.host.includes('localhost:8080') ? '//localhost:3000' : '/'
@@ -26,9 +25,13 @@ export default new Vuex.Store({
   state: {
     user: {},
     pets: [],
+<<<<<<< HEAD
     pet: {},
     topics: [],
     posts: [],
+=======
+    pet: {}
+>>>>>>> 25b60c914c6c1b4ae982dce14ffb3f1f7afc12b0
   },
   mutations: {
     setUser(state, user) {
@@ -38,13 +41,17 @@ export default new Vuex.Store({
       state.pets = data
     },
     setPet(state, data) {
+
       state.pet = data
+<<<<<<< HEAD
     },
     setTopics(state, data) {
       state.topics = data
     },
     setPosts(state, data) {
       state.posts = data
+=======
+>>>>>>> 25b60c914c6c1b4ae982dce14ffb3f1f7afc12b0
     }
   },
   actions: {
@@ -74,7 +81,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res.data)
           commit('setUser', res.data)
-          router.push({ name: 'userProfile', params: { id: res.data._id } })
+          router.push({ name: 'userprofile' })
 
         })
     },
@@ -85,7 +92,6 @@ export default new Vuex.Store({
           router.push({ name: 'home' })
         })
     },
-
 
 
 
@@ -128,14 +134,8 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
-    async getAllTopics({ commit, dispatch }) {
-      try {
-        let res = await api.get("topic")
-        commit("setTopics", res.data)
-        console.log(res.data)
-      } catch (error) {
-        console.log(error)
 
+<<<<<<< HEAD
       }
     },
     async getPosts({ commit, dispatch }, topicId) {
@@ -147,6 +147,8 @@ export default new Vuex.Store({
 
       }
     }
+=======
+>>>>>>> 25b60c914c6c1b4ae982dce14ffb3f1f7afc12b0
 
 
   }//actions

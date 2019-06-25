@@ -5,7 +5,6 @@ import SearchResults from './views/SearchResults.vue'
 import petprofile from './views/PetProfile.vue'
 import UserProfile from './views/UserProfile.vue'
 import Login from './views/Login.vue'
-import Forum from './views/Forum.vue'
 
 Vue.use(Router)
 
@@ -34,13 +33,11 @@ export default new Router({
     {
       path: '/petprofile/:id',
       name: 'petprofile',
-      props: true,
       component: petprofile
     },
     {
       path: '/userprofile/:id',
       name: 'userProfile',
-      props: true,
       component: UserProfile
     },
     {
@@ -48,10 +45,5 @@ export default new Router({
       name: 'login',
       component: Login
     },
-    {
-      path: '/forum',
-      name: 'forum',
-      component: Forum
-    }
   ]
 })

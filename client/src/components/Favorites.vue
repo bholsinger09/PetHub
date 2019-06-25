@@ -1,36 +1,30 @@
 <template>
   <div>
-    <div class="card" v-for="favorite in userFavorites" :key="userFavorites._id">
-      <img src="" class="card-img-top" alt="...">
+    <h1>all the favorites</h1>
+    <div class="card" v-for="favorite in userFavorites" :key="user.favorites._id">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body">
-        <h5 class="card-title">{{favorite.name}}</h5>
-        <p class="card-text">{{favorite.description}}
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.
         </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
+        {{userFavorites.url}}
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
   export default {
-    name: "Favorites",
+    name: "favorites",
     data() {
       return {}
     },
 
     computed: {
       userFavorites() {
-        let user = this.$store.state.user;
-        return user.favorites
-      },
-
-    },
-    methods: {
-      getPicture(url) {
-        if (!url) { return defaultImg }
-        return url
+        return this.$store.state.user.favorites;
       }
     }
   }
