@@ -39,15 +39,12 @@ export default new Vuex.Store({
     setPet(state, data) {
 
       state.pet = data
-<<<<<<< HEAD
     },
     setTopics(state, data) {
       state.topics = data
     },
     setPosts(state, data) {
       state.posts = data
-=======
->>>>>>> 25b60c914c6c1b4ae982dce14ffb3f1f7afc12b0
     }
   },
   actions: {
