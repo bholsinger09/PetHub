@@ -17,7 +17,7 @@
         </div>
 
 
-        <input type="text" v-model="searchParams.age" placeholder="age">
+        <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
         <div class=" col-md-3  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
