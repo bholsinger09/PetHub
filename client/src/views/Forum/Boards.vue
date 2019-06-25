@@ -2,8 +2,22 @@
   <div class="boards">
 
     <form @submit.prevent="addBoard">
+      <!--VIF LOGIN HERE-->
       <input type="text" placeholder="title" v-model="newBoard.title" required>
       <input type="text" placeholder="description" v-model="newBoard.description">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#">Health & Diet</a>
+          <a class="dropdown-item" href="#">Socializing</a>
+          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#">General Discussion</a>
+        </div>
+      </div>
       <button type="submit">Create Board</button>
     </form>
 
@@ -33,7 +47,8 @@
       return {
         newBoard: {
           title: "",
-          description: ""
+          description: "",
+          authorId: this._id, //Maybe?
         }
       };
     },
