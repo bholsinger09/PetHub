@@ -49,6 +49,7 @@ export default new Router({
     {
       path: '/forum',
       name: 'forum',
+      props: true,
       component: Forum
     },
   ]

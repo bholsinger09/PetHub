@@ -1,8 +1,8 @@
 <template>
   <div class="Post">
-    <div class="card" v-for="post in posts" :key="post._id">
+    <div class="card">
       <div class="card-body">
-        This is some text within a card body.
+        {{postData.title}}
       </div>
     </div>
   </div>
@@ -11,11 +11,13 @@
 <script>
   export default {
     name: "Post",
-    props: [],
+    props: ["postData"],
     data() {
       return {}
     },
-    computed: {},
+    computed: {
+
+    },
     methods: {},
     components: {}
   }

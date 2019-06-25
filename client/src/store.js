@@ -131,6 +131,7 @@ export default new Vuex.Store({
       try {
         let res = await api.get("topic")
         commit("setTopics", res.data)
+        console.log(res)
       } catch (error) { console.log(error) }
     },
 
@@ -138,6 +139,7 @@ export default new Vuex.Store({
       try {
         let res = await api.get('topics/' + topicId + '/posts')
         commit('setPosts', res.data)
+        console.log(res)
       } catch (error) { console.log(error) }
     }
 
