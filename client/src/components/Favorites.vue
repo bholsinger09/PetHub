@@ -1,6 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
     <!-- <div class="card" v-for="favorite in userFavorites" :key="userFavorites._id"> -->
 
 
@@ -22,20 +21,6 @@
 
     </ul>
 
-=======
-    <h1>all the favorites</h1>
-    <div class="card" v-for="favorite in userFavorites" :key="user.favorites._id">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        {{userFavorites.url}}
-      </div>
-    </div>
->>>>>>> d73d4ef11ea2ec13b7db2f195d20489d49ed7ad6
   </div>
 </template>
 
