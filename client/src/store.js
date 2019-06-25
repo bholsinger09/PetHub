@@ -87,6 +87,7 @@ export default new Vuex.Store({
     },
     //#endregion
 
+    //#region -- Pet Search Stuff --
     async petSearch({ commit, dispatch }, payload) {
       try {
         let res = await api.get('pet-api?' + "type=" + payload.dogOrCat + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
@@ -117,6 +118,8 @@ export default new Vuex.Store({
         router.push({ name: 'petprofile', params: { id: res.data.animal.id } })
       } catch (error) { console.log(error) }
     },
+    //#endregion
+
     async updateUser({ commit, dispatch }, payload) {
       try {
         let res = await auth.put(payload._id, payload)
@@ -124,6 +127,13 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
+
+    async getPosts({ commit, dispatch }, topicId) {
+      try {
+        let res = await api.get('topics/' + topicId + '/posts')
+        commit('setPosts', res.data)
+      } catch (error) { console.log(error) }
+    }
 
 
 
