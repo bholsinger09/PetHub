@@ -12,7 +12,7 @@
   import FeaturedPets from '@/components/FeaturedPets.vue'
 
   export default {
-    name: 'home',
+    name: 'Home',
     components: {
       Carousel,
       FeaturedPets,

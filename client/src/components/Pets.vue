@@ -17,7 +17,7 @@
         </div>
 
 
-        <input type="text" v-model="searchParams.age" placeholder="age">
+        <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
         <div class=" col-md-3  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
@@ -83,9 +83,9 @@
             <h5 class="card-title">{{pet.name}}</h5>
             <p class="card-text"> {{pet.breeds.primary}}</p>
             {{pet.photos.small}}
-            <router-link to="/profile">
-              <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
-            </router-link>
+
+            <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
+
             <button class="btn btn-primary m-2" @click="addFavorite(pet)">Favorite</button>
 
           </div>
@@ -141,11 +141,8 @@
         return photos[0].large
       },
       addFavorite(pet) {//we need to render the user data with the pet id to upddate the user - HOW?????
-        // let favorite = { ... this.id, userId: this.user._id };
         debugger
-        // let favorite = { petId: pet.id }
         this.user.favorites.push(pet)
-        // this.userId.favorites.push(favorite);
         this.$store.dispatch('updateUser', this.user)
       }
     },
