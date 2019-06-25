@@ -51,11 +51,11 @@
 </script>
 
 <style>
-  .petStories {}
+  /* .petStories {}
 
   .petStories img {
     max-width: 200;
-  }
+  } */
 
   .container {
     position: relative;
