@@ -27,7 +27,8 @@ export default new Vuex.Store({
     user: {},
     pets: [],
     pet: {},
-    topics: []
+    topics: [],
+    posts: [],
   },
   mutations: {
     setUser(state, user) {
@@ -41,6 +42,9 @@ export default new Vuex.Store({
     },
     setTopics(state, data) {
       state.topics = data
+    },
+    setPosts(state, data) {
+      state.posts = data
     }
   },
   actions: {
@@ -129,6 +133,15 @@ export default new Vuex.Store({
         let res = await api.get("topic")
         commit("setTopics", res.data)
         console.log(res.data)
+      } catch (error) {
+        console.log(error)
+
+      }
+    },
+    async getPosts({ commit, dispatch }, topicId) {
+      try {
+        let res = await api.get('topics/' + topicId + '/posts')
+        commit('setPosts', res.data)
       } catch (error) {
         console.log(error)
 

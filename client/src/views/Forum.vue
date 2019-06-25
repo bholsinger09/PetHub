@@ -1,8 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container w90">
     <div class="row">
-      <div class="col">
-        <h4 v-for="topic in topics" :key="topic._id">{{topic.title}}</h4>
+      <div class="col-12" v-for="topic in topics" :key="topic._id">
+        <h4 id="topic">{{topic.title}}</h4>
+        <post />
       </div>
     </div>
   </div>
@@ -11,7 +12,9 @@
 <script>
   export default {
     name: "forum",
-    props: [],
+    props: [
+      'topicId'
+    ],
     data() {
       return {}
     },
@@ -28,3 +31,10 @@
     components: {}
   }
 </script>
+
+<style>
+  #topic {
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-top: 10px;
+  }
+</style>
