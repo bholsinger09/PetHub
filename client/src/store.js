@@ -153,9 +153,10 @@ export default new Vuex.Store({
 
     async getPosts({ commit, dispatch }, topicId) {
       try {
-        let res = await api.get('topics/' + topicId + '/posts')
+        debugger
+        let res = await api.get('topic/' + topicId + '/post')
         commit('setPosts', res.data)
-        console.log(res)
+        console.log("posts", res.data)
       } catch (error) { console.log(error) }
     },
     setActiveTopic({ commit, dispatch }, id) {
