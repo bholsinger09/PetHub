@@ -1,17 +1,26 @@
 <template>
   <div>
-    <h1>all the favorites</h1>
-    <div class="card" v-for="favorite in userFavorites" :key="user.favorites._id">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        {{userFavorites.url}}
-      </div>
-    </div>
+    <!-- <div class="card" v-for="favorite in userFavorites" :key="userFavorites._id"> -->
+
+
+
+    <ul class="list-group" v-for='favorite in userFavorites' :key="userFavorites._id">
+      <li class="list-group-item">
+        <h3>{{favorite.name}}</h3>
+        <p>{{favorite.description}}</p>
+        <router-link to="/profile">
+          <i class="fas fa-info-circle" @click="gotoPet(favorite._id)"></i>
+        </router-link>
+        <i class="fas fa-trash-alt"></i>
+      </li>
+
+      {{favorite}}
+
+
+
+
+    </ul>
+
   </div>
 </template>
 
@@ -24,8 +33,21 @@
 
     computed: {
       userFavorites() {
+<<<<<<< HEAD
+        let user = this.$store.state.user;
+        return user.favorites
+      },
+
+    },
+    methods: {
+      goToPet(id) {
+        debugger
+        this.$store.dispatch("getPetById", id)
+      },
+=======
         return this.$store.state.user.favorites;
       }
+>>>>>>> d73d4ef11ea2ec13b7db2f195d20489d49ed7ad6
     }
   }
 </script>

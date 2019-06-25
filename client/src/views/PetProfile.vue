@@ -24,7 +24,6 @@
         </p>
         <p class="card-text" v-if="pet.attributes.house_trained == true">House Trained: <i class="fas fa-check"></i></p>
         <p class="card-text" v-if="pet.attributes.house_trained == false">House Trained: <i class="fas fa-ban"></i></p>
-        <p class="card-text">Good With: {{pet.environment.dogs}}</p>
         <p class="card-text">Phone: {{pet.contact.phone}}</p>
         <p class="card-text">Email: {{pet.contact.email}}</p>
         <p class="card-text">Location: {{pet.contact.address.city}}, {{pet.contact.address.state}}</p>
