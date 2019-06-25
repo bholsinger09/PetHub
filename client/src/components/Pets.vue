@@ -70,7 +70,7 @@
         <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
       </div>
 
-
+      <button @click="saveSearch"><i class="fas fa-bookmark"></i></button> <!-- add name field-->
     </form>
 
     <div class="container-fluid w90">
@@ -85,8 +85,9 @@
             {{pet.photos.small}}
 
             <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
-
-            <button class="btn btn-primary m-2" @click="addFavorite(pet)">Favorite</button>
+            <!-- 
+            <button class="btn btn-primary m-2" @click="favoritePet()" v-model="petMod">Favorite <i
+                class="fa fa-fw fa-heart" :class="{'text-danger': favorited}"></i></button> -->
 
           </div>
         </div>
@@ -120,7 +121,8 @@
           age: [],
           size: [],
           gender: [],
-          location: ""
+          location: "",
+          searchName: "",
         }
       }
     },
@@ -140,10 +142,22 @@
         if (!photos.length) { return defaultImg }
         return photos[0].large
       },
-      addFavorite(pet) {//we need to render the user data with the pet id to upddate the user - HOW?????
-        debugger
-        this.user.favorites.push(pet)
-        this.$store.dispatch('updateUser', this.user)
+      // favoritePet() {
+      //   if (!this.user._id) {
+      //     this.$store.commit("setRedirect", this.$route)
+      //     this.$router.push({ name: "login" })
+      //     return
+      //   }
+      //   if (this.favorited) {
+      //     this.user.favorites.splice(this.user.favorites.findIndex(p => p.id == this.pet.id), 1)
+      //   } else {
+      //     this.user.favorites.push(pet)
+      //   }
+      //   this.$store.dispatch('updateUser', this.user)
+
+      // },
+      saveSearches() {
+        this.$store.dispatch('updateUser', this.searchParams)
       }
     },
     computed: {
@@ -152,6 +166,9 @@
       },
       user() {
         return this.$store.state.user;
+      },
+      favorited() {
+        return this.$store.state.user.favorites.find(p => p.id == pet.id)
       }
     }
   }

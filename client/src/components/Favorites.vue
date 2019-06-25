@@ -12,13 +12,19 @@
         <h3>{{favorite.name}}</h3>
         <p>{{favorite.description}}</p>
         <!-- <router-link to="/petprofile"> -->
-        <i class="fas fa-info-circle fa-2x" @click="goToPet(favorite.id)"></i>
+        <i class="fas fa-info-circle fa-lg" @click="goToPet(favorite.id)"></i>
         <!-- </router-link> -->
-        <i class="fas fa-trash-alt fa-2x"></i>
+        <i class="fas fa-trash-alt fa-lgfa-flip-horizontal" @click="removePet(favorite.id)"></i>
       </li>
 
       {{favorite}}
-
+      <!-- <div class="row" v-for='favorite in userFavorites' :key="userFavorites._id">
+  <div class="col-1"><i v-if="pet.type==dog" class="fas fa-dog"></i><i v-if="pet.type==cat" class="fas fa-cat"></i></div>
+  <div class="col-8 offset-1"><h3>{{favorite.name}}</h3><h3 v-if="favorite.breeds.secondary">{{favorite.breeds.primary}}/{{favorite.breeds.secondary}}</h3><h3 v-else>{{favorite.breeds.primary}}</h3></div>
+  <i class="fas fa-mars" v-if="favorite.gender==male"></i> <i class="fas fa-venus" v-if="favorite.gender==female"></i>
+  <div class="col-2"><i class="fas fa-info-circle fa-lg" @click="goToPet(favorite.id)"></i><i class="fas fa-trash-alt fa-lgfa-flip-horizontal" @click="removePet(favorite.id)"></i></div>
+  <div class="col-12"><p>{{favorite.description}}</p></div>
+</div> -->
 
 
 
@@ -32,7 +38,7 @@
     name: "favorites",
     data() {
       return {}
-    },
+    }, //data
 
     computed: {
       userFavorites() {
@@ -40,13 +46,16 @@
         return user.favorites
       },
 
-    },
+    }, //computed
     methods: {
       goToPet(id) {
         debugger
         this.$store.dispatch("getPetById", id)
       },
-    }
+      removePet(id) {
+        this.$store.dispatch('removePet', id)
+      }
+    } //methods
   }
 </script>
 

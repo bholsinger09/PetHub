@@ -19,6 +19,7 @@
         <p>Welcome: {{user.name}}</p>
         <button class="btn btn-warning" @click="logout">Logout</button>
       </div>
+      <br />
     </div>
     <router-view />
     <site-map />
