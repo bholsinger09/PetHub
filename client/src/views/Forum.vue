@@ -12,14 +12,16 @@
 <script>
   export default {
     name: "forum",
-    props: [
-      'topicId'
-    ],
+    props: ['topicId'],
     data() {
-      return {}
+      return {
+        newPost: {
+          title: "",
+          topicId: this.topicId
+        }
+      }
     },
     mounted() {
-      debugger
       this.$store.dispatch("getAllTopics")
     },
     computed: {
@@ -28,7 +30,9 @@
       }
     },
     methods: {},
-    components: {}
+    components: {
+      // Post
+    }
   }
 </script>
 
