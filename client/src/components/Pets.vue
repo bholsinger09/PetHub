@@ -17,7 +17,7 @@
         </div>
 
 
-        <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
+        <input type="text" v-model="searchParams.age" placeholder="age">
         <div class=" col-md-3  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
@@ -69,8 +69,14 @@
         <input class="col-1 ml-1" type="text" v-model="searchParams.location" placeholder="ZIP" width="15">
         <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
       </div>
-
-      <button @click="saveSearch"><i class="fas fa-bookmark"></i></button> <!-- add name field-->
+    </form>
+    <form action.prevent="saveSearch()">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <button @click="saveSearch()" class="input-group-text"><i class="fas fa-bookmark"></i></button>
+        </div>
+        <input type="text" v-model="searchParams.searchName" class="form-control" placeholder="Search Name">
+      </div>
     </form>
 
     <div class="container-fluid w90">
@@ -156,8 +162,10 @@
       //   this.$store.dispatch('updateUser', this.user)
 
       // },
-      saveSearches() {
-        this.$store.dispatch('updateUser', this.searchParams)
+      saveSearch() {
+        console.log(this.searchParams)
+        // this.$store.dispatch('saveSearch', this.searchParams)
+        this.user.searches.push(this.searchParams)
       }
     },
     computed: {

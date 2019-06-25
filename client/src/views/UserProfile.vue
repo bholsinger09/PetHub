@@ -11,6 +11,7 @@
         <div class="col-6">
           <h1>Searches</h1>
           <!-- </Searches> -->
+          {{user.searches}}
         </div>
       </div>
 

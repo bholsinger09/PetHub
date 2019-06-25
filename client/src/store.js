@@ -142,7 +142,11 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
-
+    // async saveSearch({ commit, dispatch }, payload) {
+    //   try {
+    //     this.user.searches.push(payload)
+    //   } catch (error) { console.log(error) }
+    // },
     async getAllTopics({ commit, dispatch }) {
       try {
         let res = await api.get("topic")
