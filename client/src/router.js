@@ -34,11 +34,13 @@ export default new Router({
     {
       path: '/petprofile/:id',
       name: 'petprofile',
+      props: true,
       component: petprofile
     },
     {
       path: '/userprofile/:id',
       name: 'userProfile',
+      props: true,
       component: UserProfile
     },
     {

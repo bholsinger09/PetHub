@@ -9,7 +9,7 @@
         <h3>{{favorite.name}}</h3>
         <p>{{favorite.description}}</p>
         <router-link to="/petprofile">
-          <i class="fas fa-info-circle fa-2x" @click="gotoPet(favorite._id)"></i>
+          <i class="fas fa-info-circle fa-2x" @click="goToPet(favorite.id)"></i>
         </router-link>
         <i class="fas fa-trash-alt fa-2x"></i>
       </li>

@@ -10,7 +10,7 @@ let favoritesSchema = new Schema({
   name: { type: String },
   url: { type: String },
   description: { type: String },
-  petId: { type: String },
+  id: { type: String },
 })
 
 let environmentSchema = new mongoose.Schema({
