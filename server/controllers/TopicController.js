@@ -11,7 +11,7 @@ export default class TopicController {
     this.router = express.Router()
       .get('', this.getAll)
       .get('/:id', this.getById)
-      .get('/:id/posts', this.getPostsByTopicId)
+      .get('/:id/post', this.getPostsByTopicId)
       .post('', this.create)
       .use(this.defaultRoute)
   }
