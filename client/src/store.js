@@ -25,13 +25,9 @@ export default new Vuex.Store({
   state: {
     user: {},
     pets: [],
-<<<<<<< HEAD
     pet: {},
     topics: [],
     posts: [],
-=======
-    pet: {}
->>>>>>> 25b60c914c6c1b4ae982dce14ffb3f1f7afc12b0
   },
   mutations: {
     setUser(state, user) {
@@ -135,20 +131,6 @@ export default new Vuex.Store({
       } catch (error) { console.log(error) }
     },
 
-<<<<<<< HEAD
-      }
-    },
-    async getPosts({ commit, dispatch }, topicId) {
-      try {
-        let res = await api.get('topics/' + topicId + '/posts')
-        commit('setPosts', res.data)
-      } catch (error) {
-        console.log(error)
-
-      }
-    }
-=======
->>>>>>> 25b60c914c6c1b4ae982dce14ffb3f1f7afc12b0
 
 
   }//actions
