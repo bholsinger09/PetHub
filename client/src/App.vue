@@ -15,7 +15,7 @@
         </router-link>
       </div>
       <div v-else style="float: right;">
-        <router-link :to="{name: 'userProfile', params: {id: user._id}}">My Account</router-link> |
+        <router-link :to="{name: 'userProfile', params: {id: user._id}}">My Account</router-link>
         <p>Welcome: {{user.name}}</p>
         <button class="btn btn-warning" @click="logout">Logout</button>
       </div>
