@@ -154,16 +154,7 @@ export default new Vuex.Store({
         console.log(res)
       } catch (error) { console.log(error) }
     },
-    async getAllTopics({ commit, dispatch }) {
-      try {
-        let res = await api.get("topic")
-        commit("setTopics", res.data)
-        console.log(res.data)
-      } catch (error) {
-        console.log(error)
 
-      }
-    }
 
 
   }//actions
