@@ -8,12 +8,15 @@ const SALT = 10
 
 let favoritesSchema = new Schema({
   name: { type: String },
-  url: { type: String },
+  // url: { type: String },
   description: { type: String },
   id: { type: String },
   type: { type: String },
   breedPrimary: { type: String },
-  breedSecondary: { type: String }
+  breedSecondary: { type: String },
+  breeds: { type: Object },
+  photos: [],
+  gender: { type: String, default: "" }
 })
 
 let environmentSchema = new mongoose.Schema({

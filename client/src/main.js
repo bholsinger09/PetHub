@@ -19,5 +19,8 @@ Vue.use(MQ, {
 new Vue({
   router,
   store,
+  beforeCreate() {
+    store.dispatch("authenticate")
+  },
   render: function (h) { return h(App) }
 }).$mount('#app')

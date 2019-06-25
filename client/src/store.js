@@ -28,15 +28,16 @@ export default new Vuex.Store({
     pet: {},
     topics: [],
     posts: [],
+    redirect: {}
   },
   mutations: {
-    setUser(state, user) {
+    setUser(state, user = {}) {
       state.user = user
     },
     setPets(state, data) {
       state.pets = data
     },
-    setPet(state, data) {
+    setPet(state, data = {}) {
       state.pet = data
     },
     setTopics(state, data) {
@@ -44,37 +45,48 @@ export default new Vuex.Store({
     },
     setPosts(state, data) {
       state.posts = data
+    },
+    setRedirect(state, redirect) {
+      state.redirect = redirect
     }
   },
   actions: {
     //#region -- Auth Stuff --
-    registerUser({ commit, dispatch }, newUser) {
+    registerUser({ commit, dispatch, state }, newUser) {
       // debugger
       auth.post('register', newUser)
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'home' })
+          if (state.redirect.name) {
+            router.push(state.redirect)
+            commit("setRedirect", {})
+          } else {
+            router.push({ name: 'home' })
+          }
         })
     },
     authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          //router.push({ name: 'boards' })
         })
         .catch(res => {
-          router.push({ name: 'login' })
+          // router.push({ name: 'login' })
         })
     },
-    loginUser({ commit, dispatch }, creds) {
+    loginUser({ commit, dispatch, state }, creds) {
       // debugger
       auth.post('login', creds)
 
         .then(res => {
           console.log(res.data)
           commit('setUser', res.data)
-          router.push({ name: 'userprofile' })
-
+          if (state.redirect.name) {
+            router.push(state.redirect)
+            commit("setRedirect", {})
+          } else {
+            router.push({ name: 'userprofile' })
+          }
         })
     },
     logout({ commit }) {
@@ -111,7 +123,7 @@ export default new Vuex.Store({
       // debugger
       try {
         let res = await api.get('pet-api/' + payload)
-        console.log(res.data.animal)
+        console.log("ANIMAL", res.data)
 
         commit('setPet', res.data.animal)
         router.push({ name: 'petprofile', params: { id: res.data.animal.id } })

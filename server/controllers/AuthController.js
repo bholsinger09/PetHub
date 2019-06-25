@@ -75,7 +75,9 @@ export default class AuthController {
                 return res.send(userToBeFound)
             }
             throw new Error("Not a valid ID")
-        } catch (error) { }
+        } catch (error) {
+            res.status(400).send(error)
+        }
 
     }
 

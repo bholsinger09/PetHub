@@ -8,7 +8,6 @@
       </router-link>
       <router-link to="/results">Search</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link :to="{name: 'userProfile', params: {id: user._id}}">My Account</router-link> |
       <router-link :to="{name: 'forum'}">Forum</router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">
@@ -16,11 +15,11 @@
         </router-link>
       </div>
       <div v-else style="float: right;">
-        <p>Logged in as: {{user.name}}</p>
+        <router-link :to="{name: 'userProfile', params: {id: user._id}}">My Account</router-link> |
+        <p>Welcome: {{user.name}}</p>
         <button class="btn btn-warning" @click="logout">Logout</button>
       </div>
     </div>
-    </br>
     <router-view />
     <site-map />
   </div>
@@ -30,34 +29,20 @@
   import SiteMap from '@/components/Footer.vue'
 
   export default {
-    mounted() {
-      //Authenticate on startup
-      this.$store.dispatch('authenticate')
-      setTimeout(() => {
-        if (!this.$store.state.user._id) {
-          this.$router.push({ name: "login" });
-        }
-      }, 1000)
+    name: "App",
+    methods: {
+      logout() {
+        this.$store.dispatch("logout")
+      },
     },
-
-
     computed: {
       user() {
         return this.$store.state.user;
       }
     },
-    methods: {
-      logout() {
-        this.$store.dispatch("logout")
-      },
-      goToUser() {
-        this.$store.dispatch("goToUser")
-      }
-    },
     components: {
       SiteMap,
     },
-
   }
 </script>
 <style>

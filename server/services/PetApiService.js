@@ -61,9 +61,8 @@ export default class PetApiService {
     }
     catch (e) {
       console.error(e)
-      if (e.status) {
-        await login()
-      }
+      await login()
+      return await this.getAnimal(query)
     }
   }
 

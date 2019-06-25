@@ -45,6 +45,17 @@
         }
       }
     },
+    mounted() {
+      //Authenticate on startup
+      //this.$store.dispatch('authenticate')
+
+    },
+    computed: {
+      user() {
+        return this.$store.state.user;
+      }
+    },
+
     methods: {
       loginUser() {
         this.$store.dispatch("loginUser", this.creds)
@@ -52,7 +63,9 @@
       registerUser() {
         // debugger
         this.$store.dispatch("registerUser", this.userReg)
-      }
+      },
+
+
     }
   }
 </script>

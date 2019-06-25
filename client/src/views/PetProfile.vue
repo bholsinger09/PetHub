@@ -4,6 +4,12 @@
       </router-link>
       <img class="card-img-top " :src="getPicture(pet.photos)" alt="Card image cap"
         :height="$mq | mq({xs: '350px', sm: '400px', md: '450px', lg: '500px'})" style="padding: 10px" />
+      <hr>
+      <div>
+        <div @click="favoritePet()">
+          FAVORITE PET <i class="fa fa-fw fa-heart" :class="{'text-danger': favorited}"></i>
+        </div>
+      </div>
     </div>
 
     <div class="col-12 col-sm-6 text-left" style="padding: 30px;">
@@ -58,12 +64,32 @@
     computed: {
       pet() {
         return this.$store.state.pet;
+      },
+      user() {
+        return this.$store.state.user
+      },
+      favorited() {
+        return this.$store.state.user.favorites.find(p => p.id == this.$route.params.id)
       }
     },
     methods: {
       getPicture(photos) {
         if (!photos.length) { return defaultImg }
         return photos[0].large
+      },
+      favoritePet() {
+        if (!this.user._id) {
+          this.$store.commit("setRedirect", this.$route)
+          this.$router.push({ name: "login" })
+          return
+        }
+        if (this.favorited) {
+          this.user.favorites.splice(this.user.favorites.findIndex(p => p.id == this.pet.id), 1)
+        } else {
+          this.user.favorites.push(this.pet)
+        }
+        this.$store.dispatch('updateUser', this.user)
+
       }
     }
   }
