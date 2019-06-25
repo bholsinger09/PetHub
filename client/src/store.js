@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import router from './router.js'
 import Axios from 'axios'
 
-
 Vue.use(Vuex)
 
 let base = window.location.host.includes('localhost:8080') ? '//localhost:3000' : '/'
@@ -27,7 +26,8 @@ export default new Vuex.Store({
     user: {},
     pets: [],
     pet: {},
-    topics: []
+    topics: [],
+    posts: [],
   },
   mutations: {
     setUser(state, user) {
@@ -41,6 +41,9 @@ export default new Vuex.Store({
     },
     setTopics(state, data) {
       state.topics = data
+    },
+    setPosts(state, data) {
+      state.posts = data
     }
   },
   actions: {
@@ -70,7 +73,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res.data)
           commit('setUser', res.data)
-          router.push({ name: 'userProfile', params: { id: res.data._id } })
+          router.push({ name: 'userprofile' })
 
         })
     },
@@ -81,12 +84,9 @@ export default new Vuex.Store({
           router.push({ name: 'home' })
         })
     },
-
-
-
-
     //#endregion
 
+    //#region -- Pet Search Stuff --
     async petSearch({ commit, dispatch }, payload) {
       try {
         let res = await api.get('pet-api?' + "type=" + payload.dogOrCat + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
@@ -117,6 +117,8 @@ export default new Vuex.Store({
         router.push({ name: 'petprofile', params: { id: res.data.animal.id } })
       } catch (error) { console.log(error) }
     },
+    //#endregion
+
     async updateUser({ commit, dispatch }, payload) {
       try {
         let res = await auth.put(payload._id, payload)
@@ -124,16 +126,21 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
+
     async getAllTopics({ commit, dispatch }) {
       try {
         let res = await api.get("topic")
         commit("setTopics", res.data)
-        console.log(res.data)
-      } catch (error) {
-        console.log(error)
+      } catch (error) { console.log(error) }
+    },
 
-      }
+    async getPosts({ commit, dispatch }, topicId) {
+      try {
+        let res = await api.get('topics/' + topicId + '/posts')
+        commit('setPosts', res.data)
+      } catch (error) { console.log(error) }
     }
+
 
 
   }//actions
