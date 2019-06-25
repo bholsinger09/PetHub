@@ -6,11 +6,14 @@
 
     <ul class="list-group" v-for='favorite in userFavorites' :key="userFavorites._id">
       <li class="list-group-item">
+        <!-- <p v-if="pet.type==cat"><i class="fas fa-cat"></i></p> -->
+        <!-- <p v-if="pet.type==dog"><i class="fas fa-dog"></i></p> -->
+        <!--<i v-if="pet.type==dog" class="fas fa-dog"></i> -->
         <h3>{{favorite.name}}</h3>
         <p>{{favorite.description}}</p>
-        <router-link to="/petprofile">
-          <i class="fas fa-info-circle fa-2x" @click="goToPet(favorite.id)"></i>
-        </router-link>
+        <!-- <router-link to="/petprofile"> -->
+        <i class="fas fa-info-circle fa-2x" @click="goToPet(favorite.id)"></i>
+        <!-- </router-link> -->
         <i class="fas fa-trash-alt fa-2x"></i>
       </li>
 
