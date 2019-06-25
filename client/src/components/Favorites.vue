@@ -8,10 +8,10 @@
       <li class="list-group-item">
         <h3>{{favorite.name}}</h3>
         <p>{{favorite.description}}</p>
-        <router-link to="/profile">
-          <i class="fas fa-info-circle" @click="gotoPet(favorite._id)"></i>
+        <router-link to="/petprofile">
+          <i class="fas fa-info-circle fa-2x" @click="gotoPet(favorite._id)"></i>
         </router-link>
-        <i class="fas fa-trash-alt"></i>
+        <i class="fas fa-trash-alt fa-2x"></i>
       </li>
 
       {{favorite}}
@@ -33,7 +33,6 @@
 
     computed: {
       userFavorites() {
-<<<<<<< HEAD
         let user = this.$store.state.user;
         return user.favorites
       },
@@ -44,10 +43,6 @@
         debugger
         this.$store.dispatch("getPetById", id)
       },
-=======
-        return this.$store.state.user.favorites;
-      }
->>>>>>> d73d4ef11ea2ec13b7db2f195d20489d49ed7ad6
     }
   }
 </script>
