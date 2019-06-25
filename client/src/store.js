@@ -27,6 +27,7 @@ export default new Vuex.Store({
     pets: [],
     pet: {},
     topics: [],
+    activeTopic: {},
     posts: [],
     redirect: {}
   },
@@ -42,6 +43,9 @@ export default new Vuex.Store({
     },
     setTopics(state, data) {
       state.topics = data
+    },
+    setActiveTopic(state, id) {
+      state.activeTopic = id
     },
     setPosts(state, data) {
       state.posts = data
@@ -154,17 +158,9 @@ export default new Vuex.Store({
         console.log(res)
       } catch (error) { console.log(error) }
     },
-    async getAllTopics({ commit, dispatch }) {
-      try {
-        let res = await api.get("topic")
-        commit("setTopics", res.data)
-        console.log(res.data)
-      } catch (error) {
-        console.log(error)
-
-      }
+    setActiveTopic({ commit, dispatch }, id) {
+      commit("setActiveTopic", id)
     }
-
 
   }//actions
 })
