@@ -1,14 +1,9 @@
 <template>
   <div class="container">
     <div class="row">
-<<<<<<< HEAD
       <div class="col-12" v-for="topic in topics" :key="topic._id">
         <h4 id="topic" @click="setActiveTopic(topic._id)">{{topic.title}}</h4>
         <post v-for="post in posts" :key="posts._id" :postData="post" />
-=======
-      <div class="col">
-        <h4 v-for="topic in topics" :key="topic._id">{{topic.title}}</h4>
->>>>>>> 169c40f3f31676946b46909ace0d85a98903a5f9
       </div>
     </div>
   </div>
