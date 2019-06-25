@@ -1,14 +1,25 @@
 <template>
   <div>
-    <div class="card" v-for="favorite in userFavorites" :key="userFavorites._id">
-      <img src="" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{favorite.name}}</h5>
-        <p class="card-text">{{favorite.description}}
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
+    <!-- <div class="card" v-for="favorite in userFavorites" :key="userFavorites._id"> -->
+
+
+
+    <ul class="list-group" v-for='favorite in userFavorites' :key="userFavorites._id">
+      <li class="list-group-item">
+        <h3>{{favorite.name}}</h3>
+        <p>{{favorite.description}}</p>
+        <router-link to="/profile">
+          <i class="fas fa-info-circle" @click="gotoPet(favorite._id)"></i>
+        </router-link>
+        <i class="fas fa-trash-alt"></i>
+      </li>
+
+      {{favorite}}
+
+
+
+
+    </ul>
 
   </div>
 </template>
@@ -28,10 +39,10 @@
 
     },
     methods: {
-      getPicture(url) {
-        if (!url) { return defaultImg }
-        return url
-      }
+      goToPet(id) {
+        debugger
+        this.$store.dispatch("getPetById", id)
+      },
     }
   }
 </script>
