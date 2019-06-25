@@ -50,6 +50,6 @@ export default new Router({
       path: '/forum',
       name: 'forum',
       component: Forum
-    },
+    }
   ]
 })
