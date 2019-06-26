@@ -182,6 +182,34 @@ export default new Vuex.Store({
           console.log({ res })
           dispatch('getPosts', payload.topicId)
         })
+    },
+    // async removeSearch({ commit, dispatch }, id) {
+    //   try {
+    //     let res = await api. ('topic/' + topicId + '/post')
+    //     commit('setPosts', res.data)
+    //     console.log("posts", res.data)
+    //   } catch (error) { console.log(error) }
+    // },
+    async removeSearch({ commit, dispatch, state }, id) {
+      try {
+        // let updatedUser = state.user
+        let res = await auth.delete(id)
+        commit("setUser", res.data)
+        console.log(res.data)
+      } catch (error) { console.log(error) }
+    },
+
+    async removeFavorite({ commit, dispatch, state }, id) {
+      try {
+        let res = await auth.delete(id)
+        commit("setUser", res.data)
+
+      } catch (error) {
+        console.log(error)
+
+      }
+
+
     }
     // setActiveTopic({ commit, dispatch }, id) {
     //   commit("setActiveTopic", id)

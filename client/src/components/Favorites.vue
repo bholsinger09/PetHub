@@ -12,9 +12,9 @@
         <h3>{{favorite.name}}</h3>
         <p>{{favorite.description}}</p>
         <!-- <router-link to="/petprofile"> -->
-        <i class="fas fa-info-circle fa-lg" @click="goToPet(favorite.id)"></i>
+        <i class="fas fa-info-circle fa-lg" @click="goToPet(favorite._id)"></i>
         <!-- </router-link> -->
-        <i class="fas fa-trash-alt fa-lgfa-flip-horizontal" @click="removePet(favorite.id)"></i>
+        <i class="fas fa-trash-alt fa-lgfa-flip-horizontal" @click="removeFavorite(favorite._id)"></i>
       </li>
 
       {{favorite}}
@@ -52,8 +52,8 @@
         debugger
         this.$store.dispatch("getPetById", id)
       },
-      removePet(id) {
-        this.$store.dispatch('removePet', id)
+      removeFavorite(id) {
+        this.$store.dispatch('removeFavorite', id)
       }
     } //methods
   }
