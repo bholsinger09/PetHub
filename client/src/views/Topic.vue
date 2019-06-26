@@ -1,5 +1,6 @@
 <template>
   <div class="Topic">
+    </router-link>
     <h4>{{topic.title}}</h4>
     <post v-for="post in posts" :key="posts._id" :postData="post" />
     <form @submit.prevent="createPost">
@@ -32,7 +33,8 @@
       }
     },
     mounted() {
-      this.$store.dispatch('getPosts', this.topicId)
+      this.$store.dispatch('getTopic', this.$route.params.id)
+      // this.$store.dispatch('getPosts', this.topicId)
     },
     methods: {
       createPost() {
@@ -40,6 +42,8 @@
         this.$store.dispatch('createPost', this.newPost)
       },
     },
-    components: {}
+    components: {
+      // Post
+    }
   }
 </script>

@@ -52,13 +52,24 @@
     name: "petprofile",
     data() {
       return {
+
         //pet: {}
-        favorited: false
+
       }
     },
     mounted() {
       this.$store.dispatch('getPetById', this.$route.params.id)
       console.log(this.pet)
+
+      let user = this.$store.state.user
+
+      if (user.name) {
+        this.findFavoritePet(this.pet.id)
+        return user
+      } else {
+        return false
+      }
+
 
     },
     computed: {
@@ -66,24 +77,19 @@
         return this.$store.state.pet;
       },
       user() {
-        let user = this.$store.state.user
-        if (user.name) {
-          this.findFavoritePet(this.pet.id)
-          return user
-        } else {
-          return false
-        }
+        return this.$store.state.user
+        // let user = this.$store.state.user
+        // if (user.name) {
+        //   this.findFavoritePet(this.pet.id)
+        //   return user
+        // } else {
+        //   return false
+        // }
       },
-      // favorited() {
-      //   if (!this.user) {
-      //     return
-      //     this.$store.state.user.favorites
-      //   } else {
-      //     return this.$store.state.user.favorites.find(p => { p.id == this.$route.params.id
+      favorited() {
+        return this.$store.state.user.favorites.find(p => p.id == this.$route.params.id)
+      }
 
-      //     })
-      //   }
-      // }
     },
     methods: {
       getPicture(photos) {
