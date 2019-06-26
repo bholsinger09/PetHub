@@ -163,7 +163,7 @@ export default new Vuex.Store({
       try {
         debugger
         let res = await api.get("topic/" + payload)
-        commit("activeTopic", res.data)
+        commit("setActiveTopic", res.data)
         console.log(res)
         router.push({ name: 'topic', params: { id: res.data._id } })
       } catch (error) { console.log(error) }
