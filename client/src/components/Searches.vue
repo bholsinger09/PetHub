@@ -6,13 +6,13 @@
       </div>
       <div class="col-3">
         <h4> <i class="fas fa-search"></i> | <i class="fas fa-trash-alt fa-lgfa-flip-horizontal"
-            @click="removePet(favorite.id)"></i></h4>
+            @click="removeSearch(search._id)"></i></h4>
       </div>
       <div class="col-6">
         <h4>Type</h4>
         <p>{{search.type}}</p>
-        <p v-if="search.type==Cat"><i class="fas fa-cat"></i></p>
-        <p v-if="search.type==Dog"><i class="fas fa-dog"></i></p>
+        <p v-if="search.type=='Cat'"><i class="fas fa-cat"></i></p>
+        <p v-else-if="search.type=='Dog'"><i class="fas fa-dog"></i></p>
       </div>
       <div class="col-6">
         <h4>Age:</h4>
@@ -48,15 +48,15 @@
       },
 
     }, //computed
-    // methods: {
-    //   goToSearch(id) { //unwritten
-    //     debugger
-    //     this.$store.dispatch("Search???", id)
-    //   },
-    // removePet(id) { //unwritten
-    //   this.$store.dispatch('removePet', id)
-    // }
-    //} //methods
+    methods: {
+      //   goToSearch(id) { //unwritten
+      //     debugger
+      //     this.$store.dispatch("Search???", id)
+      //   },
+      removeSearch(id) { //unwritten
+        this.$store.dispatch('removeSearch', id)
+      }
+    } //methods
   }
 </script>
 <style>
