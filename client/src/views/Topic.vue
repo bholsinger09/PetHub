@@ -1,6 +1,6 @@
 <template>
   <div class="Topic">
-    </router-link>
+    <!-- </router-link> -->
     <h4>{{topic.title}}</h4>
     <post v-for="post in posts" :key="posts._id" :postData="post" />
     <form @submit.prevent="createPost">
@@ -14,7 +14,7 @@
 <script>
   export default {
     name: "Topic",
-    props: ['topicId'],
+    props: ['id'],
     data() {
       return {
         newPost: {
@@ -26,14 +26,19 @@
     },
     computed: {
       topic() {
-        return this.$store.state.topics.find(t => t._id == this.topicId) || { title: 'Fetching posts...' }
+        return this.$store.state.activeTopic
       },
       posts() {
         return this.$store.state.posts
+      },
+      topicId() {
+        return this.$route.params.id // this will persist through page refresh while props won't
       }
     },
     mounted() {
-      this.$store.dispatch('getTopic', this.$route.params.id)
+      if (!this.topic._id) {
+        this.$store.dispatch("getTopic", this.topicId)
+      }
       // this.$store.dispatch('getPosts', this.topicId)
     },
     methods: {

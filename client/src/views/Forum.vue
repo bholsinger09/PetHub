@@ -32,7 +32,6 @@
 
     methods: {
       goToTopic(id) {
-        debugger
         this.$store.dispatch("getTopic", id)
       }
     }, //methods

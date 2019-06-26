@@ -6,8 +6,11 @@
         :height="$mq | mq({xs: '350px', sm: '400px', md: '450px', lg: '500px'})" style="padding: 10px" />
       <hr>
       <div>
-        <div v-if="user" @click="favoritePet()">
-          FAVORITE PET <i class="fa fa-fw fa-heart" :class="{'text-danger': favorited}"></i>
+        <div v-if="user.name" @click="favoritePet()">
+          FAVORITE PET <i class="fa fa-fw fa-heart" :class="{'text-danger': favoritedButton}"></i>
+        </div>
+        <div class="loginPrompt" v-else>
+          Please login to favorite pet!
         </div>
       </div>
     </div>
@@ -52,23 +55,26 @@
     name: "petprofile",
     data() {
       return {
-
+        favoritedButton: false,
         //pet: {}
 
       }
     },
     mounted() {
+      debugger
       this.$store.dispatch('getPetById', this.$route.params.id)
-      console.log(this.pet)
+      setTimeout(() => {
+        let user = this.$store.state.user
+        if (user.name) {
+          debugger
+          this.findFavoritePet(this.pet.id)
+          return user
+        } else {
+          return false
+        }
+      }, 3000)
 
-      let user = this.$store.state.user
 
-      if (user.name) {
-        this.findFavoritePet(this.pet.id)
-        return user
-      } else {
-        return false
-      }
 
 
     },
@@ -102,7 +108,7 @@
           this.$router.push({ name: "login" })
           return
         }
-        if (this.favorited) {
+        if (this.favoritedButton) {
           this.user.favorites.splice(this.user.favorites.findIndex(p => p.id == this.pet.id), 1)
         } else {
           this.user.favorites.push(this.pet)
@@ -111,23 +117,29 @@
         this.findFavoritePet(this.pet.id)
       },
       findFavoritePet(id) {
+        // debugger
         let found = this.user.favorites.filter(p => p.id == id)
         if (found) {
-          this.favorited = true
+          this.favoritedButton = true
+
         } else {
-          this.favorited = false
+          this.favoritedButton = false
         }
       }
     }
   }
 </script>
 
-<style>
+<style scoped>
   .fa-check:before {
     color: rgb(40, 167, 69);
   }
 
   .fa-ban:before {
     color: red;
+  }
+
+  .loginPrompt {
+    border: 1px solid rgba(0, 0, 0, 0.384);
   }
 </style>

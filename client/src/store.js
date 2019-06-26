@@ -124,7 +124,7 @@ export default new Vuex.Store({
     },
 
     async getPetById({ commit, dispatch }, payload) {
-      debugger
+
       try {
         let res = await api.get('pet-api/' + payload)
         console.log("ANIMAL", res.data)
@@ -161,9 +161,8 @@ export default new Vuex.Store({
 
     async getTopic({ commit, dispatch }, payload) {
       try {
-        debugger
         let res = await api.get("topic/" + payload)
-        commit("activeTopic", res.data)
+        commit("setActiveTopic", res.data)
         console.log(res)
         router.push({ name: 'topic', params: { id: res.data._id } })
       } catch (error) { console.log(error) }
