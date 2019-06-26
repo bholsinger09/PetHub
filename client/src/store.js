@@ -185,7 +185,7 @@ export default new Vuex.Store({
     async removeSearch({ commit, dispatch, state }, id) {
       try {
         // let updatedUser = state.user
-        let res = await auth.delete(id)
+        let res = await auth.delete('searches/' + id)
         commit("setUser", res.data)
         console.log(res.data)
       } catch (error) { console.log(error) }
@@ -193,7 +193,7 @@ export default new Vuex.Store({
 
     async removeFavorite({ commit, dispatch, state }, id) {
       try {
-        let res = await auth.delete(id)
+        let res = await auth.delete('favorites/' + id)
         commit("setUser", res.data)
 
       } catch (error) {
