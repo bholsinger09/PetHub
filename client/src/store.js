@@ -124,7 +124,7 @@ export default new Vuex.Store({
     },
 
     async getPetById({ commit, dispatch }, payload) {
-      debugger
+
       try {
         let res = await api.get('pet-api/' + payload)
         console.log("ANIMAL", res.data)
