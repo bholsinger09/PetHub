@@ -6,6 +6,7 @@ import petprofile from './views/PetProfile.vue'
 import UserProfile from './views/UserProfile.vue'
 import Login from './views/Login.vue'
 import Forum from './views/Forum.vue'
+import Topic from './views/Topic.vue'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       name: 'forum',
       props: true,
       component: Forum
+    },
+    {
+      path: '/topic',
+      name: 'topic',
+      component: Topic
     }
   ]
 })

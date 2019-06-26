@@ -165,6 +165,7 @@ export default new Vuex.Store({
     },
     setActiveTopic({ commit, dispatch }, id) {
       commit("setActiveTopic", id)
+      router.push({ name: "topic" })
     }
 
   }//actions
