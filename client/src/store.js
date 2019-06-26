@@ -105,7 +105,7 @@ export default new Vuex.Store({
     //#region -- Pet Search Stuff --
     async petSearch({ commit, dispatch }, payload) {
       try {
-        let res = await api.get('pet-api?' + "type=" + payload.dogOrCat + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
+        let res = await api.get('pet-api?' + "type=" + payload.type + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
         console.log(res)
         commit('setPets', res.data)
       } catch (error) { console.log(error) }
@@ -142,11 +142,15 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
-    // async saveSearch({ commit, dispatch }, payload) {
-    //   try {
-    //     this.user.searches.push(payload)
-    //   } catch (error) { console.log(error) }
-    // },
+    async saveSearch({ commit, dispatch, state }, payload) {
+      try {
+        let updatedUser = state.user
+        updatedUser.searches.push(payload)
+        let res = await auth.put(payload.userId, updatedUser)
+        commit("setUser", res.data)
+        console.log(res.data)
+      } catch (error) { console.log(error) }
+    },
     async getAllTopics({ commit, dispatch }) {
       try {
         let res = await api.get("topic")
@@ -157,7 +161,6 @@ export default new Vuex.Store({
 
     async getPosts({ commit, dispatch }, topicId) {
       try {
-        debugger
         let res = await api.get('topic/' + topicId + '/post')
         commit('setPosts', res.data)
         console.log("posts", res.data)

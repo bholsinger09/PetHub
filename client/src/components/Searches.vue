@@ -1,0 +1,63 @@
+<template>
+  <div>
+    <div class="row" v-for='search in userSearches' :key="userSearches.searchName">
+      <div class="col-9">
+        <h4>{{search.searchName}}</h4>
+      </div>
+      <div class="col-3">
+        <h4> <i class="fas fa-search"></i> | <i class="fas fa-trash-alt fa-lgfa-flip-horizontal"
+            @click="removePet(favorite.id)"></i></h4>
+      </div>
+      <div class="col-6">
+        <h4>Type</h4>
+        <p>{{search.type}}</p>
+        <p v-if="search.type==Cat"><i class="fas fa-cat"></i></p>
+        <p v-if="search.type==Dog"><i class="fas fa-dog"></i></p>
+      </div>
+      <div class="col-6">
+        <h4>Age:</h4>
+        <p>{{search.age}}</p>
+      </div>
+      <div class="col-6">
+        <h4>Gender:</h4>
+        <p>{{search.gender}}</p>
+      </div>
+      <div class="col-6">
+        <h4>Size:</h4>
+        <p>{{search.size}}</p>
+      </div>
+      <div class="col-6">
+        <h4>Breed:</h4>
+        <p>{{search.breed}}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "Searches",
+    data() {
+      return {}
+    }, //data
+
+    computed: {
+      userSearches() {
+        let user = this.$store.state.user;
+        return user.searches
+      },
+
+    }, //computed
+    // methods: {
+    //   goToSearch(id) { //unwritten
+    //     debugger
+    //     this.$store.dispatch("Search???", id)
+    //   },
+    // removePet(id) { //unwritten
+    //   this.$store.dispatch('removePet', id)
+    // }
+    //} //methods
+  }
+</script>
+<style>
+</style>

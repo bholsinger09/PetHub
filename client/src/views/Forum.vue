@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-12" v-for="topic in topics" :key="topic._id">
-        <h4 id="topic" @click="setActiveTopic(topic._id)">{{topic.title}}</h4>
+        <router-link :to="{name:'topic', params:{topicId:topic._id}}">
+          <h4 id="topic" @click="setActiveTopic(topicId)">{{topic.title}}</h4>
+        </router-link>
       </div>
     </div>
   </div>
@@ -13,7 +15,7 @@
 
   export default {
     name: "forum",
-    props: ['topicData', 'postData'],
+    props: ['topicId', 'postData'],
     data() {
       return {
       }
@@ -29,9 +31,9 @@
     },//computed
 
     methods: {
-      setActiveTopic(id) {
+      setActiveTopic(topicId) {
         debugger
-        this.$store.dispatch("setActiveTopic", id)
+        this.$store.dispatch("setActiveTopic", topicId)
       }
     }, //methods
 

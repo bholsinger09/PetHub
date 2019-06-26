@@ -58,6 +58,7 @@ export default new Router({
     {
       path: '/topic',
       name: 'topic',
+      props: true,
       component: Topic
     }
   ]
