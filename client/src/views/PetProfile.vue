@@ -6,7 +6,7 @@
         :height="$mq | mq({xs: '350px', sm: '400px', md: '450px', lg: '500px'})" style="padding: 10px" />
       <hr>
       <div>
-        <div @click="favoritePet()">
+        <div v-if="user" @click="favoritePet()">
           FAVORITE PET <i class="fa fa-fw fa-heart" :class="{'text-danger': favorited}"></i>
         </div>
       </div>
@@ -53,10 +53,10 @@
     data() {
       return {
         //pet: {}
+        favorited: false
       }
     },
     mounted() {
-      // debugger
       this.$store.dispatch('getPetById', this.$route.params.id)
       console.log(this.pet)
 
@@ -66,11 +66,24 @@
         return this.$store.state.pet;
       },
       user() {
-        return this.$store.state.user
+        let user = this.$store.state.user
+        if (user.name) {
+          this.findFavoritePet(this.pet.id)
+          return user
+        } else {
+          return false
+        }
       },
-      favorited() {
-        return this.$store.state.user.favorites.find(p => p.id == this.$route.params.id)
-      }
+      // favorited() {
+      //   if (!this.user) {
+      //     return
+      //     this.$store.state.user.favorites
+      //   } else {
+      //     return this.$store.state.user.favorites.find(p => { p.id == this.$route.params.id
+
+      //     })
+      //   }
+      // }
     },
     methods: {
       getPicture(photos) {
@@ -89,7 +102,15 @@
           this.user.favorites.push(this.pet)
         }
         this.$store.dispatch('updateUser', this.user)
-
+        this.findFavoritePet(this.pet.id)
+      },
+      findFavoritePet(id) {
+        let found = this.user.favorites.filter(p => p.id == id)
+        if (found) {
+          this.favorited = true
+        } else {
+          this.favorited = false
+        }
       }
     }
   }

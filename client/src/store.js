@@ -124,7 +124,7 @@ export default new Vuex.Store({
     },
 
     async getPetById({ commit, dispatch }, payload) {
-      // debugger
+      debugger
       try {
         let res = await api.get('pet-api/' + payload)
         console.log("ANIMAL", res.data)
@@ -161,7 +161,6 @@ export default new Vuex.Store({
 
     async getPosts({ commit, dispatch }, topicId) {
       try {
-        debugger
         let res = await api.get('topic/' + topicId + '/post')
         commit('setPosts', res.data)
         console.log("posts", res.data)
@@ -169,6 +168,7 @@ export default new Vuex.Store({
     },
     setActiveTopic({ commit, dispatch }, id) {
       commit("setActiveTopic", id)
+      router.push({ name: "topic" })
     }
 
   }//actions
