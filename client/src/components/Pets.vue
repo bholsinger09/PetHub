@@ -4,20 +4,20 @@
     <form @submit.prevent="petSearch" class="searchForm container-fluid">
       <div class="row">
 
-        <!-- <input type="text" v-model="searchParams.dogOrCat" placeholder="dog or cat"> -->
-        <div class=" col-md-2 col-sm-6" id='dogOrCat'>
+        <!-- <input type="text" v-model="searchParams.type" placeholder="dog or cat"> -->
+        <div class=" col-md-2 col-sm-6" id='type'>
           <h6>Animal:
-            <input type="radio" class="hidden" id="dog" value="dog" v-model="searchParams.dogOrCat">
-            <label for="dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
+            <input type="radio" class="hidden" id="dog" value="Dog" v-model="searchParams.type">
+            <label for="Dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
                 :class="{selected: activeDog}"></i></label>
-            <input type="radio" class="hidden" id="cat" value="cat" v-model="searchParams.dogOrCat">
+            <input type="radio" class="hidden" id="cat" value="Cat" v-model="searchParams.type">
             <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
                 :class="{selected: activeCat}"></i></label>
           </h6>
         </div>
 
 
-        <input type="text" v-model="searchParams.age" placeholder="age">
+        <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
         <div class=" col-md-3  col-sm-6" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
@@ -75,7 +75,7 @@
         <div class="input-group-prepend">
           <button @click="saveSearch()" class="input-group-text"><i class="fas fa-bookmark"></i></button>
         </div>
-        <input type="text" v-model="searchParams.searchName" class="form-control" placeholder="Search Name">
+        <input type="text" v-model="searchParams.searchName" class="form-control" placeholder="Search Name" required>
       </div>
     </form>
 
@@ -122,13 +122,14 @@
         activeMars: false,
         activeVenus: false,
         searchParams: {
-          dogOrCat: "",
+          type: "",
           breed: [],
           age: [],
           size: [],
           gender: [],
           location: "",
           searchName: "",
+          userId: "",
         }
       }
     },
@@ -163,9 +164,14 @@
 
       // },
       saveSearch() {
-        console.log(this.searchParams)
-        // this.$store.dispatch('saveSearch', this.searchParams)
-        this.user.searches.push(this.searchParams)
+        if (!this.user._id) {
+          this.$store.commit("setRedirect", this.$route)
+          this.$router.push({ name: "login" })
+          return
+        }
+        debugger
+        // this.user.searches.push(this.searchParams)
+        this.$store.dispatch('saveSearch', this.searchParams)
       }
     },
     computed: {
@@ -173,6 +179,7 @@
         return this.$store.state.pets;
       },
       user() {
+        this.searchParams.userId = this.$store.state.user._id || ''
         return this.$store.state.user;
       },
       favorited() {
