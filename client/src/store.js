@@ -164,16 +164,24 @@ export default new Vuex.Store({
         let res = await api.get("topic/" + payload)
         commit("setActiveTopic", res.data)
         console.log(res)
-        router.push({ name: 'topic', params: { id: res.data._id } })
+        router.push({ name: 'topic', params: { id: payload } })
       } catch (error) { console.log(error) }
     },
 
     async getPosts({ commit, dispatch }, topicId) {
       try {
+
         let res = await api.get('topic/' + topicId + '/post')
         commit('setPosts', res.data)
         console.log("posts", res.data)
       } catch (error) { console.log(error) }
+    },
+    createPost({ commit, dispatch }, payload) {
+      api.post('post/', payload)
+        .then(res => {
+          console.log({ res })
+          dispatch('getPosts', payload.topicId)
+        })
     },
     // async removeSearch({ commit, dispatch }, id) {
     //   try {

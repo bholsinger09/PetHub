@@ -1,9 +1,11 @@
 import express from 'express'
 import TopicService from '../services/TopicService.js';
+import PostService from '../services/PostService.js';
 
 
 let _service = new TopicService()
 let _repo = _service.repository
+let _repoPost = new PostService().repository
 
 
 export default class TopicController {
@@ -32,7 +34,7 @@ export default class TopicController {
   }
   async getPostsByTopicId(req, res, next) {
     try {
-      let data = await _repo.find({ topicId: req.params.id })
+      let data = await _repoPost.find({ topicId: req.params.id })
       return res.send(data)
     } catch (error) { next(error) }
   }
