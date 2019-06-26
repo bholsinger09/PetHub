@@ -10,7 +10,7 @@
         </div>
         <div class="col-6">
           <h1>Searches</h1>
-          <!-- </Searches> -->
+          <Searches></Searches>
           {{user.searches}}
         </div>
       </div>
@@ -58,7 +58,7 @@
 
 <script>
   import Favorites from '@/components/Favorites.vue'
-  // import Searches from '@/components/Searches.vue'
+  import Searches from '@/components/Searches.vue'
 
   export default {
     name: 'UserProfile',
@@ -89,7 +89,8 @@
       }
     }, //computed
     components: {
-      Favorites
+      Favorites,
+      Searches
     }, //components
     methods: {
       editEmail() {
