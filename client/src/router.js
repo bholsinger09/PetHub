@@ -56,7 +56,7 @@ export default new Router({
       component: Forum
     },
     {
-      path: '/topic',
+      path: '/topic/:id',
       name: 'topic',
       props: true,
       component: Topic

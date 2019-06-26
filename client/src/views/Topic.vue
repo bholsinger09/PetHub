@@ -14,7 +14,7 @@
 <script>
   export default {
     name: "Topic",
-    props: ['topicId'],
+    props: ['id'],
     data() {
       return {
         newPost: {
@@ -30,10 +30,15 @@
       },
       posts() {
         return this.$store.state.posts
+      },
+      topicId() {
+        return this.$route.params.id // this will persist through page refresh while props won't
       }
     },
     mounted() {
-      this.$store.dispatch('getTopic', this.$route.params.id)
+      if (!this.topic._id) {
+        this.$store.dispatch("getTopic", this.topicId)
+      }
       // this.$store.dispatch('getPosts', this.topicId)
     },
     methods: {
