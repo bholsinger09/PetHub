@@ -7,11 +7,11 @@
         <!-- <input type="text" v-model="searchParams.type" placeholder="dog or cat"> -->
         <div class=" col-md-2 col-sm-6" id='type'>
           <h6>Animal:
-            <input type="radio" class="hidden" id="dog" value="Dog" v-model="searchParams.type">
+            <input type="radio" class="hidden" id="Dog" value="Dog" v-model="searchParams.type">
             <label for="Dog"><i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
                 :class="{selected: activeDog}"></i></label>
-            <input type="radio" class="hidden" id="cat" value="Cat" v-model="searchParams.type">
-            <label for="cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
+            <input type="radio" class="hidden" id="Cat" value="Cat" v-model="searchParams.type">
+            <label for="Cat"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
                 :class="{selected: activeCat}"></i></label>
           </h6>
         </div>
