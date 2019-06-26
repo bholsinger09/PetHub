@@ -190,6 +190,19 @@ export default new Vuex.Store({
         console.log(res.data)
       } catch (error) { console.log(error) }
     },
+
+    async removeFavorite({ commit, dispatch, state }, id) {
+      try {
+        let res = await auth.delete(id)
+        commit("setUser", res.data)
+
+      } catch (error) {
+        console.log(error)
+
+      }
+
+
+    }
     // setActiveTopic({ commit, dispatch }, id) {
     //   commit("setActiveTopic", id)
 
