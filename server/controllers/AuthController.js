@@ -15,6 +15,7 @@ export default class AuthController {
             .use(Authorize.authenticated)
             .get('/authenticate', this.authenticate)
             .delete('/logout', this.logout)
+            .delete('/:id', this.removeSearchById)
             .use('*', this.defaultRoute)
     }
 
@@ -108,6 +109,17 @@ export default class AuthController {
                     message: 'Logout Successful'
                 })
             })
+        } catch (error) { next(error) }
+    }
+
+    async removeSearchById(req, res, next) {
+        try {
+            let user = await _repo.findById(req.session.uid)
+            if (!user) throw new Error('Not logged in.')
+            let index = user.searches.findIndex(s => s._id.toString() == req.params.id)
+            user.searches.splice(index, 1)
+            await user.update(user)
+            res.send(user)
         } catch (error) { next(error) }
     }
 
