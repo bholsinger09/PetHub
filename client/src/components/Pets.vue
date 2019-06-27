@@ -65,7 +65,7 @@
 
           </label>
         </div>
-        <input class="col-1" type="text" v-model="searchParams.breed" placeholder="breed">
+        <input class="col-1" type="text" v-model="searchParams.breeds" placeholder="breed">
         <input class="col-1 ml-1" type="text" v-model="searchParams.location" placeholder="ZIP" width="15">
         <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
       </div>
@@ -123,7 +123,7 @@
         activeVenus: false,
         searchParams: {
           type: "",
-          breed: [],
+          breeds: [],
           age: [],
           size: [],
           gender: [],

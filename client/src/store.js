@@ -105,7 +105,7 @@ export default new Vuex.Store({
     //#region -- Pet Search Stuff --
     async petSearch({ commit, dispatch }, payload) {
       try {
-        let res = await api.get('pet-api?' + "type=" + payload.type + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
+        let res = await api.get('pet-api?' + "type=" + payload.type + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breeds)
         console.log(res)
         commit('setPets', res.data)
       } catch (error) { console.log(error) }

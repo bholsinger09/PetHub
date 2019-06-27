@@ -27,7 +27,8 @@
       </div>
       <div class="col-6">
         <h4>Breed:</h4>
-        <p>{{search.breed}}</p>
+        <p>{{search.breeds}}</p>
+        <!-- <p v-if="search.breeds.secondary">{{search.breeds.secondary}}</p> -->
       </div>
     </div>
   </div>
