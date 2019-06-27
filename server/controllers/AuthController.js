@@ -15,7 +15,8 @@ export default class AuthController {
             .use(Authorize.authenticated)
             .get('/authenticate', this.authenticate)
             .delete('/logout', this.logout)
-            .delete('/:id', this.removeSearchById)
+            .delete('/searches/:id', this.removeSearchById)
+            .delete('/favorites/:id', this.removeFavoriteById)
             .use('*', this.defaultRoute)
     }
 
@@ -118,6 +119,17 @@ export default class AuthController {
             if (!user) throw new Error('Not logged in.')
             let index = user.searches.findIndex(s => s._id.toString() == req.params.id)
             user.searches.splice(index, 1)
+            await user.update(user)
+            res.send(user)
+        } catch (error) { next(error) }
+    }
+
+    async removeFavoriteById(req, res, next) {
+        try {
+            let user = await _repo.findById(req.session.uid)
+            if (!user) throw new Error('Not logged in.')
+            let index = user.favorites.findIndex(s => s._id.toString() == req.params.id)
+            user.favorites.splice(index, 1)
             await user.update(user)
             res.send(user)
         } catch (error) { next(error) }

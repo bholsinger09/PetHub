@@ -15,7 +15,7 @@
 
   export default {
     name: "forum",
-    props: ['topicId', 'postData'],
+    props: [],
     data() {
       return {
       }
