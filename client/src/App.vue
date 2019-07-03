@@ -20,6 +20,7 @@
         <button class="btn btn-warning" @click="logout">Logout</button>
       </div>
       <br />
+      <br></br>
     </div>
     <router-view />
     <site-map />
