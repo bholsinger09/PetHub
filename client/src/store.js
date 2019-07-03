@@ -89,7 +89,7 @@ export default new Vuex.Store({
             router.push(state.redirect)
             commit("setRedirect", {})
           } else {
-            router.push({ name: 'userProfile' })
+            router.push({ name: 'home' })
           }
         })
     },
