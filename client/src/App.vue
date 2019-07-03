@@ -11,13 +11,13 @@
       <router-link :to="{name: 'forum'}">Forum</router-link>
       <div v-if="!user._id" style="float: right;">
         <router-link to="/login">
-          <button class="btn btn-warning">Login Page</button>
+          <button class="btn btn-warning ">Login Page</button>
         </router-link>
       </div>
       <div v-else style="float: right;">
         <router-link :to="{name: 'userProfile', params: {id: user._id}}">My Account</router-link>
         <p>Welcome: {{user.name}}</p>
-        <button class="btn btn-warning" @click="logout">Logout</button>
+        <button class="btn btn-warning m-2" @click="logout">Logout</button>
       </div>
       <br />
     </div>

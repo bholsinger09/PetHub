@@ -1,11 +1,13 @@
 <template>
   <div class="Topic container-fluid">
     <div class="row">
-      <h4>{{topic.title}}</h4>
+      <div class="col-12">
+        <h4>{{topic.title}}</h4>
+      </div>
       <div class="col-12">
         <form @submit.prevent="createPost">
-          <input type="text" name="title" placeholder="Enter Title" v-model="newPost.title">
-          <textarea type="text" name="body" placeholder="Enter Post" v-model="newPost.body"></textarea>
+          <input type="text" name="title" placeholder="Enter Title" v-model="newPost.title" size="35"><br />
+          <textarea type="text" name="body" placeholder="Enter Post" v-model="newPost.body" cols="34"></textarea><br />
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -60,5 +62,9 @@
 <style>
   .w90 {
     width: 90%;
+  }
+
+  input {
+    margin-bottom: 10px;
   }
 </style>
