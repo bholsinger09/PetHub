@@ -4,7 +4,7 @@
       <div class="card-body">
         <h5 class="text-left">{{post.title}}</h5>
         <p class="text-left">{{post.body}}</p>
-        <p class="text-left">{{post.comments}}</p>
+        <p class="text-left" v-for="comment in post.comments" :key="comment._id">{{comment.description}}</p>
       </div>
       <div class="row">
         <div class="col-2">
@@ -45,6 +45,7 @@
     },
     methods: {
       submitComment() {
+        debugger //Stopped here looking for _id Issue
         let comment = { ...this.newComment, postId: this.post._id };
         this.post.comments.push(comment);
         this.$store.dispatch('updatePost', this.post)
