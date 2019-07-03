@@ -105,7 +105,7 @@ export default new Vuex.Store({
     //#region -- Pet Search Stuff --
     async petSearch({ commit, dispatch }, payload) {
       try {
-        let res = await api.get('pet-api?' + "type=" + payload.type + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breed)
+        let res = await api.get('pet-api?' + "type=" + payload.type + "&age=" + payload.age + "&gender=" + payload.gender + "&size=" + payload.size + "&breed=" + payload.breeds)
         console.log(res)
         commit('setPets', res.data)
       } catch (error) { console.log(error) }
@@ -193,7 +193,7 @@ export default new Vuex.Store({
     async removeSearch({ commit, dispatch, state }, id) {
       try {
         // let updatedUser = state.user
-        let res = await auth.delete(id)
+        let res = await auth.delete('searches/' + id)
         commit("setUser", res.data)
         console.log(res.data)
       } catch (error) { console.log(error) }
@@ -201,7 +201,7 @@ export default new Vuex.Store({
 
     async removeFavorite({ commit, dispatch, state }, id) {
       try {
-        let res = await auth.delete(id)
+        let res = await auth.delete('favorites/' + id)
         commit("setUser", res.data)
 
       } catch (error) {

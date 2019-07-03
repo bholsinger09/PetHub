@@ -2,7 +2,7 @@
   <div>
     <div class="row" v-for='search in userSearches' :key="userSearches.searchName">
       <div class="col-9">
-        <h4>{{search.searchName}}</h4>
+        <h3>{{search.searchName}}</h3>
       </div>
       <div class="col-3">
         <h4> <i class="fas fa-search"></i> | <i class="fas fa-trash-alt fa-lgfa-flip-horizontal"
@@ -10,9 +10,8 @@
       </div>
       <div class="col-6">
         <h4>Type</h4>
-        <p>{{search.type}}</p>
-        <p v-if="search.type=='Cat'"><i class="fas fa-cat"></i></p>
-        <p v-else-if="search.type=='Dog'"><i class="fas fa-dog"></i></p>
+        <h4 v-if="search.type=='Cat'"><i class="fas fa-cat"></i></h4>
+        <h4 v-else-if="search.type=='Dog'"><i class="fas fa-dog"></i></h4>
       </div>
       <div class="col-6">
         <h4>Age:</h4>
@@ -28,7 +27,8 @@
       </div>
       <div class="col-6">
         <h4>Breed:</h4>
-        <p>{{search.breed}}</p>
+        <p>{{search.breeds}}</p>
+        <!-- <p v-if="search.breeds.secondary">{{search.breeds.secondary}}</p> -->
       </div>
     </div>
   </div>

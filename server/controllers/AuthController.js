@@ -15,8 +15,8 @@ export default class AuthController {
             .use(Authorize.authenticated)
             .get('/authenticate', this.authenticate)
             .delete('/logout', this.logout)
-            .delete('/:id', this.removeSearchById)
-            .delete('/:id', this.removeFavoriteById)
+            .delete('/searches/:id', this.removeSearchById)
+            .delete('/favorites/:id', this.removeFavoriteById)
             .use('*', this.defaultRoute)
     }
 

@@ -30,6 +30,9 @@ let searchesSchema = new Schema({
   age: { type: String, enum: ["Baby", "Young", "Adult", "Senior"] },
   size: { type: String, enum: ["Small", "Medium", "Large", "xlarge"] },
   type: { type: String, enum: ["Dog", "Cat"] },
+  breedPrimary: { type: String },
+  breedSecondary: { type: String },
+  breeds: { type: Object },
   searchName: { type: String, },
   environment: [environmentSchema]
   //we'll finish building out this data when we solidfy the search criteria

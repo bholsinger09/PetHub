@@ -1,6 +1,10 @@
 <template>
   <div class="container-fluid SiteMap" style="margin-top: 20px;">
-
+    <div class="row">
+      <div class="col-4">Home Search Forum About My Account</div>
+      <div class="col-4">Text about stuff page</div>
+      <div class="col-4">Other?</div>
+    </div>
   </div>
 </template>
 

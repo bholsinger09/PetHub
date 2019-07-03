@@ -49,7 +49,6 @@
     }, //computed
     methods: {
       goToPet(id) {
-        debugger
         this.$store.dispatch("getPetById", id)
       },
       removeFavorite(id) {

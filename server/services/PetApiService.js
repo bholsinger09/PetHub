@@ -39,7 +39,7 @@ export default class PetApiService {
         accessToken = await login()
         api.defaults.headers.Authorization += accessToken
       }
-      // let queries = '?type=' + payload.type + '&gender=' + payload.gender + "&breed=" + payload.breed + "&age=" + payload.age + "&size=" + payload.size
+
       let res = await api.get('animals' + query)
       return res.data.animals
     }

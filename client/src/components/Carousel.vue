@@ -1,5 +1,10 @@
 <template>
+<<<<<<< HEAD
   <div id="carousel-item container-fluid">
+=======
+  <div id="carousel-item">
+    <br></br>
+>>>>>>> 10bd3e75c223cc9cdc2d57c72cf59b2cb633f314
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
