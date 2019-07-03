@@ -13,7 +13,7 @@
       </div>
       <div class="col">
         <div id="user-login">
-          <form style="float: right;" @submit.prevent="loginUser(creds)">
+          <form style="float: right;" @submit.prevent="loginUser()">
             <input type="email" v-model="creds.email" placeholder="email">
             <input type="password" v-model="creds.password" placeholder="enter password">
             <button class="btn btn-info">Login</button>
@@ -58,7 +58,9 @@
 
     methods: {
       loginUser() {
-        this.$store.dispatch("loginUser", this.creds)
+        debugger
+        this.$store.dispatch("loginUser", this.creds);
+        // this.$router.push({ path: 'home' })
       },
       registerUser() {
         // debugger
