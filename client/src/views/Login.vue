@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid" id="login-registration">
-    </router-link>
+    <!-- </router-link> -->
     <div class="row">
       <div class="col">
         <form @submit.prevent="registerUser">
