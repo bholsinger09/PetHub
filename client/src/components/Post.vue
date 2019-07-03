@@ -4,6 +4,19 @@
       <div class="card-body">
         <h5 class="text-left">{{post.title}}</h5>
         <p class="text-left">{{post.body}}</p>
+        <p class="text-left">{{post.comments}}</p>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <button class="btn-sm btn-success" @click="">View Comments</button>
+        </div>
+        <div class="col-2">
+          <button class="btn-sm btn-success" @click="addComment=true" v-if="!addComment">Add Comment</button>
+        </div>
+        <form @submit.prevent="submitComment">
+          <textarea v-model="newComment.description"></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
   </div>
@@ -14,7 +27,12 @@
     name: "Post",
     props: ["postData"],
     data() {
-      return {}
+      return {
+        addComment: false,
+        newComment: {
+          description: "",
+        },
+      }
     },
     computed: {
       posts() {
@@ -26,7 +44,11 @@
       //this.$store.dispatch('getPosts', this.activeTopic._id)
     },
     methods: {
-
+      submitComment() {
+        let comment = { ...this.newComment, postId: this.post._id };
+        this.post.comments.push(comment);
+        this.$store.dispatch('updatePost', this.post)
+      }
     },
     components: {}
   }

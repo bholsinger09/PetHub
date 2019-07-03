@@ -183,6 +183,12 @@ export default new Vuex.Store({
           dispatch('getPosts', payload.topicId)
         })
     },
+    updatePost({ commit, dispatch }, post) {
+      api.put('post/' + post._id, post)
+        .then(res => {
+          dispatch('getPosts', post.topicId)
+        })
+    },
     // async removeSearch({ commit, dispatch }, id) {
     //   try {
     //     let res = await api. ('topic/' + topicId + '/post')
