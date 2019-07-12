@@ -125,7 +125,7 @@
         findFavoritePet(this.pet.id)
       },
       findFavoritePet(id) {
-        debugger
+
         let found = this.user.favorites.find(p => p.id == id)
         if (found) {
           this.favoritedButton = true
