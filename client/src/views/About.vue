@@ -25,7 +25,8 @@
     </br>
     <p>Created using <a href="https://fontawesome.com/support"> <i class="fab fa-font-awesome-flag"></i></a> - <a
         href="https://www.javascript.com/"> <i class="fab fa-js-square"></i></a> - <a href="https://vuejs.org/"> <i
-          class="fab fa-vuejs"></i></a> - <i class="fab fa-css3-alt"></i> - <i class="fab fa-html5"></i>
+          class="fab fa-vuejs"></i></a> - <a href="https://w3schools.com"><i class="fab fa-css3-alt"></i></a> - <a
+        href="https://w3schools.com"><i class="fab fa-html5"></i></a>
     </p>
   </div>
 </template>

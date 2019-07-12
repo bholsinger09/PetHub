@@ -1,5 +1,6 @@
 <template>
   <div id="pets-results">
+    <br>
 
     <form @submit.prevent="petSearch" class="searchForm container-fluid">
       <div class="row">
@@ -67,7 +68,9 @@
         </div>
         <input class="col-1" type="text" v-model="searchParams.breeds" placeholder="breed">
         <input class="col-1 ml-1" type="text" v-model="searchParams.location" placeholder="ZIP" width="15">
-        <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
+        <div class="col-1">
+          <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
+        </div>
       </div>
     </form>
     <form action.prevent="saveSearch()">
@@ -90,7 +93,7 @@
             <p class="card-text"> {{pet.breeds.primary}}</p>
             {{pet.photos.small}}
 
-            <button class="btn btn-primary m-2" @click="goToPet(pet.id)">View Pet</button>
+            <button class="btn-sm btn-success m-2" @click="goToPet(pet.id)">View Pet</button>
             <!-- 
             <button class="btn btn-primary m-2" @click="favoritePet()" v-model="petMod">Favorite <i
                 class="fa fa-fw fa-heart" :class="{'text-danger': favorited}"></i></button> -->

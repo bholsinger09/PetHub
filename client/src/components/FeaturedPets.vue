@@ -8,7 +8,7 @@
         <div class="card-body"></div>
         <h5 class="card-title">{{pet.name}}</h5>
         <p class="card-text"> {{pet.breeds.primary}}</p>
-        <button class="btn btn-primary" @click="goToPet(pet.id)" style="margin: 20px;">View Pet</button>
+        <button class="btn-sm btn-success" @click="goToPet(pet.id)" style="margin: 20px;">View Pet</button>
       </div>
     </div>
   </div>
