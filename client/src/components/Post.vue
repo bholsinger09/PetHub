@@ -6,19 +6,17 @@
         <p class="text-left">{{post.body}}</p>
         <H6 class="text-left ">Comment</H6>
         <p class="text-left" v-for="comment in post.comments" :key="comment._id">{{comment.description}} -
-          {{comment.creator}}</p>
+          {{comment.name}} <button @click="deleteComment(post, comment._id)"
+            class="btn btn-warning rounded-circle">X</button>
+        </p>
+
       </div>
       <div class="row d-flex justify-content-center">
-        <!-- <div class="col-2">
-          <button class="btn-sm btn-success" @click="">View Comments</button>
-        </div>
-        <div class="col-2">
-          <button class="btn-sm btn-success" @click="addComment=true" v-if="!addComment">Add Comment</button>
-        </div> -->
         <form @submit.prevent="submitComment(post)">
           <textarea v-model="newComment.description" cols="65" placeholder="Comment Body"></textarea>
           <br />
-          <input type="text" name="creator" size="65" placeholder="Creator: Enter Name Here"><br />
+          <input type="text" v-model="newComment.name" name="creator" size="65"
+            placeholder="Creator: Enter Name Here"><br />
           <button type="submit" class="mb-4 btn-sm btn-success">Add Comment</button>
 
         </form>
@@ -30,12 +28,12 @@
 <script>
   export default {
     name: "Post",
-    props: ["postData"],
     data() {
       return {
         addComment: false,
         newComment: {
           description: "",
+          name: "",
         },
       }
     },
@@ -50,9 +48,13 @@
     },
     methods: {
       submitComment(post) {
-        //Stopped here looking for _id Issue
         let comment = { ...this.newComment };
         post.comments.push(comment);
+        this.$store.dispatch('updatePost', post)
+      },
+      deleteComment(post, id) {
+        let index = post.comments.findIndex(c => c._id == id);
+        post.comments.splice(index, 1);
         this.$store.dispatch('updatePost', post)
       }
     },
@@ -64,6 +66,4 @@
     clear: both;
     margin: 2rem;
   }
-
-  .card-body {}
 </style>

@@ -184,32 +184,20 @@ export default new Vuex.Store({
           dispatch('getPosts', payload.topicId)
         })
     },
-    // updatePostComment ((Will allow for uppdating))
+
     updatePost({ commit, dispatch }, post) {
       api.put('post/' + post._id, post)
         .then(res => {
           dispatch('getPosts', post.topicId)
         })
     },
-    // async removeSearch({ commit, dispatch }, id) {
-    //   try {
-    //     let res = await api. ('topic/' + topicId + '/post')
-    //     commit('setPosts', res.data)
-    //     console.log("posts", res.data)
-    //   } catch (error) { console.log(error) }
-    // },
+
+
     async removeSearch({ commit, dispatch, state }, id) {
       try {
-        // let updatedUser = state.user
         let res = await auth.delete('searches/' + id)
         commit("setUser", res.data)
         console.log(res.data)
-      } catch (error) { console.log(error) }
-    },
-    async goToSearch({ commit, dispatch, state }, search) {
-      try {
-        // go to search results
-        //assign proprly named parameters to searchParams
       } catch (error) { console.log(error) }
     },
 
@@ -225,10 +213,7 @@ export default new Vuex.Store({
 
 
     }
-    // setActiveTopic({ commit, dispatch }, id) {
-    //   commit("setActiveTopic", id)
 
-    // }
 
   }//actions
 })
