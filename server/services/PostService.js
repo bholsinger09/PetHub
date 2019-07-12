@@ -5,6 +5,7 @@ let ObjectId = Schema.Types.ObjectId
 
 let commentSchema = new Schema({
   description: { type: String, require: true },
+  name: { type: String, required: true },
   creator: { type: ObjectId, ref: "User", required: true },
 }, { timestamps: true })
 
