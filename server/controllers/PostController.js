@@ -48,6 +48,7 @@ export default class PostController {
   }
   async edit(req, res, next) {
     try {
+      req.body.creator = req.session.uid
       let data = await _repo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       if (data) {
         return res.send(data)

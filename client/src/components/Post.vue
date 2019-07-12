@@ -4,7 +4,8 @@
       <div class="card-body">
         <h5 class="text-left">{{post.title}}</h5>
         <p class="text-left">{{post.body}}</p>
-        <p class="text-left">{{post.comments}}</p>
+        <p class="text-left" v-for="comment in post.comments" :key="comment._id">{{comment.description}} -
+          {{comment.creator}}</p>
       </div>
       <div class="row">
         <div class="col-2">
@@ -13,7 +14,7 @@
         <div class="col-2">
           <button class="btn-sm btn-success" @click="addComment=true" v-if="!addComment">Add Comment</button>
         </div>
-        <form @submit.prevent="submitComment">
+        <form @submit.prevent="submitComment(post)">
           <textarea v-model="newComment.description"></textarea>
           <button type="submit">Submit</button>
         </form>
@@ -44,10 +45,11 @@
       //this.$store.dispatch('getPosts', this.activeTopic._id)
     },
     methods: {
-      submitComment() {
-        let comment = { ...this.newComment, postId: this.post._id };
-        this.post.comments.push(comment);
-        this.$store.dispatch('updatePost', this.post)
+      submitComment(post) {
+        debugger //Stopped here looking for _id Issue
+        let comment = { ...this.newComment };
+        post.comments.push(comment);
+        this.$store.dispatch('updatePost', post)
       }
     },
     components: {}
