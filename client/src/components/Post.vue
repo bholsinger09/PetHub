@@ -49,7 +49,7 @@
     },
     methods: {
       submitComment(post) {
-        debugger //Stopped here looking for _id Issue
+        //Stopped here looking for _id Issue
         let comment = { ...this.newComment };
         post.comments.push(comment);
         this.$store.dispatch('updatePost', post)

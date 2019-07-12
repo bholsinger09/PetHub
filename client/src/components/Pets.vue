@@ -169,7 +169,7 @@
           this.$router.push({ name: "login" })
           return
         }
-        debugger
+
         // this.user.searches.push(this.searchParams)
         this.$store.dispatch('saveSearch', this.searchParams)
       }
