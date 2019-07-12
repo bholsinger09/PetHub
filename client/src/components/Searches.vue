@@ -5,8 +5,8 @@
         <h3>{{search.searchName}}</h3>
       </div>
       <div class="col-3">
-        <h4> <i class="fas fa-search"></i> | <i class="fas fa-trash-alt fa-lgfa-flip-horizontal"
-            @click="removeSearch(search._id)"></i></h4>
+        <h4> <i class="fas fa-search" @click="goToSearch(search)"></i> | <i
+            class="fas fa-trash-alt fa-lgfa-flip-horizontal" @click="removeSearch(search._id)"></i></h4>
       </div>
       <div class="col-6">
         <h4>Type</h4>
@@ -49,11 +49,10 @@
 
     }, //computed
     methods: {
-      //   goToSearch(id) { //unwritten
-      //     debugger
-      //     this.$store.dispatch("Search???", id)
-      //   },
-      removeSearch(id) { //unwritten
+      goToSearch(search) { //unwritten
+        this.$router.push({ name: 'results', params: { searchConfig: search } })
+      },
+      removeSearch(id) {
         this.$store.dispatch('removeSearch', id)
       }
     } //methods
