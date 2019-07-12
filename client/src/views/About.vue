@@ -20,7 +20,6 @@
     </br>
     <h6>Photo Credits</h6>
     <h6>Search - Photo by Krista Mangulsone on Unsplash</h6>
-    <h6>Meetup - Photo by Jonas Vincent on Unsplash</h6>
     <h6>Forum - Photo by Aziz Acharki on Unsplash</h6>
     </br>
     <p>Created using <a href="https://fontawesome.com/support"> <i class="fab fa-font-awesome-flag"></i></a> - <a

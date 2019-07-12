@@ -58,12 +58,10 @@
 
     methods: {
       loginUser() {
-        debugger
         this.$store.dispatch("loginUser", this.creds);
         // this.$router.push({ path: 'home' })
       },
       registerUser() {
-        // debugger
         this.$store.dispatch("registerUser", this.userReg)
       },
 

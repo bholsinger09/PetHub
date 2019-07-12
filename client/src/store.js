@@ -57,7 +57,6 @@ export default new Vuex.Store({
   actions: {
     //#region -- Auth Stuff --
     registerUser({ commit, dispatch, state }, newUser) {
-      // debugger
       auth.post('register', newUser)
         .then(res => {
           commit('setUser', res.data)
@@ -79,7 +78,6 @@ export default new Vuex.Store({
         })
     },
     loginUser({ commit, dispatch, state }, creds) {
-      // debugger
       auth.post('login', creds)
 
         .then(res => {

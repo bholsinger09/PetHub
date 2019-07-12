@@ -1,13 +1,14 @@
 <template>
   <div class="Topic container-fluid">
+    <br /><br />
     <div class="row">
       <div class="col-12">
         <h4>{{topic.title}}</h4>
       </div>
       <div class="col-12">
         <form @submit.prevent="createPost">
-          <input type="text" name="title" placeholder="Enter Title" v-model="newPost.title" size="65"><br />
-          <textarea type="text" name="body" placeholder="Enter Post" v-model="newPost.body" cols="65"></textarea><br />
+          <input type="text" name="title" placeholder="Enter Title" v-model="newPost.title" size="45"><br />
+          <textarea type="text" name="body" placeholder="Enter Post" v-model="newPost.body" cols="45"></textarea><br />
           <button type="submit" class="btn-sm btn-success">Add Post</button>
         </form>
       </div>

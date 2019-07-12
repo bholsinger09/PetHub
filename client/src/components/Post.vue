@@ -13,14 +13,20 @@
       </div>
       <div class="row d-flex justify-content-center">
         <form @submit.prevent="submitComment(post)">
-          <textarea v-model="newComment.description" cols="65" placeholder="Comment Body"></textarea>
+          <textarea v-model="newComment.description" placeholder="Comment Body"></textarea>
           <br />
-          <input type="text" v-model="newComment.name" name="creator" size="65"
-            placeholder="Creator: Enter Name Here"><br />
+          <input type="text" v-model="newComment.name" name="creator" placeholder="Creator: Enter Name Here"><br />
           <button type="submit" class="mb-4 btn-sm btn-success">Add Comment</button>
-
         </form>
       </div>
+      <!-- <div class="row d-flex justify-content-center">
+      <form @submit.prevent="submitComment(post)">
+        <textarea v-model="newComment.description" cols="45" placeholder="Comment Body"></textarea>
+        <br />
+        <input type="text" v-model="newComment.name" name="creator" size="45"
+          placeholder="Creator: Enter Name Here"><br />
+        <button type="submit" class="mb-4 btn-sm btn-success">Add Comment</button>
+      </form> -->
     </div>
   </div>
 </template>
