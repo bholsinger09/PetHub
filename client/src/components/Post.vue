@@ -19,7 +19,8 @@
           <textarea v-model="newComment.description" cols="65" placeholder="Comment Body"></textarea>
           <br />
           <input type="text" name="creator" size="65" placeholder="Creator: Enter Name Here"><br />
-          <button type="submit">Add Comment</button>
+          <button type="submit" class="mb-4 btn-sm btn-success">Add Comment</button>
+
         </form>
       </div>
     </div>

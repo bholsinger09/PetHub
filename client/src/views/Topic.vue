@@ -8,7 +8,7 @@
         <form @submit.prevent="createPost">
           <input type="text" name="title" placeholder="Enter Title" v-model="newPost.title" size="65"><br />
           <textarea type="text" name="body" placeholder="Enter Post" v-model="newPost.body" cols="65"></textarea><br />
-          <button type="submit">Add Post</button>
+          <button type="submit" class="btn-sm btn-success">Add Post</button>
         </form>
       </div>
       <div class="col-12 ">

@@ -117,7 +117,6 @@
           console.log(this.favoritedButton)
         } else {
           this.user.favorites.push(this.pet)
-          debugger
           this.favoritedButton = true
           console.log(this.favoritedButton)
         }
