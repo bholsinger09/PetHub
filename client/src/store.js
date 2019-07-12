@@ -195,16 +195,9 @@ export default new Vuex.Store({
 
     async removeSearch({ commit, dispatch, state }, id) {
       try {
-        // let updatedUser = state.user
         let res = await auth.delete('searches/' + id)
         commit("setUser", res.data)
         console.log(res.data)
-      } catch (error) { console.log(error) }
-    },
-    async goToSearch({ commit, dispatch, state }, search) {
-      try {
-        // go to search results
-        //assign proprly named parameters to searchParams
       } catch (error) { console.log(error) }
     },
 
@@ -220,10 +213,7 @@ export default new Vuex.Store({
 
 
     }
-    // setActiveTopic({ commit, dispatch }, id) {
-    //   commit("setActiveTopic", id)
 
-    // }
 
   }//actions
 })

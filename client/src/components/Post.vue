@@ -66,6 +66,4 @@
     clear: both;
     margin: 2rem;
   }
-
-  .card-body {}
 </style>
