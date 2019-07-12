@@ -4,81 +4,82 @@
 
     <form @submit.prevent="petSearch" class="searchForm container-fluid">
       <div class="row d-flex justify-content-left">
-
         <!-- <input type="text" v-model="searchParams.type" placeholder="dog or cat"> -->
-        <div class="col-12 col-sm-5 col-lg-2  text-left" id='type'>
+        <div class="col-12 col-sm-5 col-lg-4  text-left" id='type'>
           <h6>Animal:
             <input type="radio" class="hidden" id="Dog" value="Dog" v-model="searchParams.type">
-            <label for="Dog" class="btn-sm btn-success"> <i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
-                :class="{selected: activeDog}"></i></label>
+            <label for="Dog" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Dog"> <i
+                class="fas fa-dog fa-lg" @click="activeDog = !activeDog" :class="{selected: activeDog}"></i></label>
             <input type="radio" class="hidden" id="Cat" value="Cat" v-model="searchParams.type">
-            <label for="Cat" class="btn-sm btn-success"><i class="fas fa-cat fa-lg" @click="activeCat = !activeCat"
-                :class="{selected: activeCat}"></i></label>
+            <label for="Cat" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Cat"><i
+                class="fas fa-cat fa-lg" @click="activeCat = !activeCat" :class="{selected: activeCat}"></i></label>
           </h6>
         </div>
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
-        <div class="col-12 col-md-6 col-lg-3 text-left" id='age'>
+        <div class="col-12 col-md-6 col-lg-4 text-left" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
             <label for="Baby" class="btn-sm btn-success" @click="activeBaby = !activeBaby"
-              :class="{selected: activeBaby}">Baby</label>
+              :class="{selected: activeBaby}" data-toggle="tooltip" data-placement="top" title="Baby">Baby</label>
             <input type="checkbox" class="hidden" id="Young" value="Young" v-model="searchParams.age">
             <label for="Young" class="btn-sm btn-success" @click="activeYoung = !activeYoung"
-              :class="{selected: activeYoung}">Young</label>
+              :class="{selected: activeYoung}" data-toggle="tooltip" data-placement="top" title="Young">Young</label>
             <input type="checkbox" class="hidden" id="Adult" value="Adult" v-model="searchParams.age">
             <label for="Adult" class="btn-sm btn-success" @click="activeAdult = !activeAdult"
-              :class="{selected: activeAdult}">Adult</label>
+              :class="{selected: activeAdult}" data-toggle="tooltip" data-placement="top" title="Adult">Adult</label>
             <input type="checkbox" class="hidden" id="Senior" value="Senior" v-model="searchParams.age">
             <label for="Senior" class="btn-sm btn-success" @click="activeSenior = !activeSenior"
-              :class="{selected: activeSenior}">Senior</label>
+              :class="{selected: activeSenior}" data-toggle="tooltip" data-placement="top" title="Seinor">Senior</label>
           </h6>
         </div>
 
         <!-- <input type="text" v-model="searchParams.gender" placeholder="gender"> -->
-        <div class="col-12 col-md-5 col-lg-2 text-left" id='gender'>
+        <div class="col-12 col-md-5 col-lg-4 text-left" id='gender'>
           <h6>Gender: <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
-            <label for="male" class="btn-sm btn-success"><i class="fas fa-mars" @click="activeMars = !activeMars"
-                :class="{selected: activeMars}">
+            <label for="male" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Male"><i
+                class="fas fa-mars" @click="activeMars = !activeMars" :class="{selected: activeMars}">
               </i>
             </label>
             <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
-            <label for="female" class="btn-sm btn-success"> <i class="fas fa-venus" @click="activeVenus = !activeVenus"
-                :class="{selected: activeVenus}"></i>
+            <label for="female" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Female"> <i
+                class="fas fa-venus" @click="activeVenus = !activeVenus" :class="{selected: activeVenus}"></i>
             </label></h6>
         </div>
         <!-- </div> -->
 
         <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
         <!-- <div class="row d-flex justify-content-left"> -->
-        <div class="col-12 col-md-6 col-lg-3 text-left" id='size'>
-          <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
-          Size: <label for="small" class="btn-sm btn-success"><i class="fas fa-cat fa-xs"
+        <div class="col-12 col-md-6 col-lg-4 text-left m-0" id='size'> <input type="checkbox" class="hidden" id="small"
+            value="small" v-model="searchParams.size">Size: <label for="small" class="btn-sm btn-success"
+            data-toggle="tooltip" data-placement="top" title="Small"><i class="fas fa-cat fa-xs"
               @click="activeSmall = !activeSmall" :class="{selected: activeSmall}"></i>
           </label>
           <input type="checkbox" class="hidden" id="medium" value="medium" v-model="searchParams.size">
-          <label for="medium" class="btn-sm btn-success">
+          <label for="medium" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Medium">
             <i class="fas fa-dog fa-sm" @click="activeMedium = !activeMedium" :class="{selected: activeMedium}"></i>
           </label>
           <input type="checkbox" class="hidden" id="large" value="large" v-model="searchParams.size">
-          <label for="large" class="btn-sm btn-success">
+          <label for="large" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Large">
             <i class="fas fa-cat fa-lg" @click="activeLarge = !activeLarge" :class="{selected: activeLarge}"></i>
           </label>
           <input type="checkbox" class="hidden" id="xlarge" value="xlarge" v-model="searchParams.size">
-          <label for="xlarge" class="btn-sm btn-success">
+          <label for="xlarge" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="X-Large">
             <i class="fas fa-dog fa-2x" @click="activeXLarge = !activeXLarge" :class="{selected: activeXLarge}"></i>
 
           </label>
         </div>
-        <input class="col-12 col-md-3 offset-md-1 col-lg-1" type="text" v-model="searchParams.breeds" placeholder="breed">
-        <input class="col-12 col-md-3 offset-md-1 col-lg-1" type="text" v-model="searchParams.location" placeholder="ZIP"
-          width="15">
-        <div class="col-12 col-md-3 offset-md-1 col-lg-1">
+        <input class="col-12 col-md-3 offset-md-1 offset-lg-0 col-lg-4" type="text" v-model="searchParams.breeds"
+          placeholder="breed">
+        <!-- <input class="col-12 col-md-3 offset-md-1 col-lg-1" type="text" v-model="searchParams.location" placeholder="ZIP"
+          width="15"> -->
+        <div class="col-12 col-md-3 offset-md-1 offset-lg-0 col-lg-4">
           <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
         </div>
       </div>
     </form>
+
     <form action.prevent="saveSearch()">
       <div class="input-group mb-2">
         <div class="input-group-prepend">
