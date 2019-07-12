@@ -6,7 +6,7 @@
       <div class="row d-flex justify-content-left">
 
         <!-- <input type="text" v-model="searchParams.type" placeholder="dog or cat"> -->
-        <div class="col-md-2 col-sm-6 text-left" id='type'>
+        <div class="col-12 col-sm-5 col-lg-2  text-left" id='type'>
           <h6>Animal:
             <input type="radio" class="hidden" id="Dog" value="Dog" v-model="searchParams.type">
             <label for="Dog" class="btn-sm btn-success"> <i class="fas fa-dog fa-lg" @click="activeDog = !activeDog"
@@ -19,7 +19,7 @@
 
 
         <!-- <input type="text" v-model="searchParams.age" placeholder="age"> -->
-        <div class=" col-md-3  col-sm-6 text-left" id='age'>
+        <div class="col-12 col-md-6 col-lg-3 text-left" id='age'>
           <!-- <p>{{searchParams.age}}</p> -->
           <h6>Age: <input type="checkbox" class="hidden" id="Baby" value="Baby" v-model="searchParams.age">
             <label for="Baby" class="btn-sm btn-success" @click="activeBaby = !activeBaby"
@@ -37,7 +37,7 @@
         </div>
 
         <!-- <input type="text" v-model="searchParams.gender" placeholder="gender"> -->
-        <div class="col-md-2 col-sm-6 text-left" id='gender'>
+        <div class="col-12 col-md-5 col-lg-2 text-left" id='gender'>
           <h6>Gender: <input type="checkbox" class="hidden" id="male" value="male" v-model="searchParams.gender">
             <label for="male" class="btn-sm btn-success"><i class="fas fa-mars" @click="activeMars = !activeMars"
                 :class="{selected: activeMars}">
@@ -52,7 +52,7 @@
 
         <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
         <!-- <div class="row d-flex justify-content-left"> -->
-        <div class="col-md-3 col-sm-5 text-left" id='size'>
+        <div class="col-12 col-md-6 col-lg-3 text-left" id='size'>
           <input type="checkbox" class="hidden" id="small" value="small" v-model="searchParams.size">
           Size: <label for="small" class="btn-sm btn-success"><i class="fas fa-cat fa-xs"
               @click="activeSmall = !activeSmall" :class="{selected: activeSmall}"></i>
@@ -71,9 +71,10 @@
 
           </label>
         </div>
-        <input class="col-1" type="text" v-model="searchParams.breeds" placeholder="breed">
-        <input class="col-1 ml-1" type="text" v-model="searchParams.location" placeholder="ZIP" width="15">
-        <div class="col-1">
+        <input class="col-12 col-md-3 offset-md-1 col-lg-1" type="text" v-model="searchParams.breeds" placeholder="breed">
+        <input class="col-12 col-md-3 offset-md-1 col-lg-1" type="text" v-model="searchParams.location" placeholder="ZIP"
+          width="15">
+        <div class="col-12 col-md-3 offset-md-1 col-lg-1">
           <button class=" btn-sm btn-success ml-1" type="submit">Search</button>
         </div>
       </div>
