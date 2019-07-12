@@ -7,8 +7,10 @@
       <hr>
       <div>
         <div v-if="user.name" @click="favoritePet()">
-          FAVORITE PET <i class="fa fa-fw fa-heart" :class="{'text-danger': favoritedButton}"></i>
+          FAVORITE PET <i class="fa fa-fw fa-heart" :class="{stylered: favoritedButton}"></i>
         </div>
+        <!-- Pets are being favorited more than once; toggle doesnt work -->
+
         <div class="loginPrompt" v-else>
           Please login to favorite pet!
         </div>
@@ -61,12 +63,12 @@
       }
     },
     mounted() {
-      debugger
+
       this.$store.dispatch('getPetById', this.$route.params.id)
       setTimeout(() => {
         let user = this.$store.state.user
         if (user.name) {
-          debugger
+
           this.findFavoritePet(this.pet.id)
           return user
         } else {
@@ -92,9 +94,9 @@
         //   return false
         // }
       },
-      favorited() {
-        return this.$store.state.user.favorites.find(p => p.id == this.$route.params.id)
-      }
+      // favorited() {
+      //   return this.$store.state.user.favorites.find(p => p.id == this.$route.params.id)
+      // }
 
     },
     methods: {
@@ -108,17 +110,23 @@
           this.$router.push({ name: "login" })
           return
         }
-        if (this.favoritedButton) {
-          this.user.favorites.splice(this.user.favorites.findIndex(p => p.id == this.pet.id), 1)
+        let index = this.user.favorites.findIndex(p => p.id == this.pet.id)
+        if (index > -1) {
+          this.user.favorites.splice(index, 1)
+          this.favoritedButton = false
+          console.log(this.favoritedButton)
         } else {
           this.user.favorites.push(this.pet)
+          debugger
+          this.favoritedButton = true
+          console.log(this.favoritedButton)
         }
         this.$store.dispatch('updateUser', this.user)
-        this.findFavoritePet(this.pet.id)
+        findFavoritePet(this.pet.id)
       },
       findFavoritePet(id) {
-        // debugger
-        let found = this.user.favorites.filter(p => p.id == id)
+        debugger
+        let found = this.user.favorites.find(p => p.id == id)
         if (found) {
           this.favoritedButton = true
 
@@ -141,5 +149,9 @@
 
   .loginPrompt {
     border: 1px solid rgba(0, 0, 0, 0.384);
+  }
+
+  .stylered {
+    color: red;
   }
 </style>

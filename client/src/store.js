@@ -137,9 +137,10 @@ export default new Vuex.Store({
 
     async updateUser({ commit, dispatch }, payload) {
       try {
+        console.log('before update', payload)
         let res = await auth.put(payload._id, payload)
         commit("setUser", res.data)
-        console.log(res.data)
+        console.log('after', res.data)
       } catch (error) { console.log(error) }
     },
     async saveSearch({ commit, dispatch, state }, payload) {
