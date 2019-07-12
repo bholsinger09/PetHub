@@ -107,6 +107,7 @@
   import defaultImg from '@/assets/dogcat.png'
   export default {
     name: "pets",
+    props: ['searchConfig'],
     data() {
       return {
         activeDog: false,
@@ -135,7 +136,35 @@
     },
 
     mounted() {
-
+      if (this.searchConfig) {
+        let sc = this.searchConfig
+        //#region AGE
+        if (sc.age.includes('Baby')) {
+          this.activeBaby = true
+        } if (sc.age.includes('Young')) {
+          this.activeYoung = true
+        } if (sc.age.includes('Adult')) {
+          this.activeAdult = true
+        } if (sc.age.includes('Senior')) {
+          this.activeSenior = true
+        }
+        // #endregion
+        //#region SIZE
+        if (sc.size.includes('small')) {
+          this.activeSmall = true
+        } if (sc.size.includes('meduium')) {
+          this.activeMeduium = true
+        } if (sc.size.includes('large')) {
+          this.activeLarge = true
+        } if (sc.size.toLowerCase().includes('x')) {
+          this.activeXLarge = true
+        }
+        // #endregion
+        if (sc.gender == "male") this.activeMars = true
+        if (sc.gender == "female") this.activeVenus = true
+        if (sc.type == "Cat") this.activeCat = true
+        if (sc.type == "Dog") this.activeDog = true
+      }
     },
     methods: {
       goToPet(id) {

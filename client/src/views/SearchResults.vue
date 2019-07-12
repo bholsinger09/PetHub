@@ -1,7 +1,7 @@
 <template>
   <div class="search-results">
-    </router-link>
-    <pets />
+    <!-- </router-link> -->
+    <pets :searchConfig="searchConfig" />
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 
   export default {
     name: 'results',
+    props: ['searchConfig'],
     components: {
       Pets
     }

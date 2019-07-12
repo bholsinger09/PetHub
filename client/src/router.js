@@ -30,6 +30,7 @@ export default new Router({
     {
       path: '/results',
       name: 'results',
+      props: true,
       component: SearchResults
     },
     {
