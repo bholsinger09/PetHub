@@ -183,6 +183,7 @@ export default new Vuex.Store({
           dispatch('getPosts', payload.topicId)
         })
     },
+    // updatePostComment ((Will allow for uppdating))
     updatePost({ commit, dispatch }, post) {
       api.put('post/' + post._id, post)
         .then(res => {
