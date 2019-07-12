@@ -3,7 +3,7 @@
     <br></br>
 
     <form @submit.prevent="petSearch" class="searchForm container-fluid">
-      <div class="row d-flex justify-content-left">
+      <div class="row d-flex justify-content-between">
         <!-- <input type="text" v-model="searchParams.type" placeholder="dog or cat"> -->
         <div class="col-12 col-sm-5 col-lg-4  text-left" id='type'>
           <h6>Animal:
@@ -43,15 +43,15 @@
               </i>
             </label>
             <input type="checkbox" class="hidden" id="female" value="female" v-model="searchParams.gender">
-            <label for="female" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Female"> <i
-                class="fas fa-venus" @click="activeVenus = !activeVenus" :class="{selected: activeVenus}"></i>
+            <label for="female" class="btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Female">
+              <i class="fas fa-venus" @click="activeVenus = !activeVenus" :class="{selected: activeVenus}"></i>
             </label></h6>
         </div>
         <!-- </div> -->
 
         <!-- <input type="text" v-model="searchParams.size" placeholder="size"> -->
         <!-- <div class="row d-flex justify-content-left"> -->
-        <div class="col-12 col-md-6 col-lg-4 text-left m-0" id='size'> <input type="checkbox" class="hidden" id="small"
+        <div class="col-12 col-md-5 col-lg-4 text-left" id='size'> <input type="checkbox" class="hidden" id="small"
             value="small" v-model="searchParams.size">Size: <label for="small" class="btn-sm btn-success"
             data-toggle="tooltip" data-placement="top" title="Small"><i class="fas fa-cat fa-xs"
               @click="activeSmall = !activeSmall" :class="{selected: activeSmall}"></i>
