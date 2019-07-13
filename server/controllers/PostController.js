@@ -59,7 +59,7 @@ export default class PostController {
   }
   async delete(req, res, next) {
     try {
-      await _repo.findOneAndRemove({ _id: req.params.id, authorId: req.session.uid })
+      await _repo.findOneAndRemove({ _id: req.params.id })
       return res.send("Successfully Deleted!")
     } catch (error) {
 

@@ -5,7 +5,7 @@
       <div class="col-12">
         <h4>{{topic.title}}</h4>
       </div>
-      <div class="col-12">
+      <div class="col-12" v-show="user.name">
         <form @submit.prevent="createPost">
           <input type="text" name="title" placeholder="Enter Title" v-model="newPost.title" size="45"><br />
           <textarea type="text" name="body" placeholder="Enter Post" v-model="newPost.body" cols="45"></textarea><br />
@@ -42,6 +42,9 @@
       },
       topicId() {
         return this.$route.params.id // this will persist through page refresh while props won't
+      },
+      user() {
+        return this.$store.state.user
       }
     },
     mounted() {

@@ -189,6 +189,12 @@ export default new Vuex.Store({
           dispatch('getPosts', post.topicId)
         })
     },
+    deletePost({ commit, dispatch }, post) {
+      api.delete('post/' + post._id)
+        .then(res => {
+          dispatch('getPosts', post.topicId)
+        })
+    },
 
 
     async removeSearch({ commit, dispatch, state }, id) {
