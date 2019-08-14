@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "debug": "node index.js",
-        "start": "node index.js",
-        "dev": "node index.js"
+        "start": "node server.js",
+        "dev": "node index.js",
+        "serve": "node index.js"
     },
     "author": "Kelly Phillips, Rob Schopke, Danielle Morton, Daniel Stevens, Ben Holsinger",
     "dependencies": {
@@ -17,7 +18,7 @@
         "connect-mongodb-session": "^1.3.0",
         "cors": "^2.8.1",
         "esm": "^3.2.25",
-        "express": "^4.14.1",
+        "express": "^4.17.1",
         "express-session": "^1.15.0",
         "google-fonts-webpack-plugin": "^0.4.4",
         "mongoose": "^4.8.1",
