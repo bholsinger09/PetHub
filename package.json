@@ -5,8 +5,9 @@
     "main": "index.js",
     "scripts": {
         "debug": "node index.js",
-        "start": "node index.js",
-        "dev": "node index.js"
+        "start": "node server/index.js",
+        "dev": "node index.js",
+        "serve": "node index.js"
     },
     "author": "Kelly Phillips, Rob Schopke, Danielle Morton, Daniel Stevens, Ben Holsinger",
     "dependencies": {
